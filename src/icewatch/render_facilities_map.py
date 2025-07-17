@@ -6,13 +6,44 @@ Popups show name, address, rounded criminal/non-criminal counts, and ICE Threat 
 
 import argparse
 import json
+import os
+import webbrowser
 from datetime import datetime
 from math import isnan
 from pathlib import Path
-from typing import Any
+from typing import Any, TypedDict
 
 
-def load_facilities(path: Path | str) -> tuple[list, dict]:
+class Metadata(TypedDict):
+    source_file: str
+    extraction_date: str
+    last_checked_date: str
+    total_facilities: int
+
+
+Facility = TypedDict(
+    "Facility",
+    {
+        "Name": str,
+        "Address": str,
+        "City": str,
+        "Zip": int,
+        "State": str,
+        "Male Crim": float,
+        "Male Non-Crim": float,
+        "Female Crim": float,
+        "Female Non-Crim": float,
+        "ICE Threat Level 1": float,
+        "ICE Threat Level 2": float,
+        "ICE Threat Level 3": float,
+        "No ICE Threat Level": float,
+        "latitude": float,
+        "longitude": float,
+    },
+)
+
+
+def load_facilities(path: Path | str) -> tuple[list[Facility], Metadata]:
     with open(path, "r", encoding="utf-8") as f:
         data = json.load(f)
     facilities = data.get("facilities", [])
@@ -29,7 +60,7 @@ def safe_int(val: Any) -> int:
         return 0
 
 
-def make_popup(fac: dict):
+def make_popup(fac: Facility):
     name = fac.get("Name", "Unknown")
     addr = fac.get("Address", "")
     city = fac.get("City", "")
@@ -85,9 +116,9 @@ def get_marker_style(total: int) -> tuple[str, int]:
 
 
 def render_html(
-    facilities: list,
+    facilities: list[Facility],
     output_path: Path | str,
-    metadata: dict | None = None,
+    metadata: Metadata | None = None,
 ):
     # Calculate totals
     total_criminals = 0
@@ -107,22 +138,26 @@ def render_html(
 
     # Get dates from metadata
     extraction_date = None
+    last_checked_date = None
     if metadata:
         extraction_date = metadata.get("extraction_date")
+        last_checked_date = metadata.get("last_checked_date")
 
     # Center on US
     center_lat, center_lon = 39.8283, -98.5795
 
-    # Build the header stats with last updated date
+    # Build the header stats with last checked date
     header_stats = f'<div class="stat-item"><strong>{total_people:,}</strong> people in ICE detention</div>'
     header_stats += f'<div class="stat-item"><strong>{pct_noncriminal}</strong> without criminal records</div>'
-    if extraction_date:
+    if last_checked_date:
         # Format extraction date nicely (remove time if present)
         try:
-            parsed_date = datetime.fromisoformat(extraction_date.replace("Z", "+00:00"))
+            parsed_date = datetime.fromisoformat(
+                last_checked_date.replace("Z", "+00:00")
+            )
             formatted_date = parsed_date.strftime("%Y-%m-%d")
         except ValueError:
-            formatted_date = extraction_date.split("T")[
+            formatted_date = last_checked_date.split("T")[
                 0
             ]  # Fallback to just the date part
 
@@ -161,7 +196,7 @@ def render_html(
             <div class="legend-row"><span class="legend-icon" style="background:rgba(244,67,54,0.7);width:30px;height:30px;border-radius:50%;border:2px solid #222;"></span><span class="legend-label">500+ people</span></div>
         </div>
     </main>
-    <div id="last-updated">last updated {formatted_date}</div>
+    <div id="last-updated">last checked: {formatted_date} | last updated: {extraction_date}</div>
     <a id="logo-link" href="https://lockdown.systems/" target="_blank" rel="noopener">
         <img id="footer-logo" src="img/logo-wide.svg" alt="Lockdown Systems" />
     </a>
@@ -256,6 +291,11 @@ def main():
     Path(output_path).parent.mkdir(parents=True, exist_ok=True)
     facilities, metadata = load_facilities(input_path)
     render_html(facilities, output_path, metadata)
+    if not os.getenv("GITHUB_ACTIONS"):
+        try:
+            webbrowser.open(str(output_path))
+        except Exception as e:
+            print(f"Unable to open map: {e}")
 
 
 if __name__ == "__main__":

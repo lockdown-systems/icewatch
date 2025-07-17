@@ -359,7 +359,8 @@ def extract_facilities_data(filepath, source_date=None):
 
         metadata = {
             "source_file": filepath,
-            "extraction_date": datetime.now().isoformat(),
+            "extraction_date": source_date,
+            "last_checked_date": datetime.now().isoformat(),
             "total_facilities": len(facilities_data),
         }
 
@@ -503,8 +504,11 @@ Examples:
             logger.error(f"File not found: {args.extract_from_file}")
             sys.exit(1)
 
-        facilities_data = extract_facilities_data(args.extract_from_file)
-        if facilities_data:
+        # Extract date from the filename
+        source_date = extract_date_from_filename(args.extract_from_file)
+        if facilities_data := extract_facilities_data(
+            args.extract_from_file, source_date
+        ):
             json_filepath = save_facilities_json(facilities_data, args.output_dir)
             if json_filepath:
                 logger.info("JSON extraction completed successfully!")
