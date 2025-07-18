@@ -503,11 +503,10 @@ Examples:
             logger.error(f"File not found: {args.extract_from_file}")
             sys.exit(1)
 
-        facilities_data = extract_facilities_data(args.extract_from_file)
-        if facilities_data:
-            json_filepath = save_facilities_json(facilities_data, args.output_dir)
-            if json_filepath:
+        if facilities_data := extract_facilities_data(args.extract_from_file):
+            if json_filepath := save_facilities_json(facilities_data, args.output_dir):
                 logger.info("JSON extraction completed successfully!")
+                print(json_filepath)
                 return
             else:
                 logger.error("Failed to save JSON file!")
@@ -517,40 +516,39 @@ Examples:
             sys.exit(1)
 
     # Download the file
-    result = download_ice_detention_stats(
+    filepath, source_date = download_ice_detention_stats(
         url=args.url, output_dir=args.output_dir, auto_find_link=not args.no_auto_find
     )
 
-    if result[0]:  # filepath is not None
-        filepath, source_date = result
-        logger.info("Download completed successfully!")
-
-        # Verify the file if requested
-        if args.verify:
-            logger.info("Verifying downloaded file...")
-            if verify_download(filepath):
-                logger.info("File verification successful!")
-            else:
-                logger.error("File verification failed!")
-                sys.exit(1)
-
-        # Extract JSON if requested
-        if args.extract_json:
-            logger.info("Extracting facilities data to JSON...")
-            facilities_data = extract_facilities_data(filepath, source_date)
-            if facilities_data:
-                json_filepath = save_facilities_json(facilities_data, args.output_dir)
-                if json_filepath:
-                    logger.info("JSON extraction completed successfully!")
-                else:
-                    logger.error("Failed to save JSON file!")
-                    sys.exit(1)
-            else:
-                logger.error("Failed to extract facilities data!")
-                sys.exit(1)
-    else:
+    if filepath is None:
         logger.error("Download failed!")
         sys.exit(1)
+    logger.info("Download completed successfully!")
+
+    # Verify the file if requested
+    if args.verify:
+        logger.info("Verifying downloaded file...")
+        if verify_download(filepath):
+            logger.info("File verification successful!")
+        else:
+            logger.error("File verification failed!")
+            sys.exit(1)
+
+    # Extract JSON if requested
+    if args.extract_json:
+        logger.info("Extracting facilities data to JSON...")
+        if facilities_data := extract_facilities_data(filepath, source_date):
+            if json_filepath := save_facilities_json(facilities_data, args.output_dir):
+                logger.info("JSON extraction completed successfully!")
+                print(json_filepath)
+            else:
+                logger.error("Failed to save JSON file!")
+                sys.exit(1)
+        else:
+            logger.error("Failed to extract facilities data!")
+            sys.exit(1)
+    else:
+        print(filepath)
 
 
 if __name__ == "__main__":

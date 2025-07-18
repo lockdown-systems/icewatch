@@ -5,6 +5,7 @@ Geocode facilities from a JSON file using OpenStreetMap Nominatim, with caching.
 
 import argparse
 import json
+import logging
 import os
 import time
 from datetime import datetime
@@ -15,6 +16,12 @@ import requests
 CACHE_FILENAME = "geocode_cache.json"
 NOMINATIM_URL = "https://nominatim.openstreetmap.org/search"
 USER_AGENT = "icewatch/1.0 (collective@lockdown.systems)"
+
+# Configure logging
+logging.basicConfig(
+    level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s"
+)
+logger = logging.getLogger(__name__)
 
 
 def load_json(path: Path | str) -> dict:
@@ -95,11 +102,11 @@ def main():
     )
     cache_path = args.cache or str(input_path.parent / CACHE_FILENAME)
 
-    print(f"Loading facilities from: {input_path}")
+    logger.info(f"Loading facilities from: {input_path}")
     data = load_json(input_path)
     facilities = data.get("facilities", [])
 
-    print(f"Loading geocode cache from: {cache_path}")
+    logger.info(f"Loading geocode cache from: {cache_path}")
     cache = load_cache(cache_path)
 
     session = requests.Session()
@@ -107,20 +114,22 @@ def main():
     for i, facility in enumerate(facilities):
         address = build_address(facility)
         if not address:
-            print(f"[{i + 1}/{len(facilities)}] No address for facility, skipping.")
+            logger.info(
+                f"[{i + 1}/{len(facilities)}] No address for facility, skipping."
+            )
             facility["latitude"] = None
             facility["longitude"] = None
             continue
         if address in cache and cache[address] is not None:
             result = cache[address]
-            print(f"[{i + 1}/{len(facilities)}] Cached: {address} -> {result}")
+            logger.info(f"[{i + 1}/{len(facilities)}] Cached: {address} -> {result}")
         else:
-            print(f"[{i + 1}/{len(facilities)}] Geocoding: {address}")
+            logger.info(f"[{i + 1}/{len(facilities)}] Geocoding: {address}")
             try:
                 result = geocode_address(address, session=session)
                 time.sleep(args.delay)
             except Exception as e:
-                print(f"    Error geocoding '{address}': {e}")
+                logger.info(f"    Error geocoding '{address}': {e}")
                 result = None
             if result is not None:
                 cache[address] = result
@@ -135,16 +144,17 @@ def main():
             facility["latitude"] = None
             facility["longitude"] = None
 
-    print(f"Writing geocoded facilities to: {output_path}")
+    logger.info(f"Writing geocoded facilities to: {output_path}")
     save_json(data, output_path)
+    print(output_path)
 
     if updated:
-        print(f"Updating geocode cache: {cache_path}")
+        logger.info(f"Updating geocode cache: {cache_path}")
         save_cache(cache, cache_path)
     else:
-        print("No new addresses geocoded; cache unchanged.")
+        logger.info("No new addresses geocoded; cache unchanged.")
 
-    print("Done.")
+    logger.info("Done.")
 
 
 if __name__ == "__main__":
