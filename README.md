@@ -115,6 +115,76 @@ icewatch render --input data/facilities_geocoded_YYYYMMDD.json
 - By default, this will create `docs/index.html` (and the `docs` directory if it doesn't exist).
 - You can specify a custom output path with `--output` if desired.
 
+## Development
+
+### Install `uv`
+
+`icewatch` uses [uv](https://astral.sh/uv/) as its project manager. Please install using the official [installer](https://docs.astral.sh/uv/#installation):
+
+```bash
+curl -LsSf https://astral.sh/uv/install.sh | sh
+```
+
+Verify your installation by running:
+
+```bash
+uv --version
+```
+
+### Clone repository
+
+Clone the `icewatch` repo:
+
+```bash
+git clone https://github.com/lockdown-systems/icewatch.git
+cd icewatch
+```
+
+If you have the [gh](https://github.com/cli/cli) command line tool installed, clone the repo with the following command:
+
+```bash
+gh repo clone lockdown-systems/icewatch
+cd icewatch
+```
+
+### Setup virtual environment
+
+In your cloned repository,set up your Python virtual environment with all development dependencies:
+
+```bash
+# Create project virtual environment with all dependencies
+uv sync --dev
+
+# Source the newly created virtual environment
+source .venv/bin/activate
+```
+
+Verify that your environment was set up correctly by running `icewatch` with `uv`:
+
+```bash
+uv run icewatch --help
+```
+
+### Setup pre-commit git hooks (Optional)
+
+This step is optional and runs the same checks on your local codebase that run on every PR.
+
+Install [pre-commit](https://github.com/pre-commit/pre-commit):
+
+```bash
+# Install pre-commit globally using pre-commit
+uv tool install pre-commit
+
+# Install git hooks for your local repository
+pre-commit install
+```
+
+Verify that `pre-commit` git hooks were set up correctly by running them manually:
+
+```bash
+pre-commit run --all-files
+```
+
 ## Disclaimer
 
 This tool is for educational and research purposes. Please ensure compliance with the ICE website's terms of service and respect rate limiting.
