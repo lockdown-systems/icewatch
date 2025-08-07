@@ -786,5 +786,65 @@
   "950 HIGH STREET, CENTRAL FALLS, RI, 02863": {
     "lat": 41.8928106,
     "lon": -71.3831998
+  },
+  "1 SUCCESS LOOP DR., BERLIN, NH, 03570": {
+    "lat": 44.519,
+    "lon": -71.13716
+  },
+  "P.O. BOX 1416, BISMARCK, ND, 58502": {
+    "lat": 46.11458,
+    "lon": -100.59055
+  },
+  "AVENUE C PSC 1005 BOX 55, FPO, FL, 34009": {
+    "lat": 28.944465,
+    "lon": -82.03363
+  },
+  "96 GEORGE THOMPSON DR., ALEXANDRIA, LA, 71303": {
+    "lat": 31.317855,
+    "lon": -92.536606
+  },
+  "440 HAMMOCK ROAD, LONDON, KY, 40744": {
+    "lat": 37.05739,
+    "lon": -84.070965
+  },
+  "UNAVAILABLE, MIAMI, FL, 33101": {
+    "lat": 25.778789,
+    "lon": -80.199569
+  },
+  "5526 NIAGARA STREET EXTENTION, LOCKPORT, NY, 14094": {
+    "lat": 43.18023,
+    "lon": -78.73694
+  },
+  "1805 W 32ND ST, BALDWIN, MI, 49304": {
+    "lat": 43.926459,
+    "lon": -85.836552
+  },
+  "816 MARIN AVE., SUITE 110, CROOKSTON, MN, 56716": {
+    "lat": 47.76885,
+    "lon": -96.62851
+  },
+  "3405 W HWY 146, LA GRANGE, KY, 40031": {
+    "lat": 38.389361,
+    "lon": -85.423255
+  },
+  "651 FEDERAL DRIVE, SUITE 104, GUAYNABO, PR, 00965": {
+    "lat": 18.423606,
+    "lon": -66.113134
+  },
+  "47 SOUTH MAIN STREET, TOOELE, UT, 84074": {
+    "lat": 40.529621,
+    "lon": -112.297725
+  },
+  "77 COUNTY ROAD 109, EVANSTON, WY, 82930": {
+    "lat": 41.269064,
+    "lon": -110.921015
+  },
+  "3649 LOWER NEWTON ROAD, SWANTON, VT, 05488": {
+    "lat": 44.850448,
+    "lon": -73.13328
+  },
+  "RD. 2, BOX 1, MOUNDSVILLE, WV, 26041": {
+    "lat": 39.92221,
+    "lon": -80.74378
   }
 }
