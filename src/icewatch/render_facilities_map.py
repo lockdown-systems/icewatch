@@ -149,6 +149,7 @@ def render_html(
     # Build the header stats with last checked date
     header_stats = f'<div class="stat-item"><strong>{total_people:,}</strong> people in ICE detention</div>'
     header_stats += f'<div class="stat-item"><strong>{pct_noncriminal}</strong> without criminal records</div>'
+    formatted_date = datetime.now().strftime("%Y-%m-%d")
     if last_checked_date:
         # Format extraction date nicely (remove time if present)
         try:
