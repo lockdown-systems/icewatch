@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Geocode facilities from a JSON file using OpenStreetMap Nominatim, with caching.
+Geocode facilities from a JSON file with caching.
 """
 
 import argparse
@@ -13,9 +13,9 @@ from pathlib import Path
 
 import requests
 
+from icewatch.geocode import geocode_address
+
 CACHE_FILENAME = "geocode_cache.json"
-NOMINATIM_URL = "https://nominatim.openstreetmap.org/search"
-USER_AGENT = "icewatch/1.0 (collective@lockdown.systems)"
 
 # Configure logging
 logging.basicConfig(
@@ -54,24 +54,6 @@ def build_address(facility: dict) -> str:
         str(facility.get("Zip", "")),
     ]
     return ", ".join([str(p).strip() for p in parts if p and str(p).strip()])
-
-
-def geocode_address(
-    address: str, session: requests.Session | None = None
-) -> dict | None:
-    params = {
-        "q": address,
-        "format": "json",
-        "limit": "1",  # set as string to match request param type
-    }
-    headers = {"User-Agent": USER_AGENT}
-    s = session or requests.Session()
-    response = s.get(NOMINATIM_URL, params=params, headers=headers, timeout=15)
-    response.raise_for_status()
-    results = response.json()
-    if results:
-        return {"lat": float(results[0]["lat"]), "lon": float(results[0]["lon"])}
-    return None
 
 
 def main():
