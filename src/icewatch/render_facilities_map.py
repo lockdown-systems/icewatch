@@ -48,13 +48,10 @@ Facility = TypedDict(
 
 
 def get_latest_file(data_dir: Path) -> Path:
-    latest, file_path = "", None
-    for geocoded_file in data_dir.glob("facilities_geocoded*.json"):
-        if geocoded_file.name > latest:
-            file_path = geocoded_file
-    if file_path is None:
+    try:
+        return max(data_dir.glob("facilities_geocoded*.json"))
+    except ValueError:
         raise RuntimeError("No geocoded facilites found")
-    return file_path
 
 
 def load_facilities(path: Path | str) -> tuple[list[Facility], Metadata]:
