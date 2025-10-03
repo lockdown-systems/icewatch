@@ -874,5 +874,9 @@
   "1000 RIVER ROAD, HOPEWELL, VA, 23860": {
     "lat": 37.2950331,
     "lon": -77.321649
+  },
+  "25 SOUTH LIBERTY STREET, HARRISONBURG, VA, 22801": {
+    "lat": 38.449425,
+    "lon": -78.8707201
   }
 }
