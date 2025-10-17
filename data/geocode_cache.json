@@ -878,5 +878,41 @@
   "25 SOUTH LIBERTY STREET, HARRISONBURG, VA, 22801": {
     "lat": 38.449425,
     "lon": -78.8707201
+  },
+  "3262 HIGHWAY 252, FOLKSTON, GA, 31537": {
+    "lat": 30.874568,
+    "lon": -81.978308
+  },
+  "11866 HASTINGS BRIDGE ROAD P.O. BOX 429, LOVEJOY, GA, 30250": {
+    "lat": 33.434847,
+    "lon": -84.305968
+  },
+  "BOURBON CO COURTHOUSE, MAIN STREET, PARIS, KY, 40361": {
+    "lat": 38.202541,
+    "lon": -84.261435
+  },
+  "6920 DIGITAL RD, EL PASO, TX, 79936": {
+    "lat": 31.769428,
+    "lon": -106.303596
+  },
+  "18198 TUNICA TRACE BLDG E, ANGOLA, LA, 70712": {
+    "lat": 30.940215,
+    "lon": -91.568424
+  },
+  "5061 HIGHWAY 3127, KILLONA, LA, 70057": {
+    "lat": 29.99255,
+    "lon": -90.50223
+  },
+  "110 PUBLIC SAFETY DRIVE, GRAND ISLAND, NE, 68801": {
+    "lat": 40.92663,
+    "lon": -98.32841
+  },
+  "P.O. BOX 907, MINOT, ND, 58702": {
+    "lat": 48.23153,
+    "lon": -101.295738
+  },
+  "5885 W RIVER RD, SALEM, VA, 24153": {
+    "lat": 37.250881,
+    "lon": -80.170341
   }
 }
