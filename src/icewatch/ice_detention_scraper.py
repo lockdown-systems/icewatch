@@ -121,12 +121,13 @@ def find_detention_stats_link(
         keywords = [
             "detention",
             "statistics",
-            "FY25",
+            "FY26",
             "YTD",
             "xlsx",
             "excel",
             "detentionStats",
-            "FY2025",
+            "FY2026",
+            "FY",
         ]
 
         class RelevantLink(TypedDict):
@@ -302,7 +303,7 @@ def extract_facilities_data(
     filepath: str, source_date: str | None = None
 ) -> dict | None:
     """
-    Extract facilities data from the "Facilities FY25" tab and convert to JSON.
+    Extract facilities data from the "Facilities FY26" tab and convert to JSON.
 
     Args:
         filepath (str): Path to the downloaded Excel file.
@@ -331,10 +332,10 @@ def extract_facilities_data(
             "No ICE Threat Level": float,
         }
 
-        # Read the "Facilities FY25" sheet, starting from row 7 (index 6)
+        # Read the "Facilities FY26" sheet, starting from row 7 (index 6)
         df = pd.read_excel(
             filepath,
-            sheet_name="Facilities FY25",
+            sheet_name="Facilities FY26",
             header=6,
             dtype=expected_columns,
         )
