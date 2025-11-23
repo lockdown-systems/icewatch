@@ -914,5 +914,81 @@
   "5885 W RIVER RD, SALEM, VA, 24153": {
     "lat": 37.250881,
     "lon": -80.170341
+  },
+  "425 MANOR DRIVE, EBENSBURG, PA, 15931": {
+    "lat": 40.4843966,
+    "lon": -78.7012316
+  },
+  "3800 ULM NORTH FRONTAGE ROAD, GREAT FALLS, MT, 59404": {
+    "lat": 47.4603145,
+    "lon": -111.404435
+  },
+  "410 WEST 7TH STREET,, HOPKINSVILLE, KY, 42240": {
+    "lat": 36.8675054,
+    "lon": -87.4905017
+  },
+  "313 LAUREL ST, BRAINERD, MN, 56401": {
+    "lat": 46.3567852,
+    "lon": -94.2052846
+  },
+  "1850 COPPER LOOP, LAS CRUCES, NM, 88004": {
+    "lat": 32.3027055,
+    "lon": -106.8057985
+  },
+  "94 GRAPEVINE RD, MARTINSBURG, WV, 25401": {
+    "lat": 39.4358362,
+    "lon": -77.9563073
+  },
+  "601 E. OVERLAND, EL PASO, TX, 79901": {
+    "lat": 31.7585318,
+    "lon": -106.4831449
+  },
+  "2006 SWEETGUM RD, ROCHESTER, IN, 46975": {
+    "lat": 41.0519841,
+    "lon": -86.2318261
+  },
+  "132 COTTON DRIVE, OCILLA, GA, 31772": {
+    "lat": 31.5825364,
+    "lon": -83.2566799
+  },
+  "1910 PIONEER AVENUE, CHEYENNE, WY, 82001": {
+    "lat": 41.1348377,
+    "lon": -104.8201959
+  },
+  "80 SHERMAN STREET, DEADWOOD, SD, 57732": {
+    "lat": 44.3767227,
+    "lon": -103.7289672
+  },
+  "800 SOUTHEAST MONTEREY ROAD, STUART, FL, 34994": {
+    "lat": 27.175502,
+    "lon": -80.241557
+  },
+  "2309 N HIGHWAY 83, MCCOOK, NE, 69001": {
+    "lat": 40.2281468,
+    "lon": -100.648028
+  },
+  "1415 ALBION AVENUE, BURLEY, ID, 83318": {
+    "lat": 42.5352803,
+    "lon": -113.7918093
+  },
+  "1745 JEFFERSON DAVIS HIGHWAY, STAFFORD, VA, 22554": {
+    "lat": 38.3240219,
+    "lon": -77.4683859
+  },
+  "340 CAMPBELL AVENUE SOUTHWEST, ROANOKE, VA, 24016": {
+    "lat": 37.2711624,
+    "lon": -79.9473382
+  },
+  "4363 IRONWOOD AVENUE, ORANGE CITY, IA, 51041": {
+    "lat": 43.0188256,
+    "lon": -96.0774475
+  },
+  "721 WEST 12TH STREET, OGDEN, UT, 84404": {
+    "lat": 41.244357,
+    "lon": -111.9950583
+  },
+  "6299 FINDE NAIFEH DRIVE, MASON, TN, 38049": {
+    "lat": 35.4073607,
+    "lon": -89.5488466
   }
 }
