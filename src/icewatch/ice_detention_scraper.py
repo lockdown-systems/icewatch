@@ -332,11 +332,12 @@ def extract_facilities_data(
             "No ICE Threat Level": float,
         }
 
-        # Read the "Facilities FY26" sheet, starting from row 7 (index 6)
+        # Read the "Facilities FY26" sheet, starting from row 10 (index 9)
+        # The header row is at index 9, with row 8 containing merged header labels
         df = pd.read_excel(
             filepath,
             sheet_name="Facilities FY26",
-            header=6,
+            header=9,
             dtype=expected_columns,
         )
 
@@ -353,7 +354,10 @@ def extract_facilities_data(
         df = df.dropna(how="all")
 
         # Ensure zip codes are of length 5
-        df["Zip"] = df["Zip"].str.zfill(5)
+        # Convert to string first in case it's numeric, handling NaN values
+        if "Zip" in df.columns:
+            df["Zip"] = df["Zip"].astype(str).str.replace(".0", "", regex=False)
+            df["Zip"] = df["Zip"].replace("nan", "").str.zfill(5)
 
         # Convert to list of dictionaries
         facilities_data = []
