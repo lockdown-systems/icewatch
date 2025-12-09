@@ -990,5 +990,25 @@
   "6299 FINDE NAIFEH DRIVE, MASON, TN, 38049": {
     "lat": 35.4073607,
     "lon": -89.5488466
+  },
+  "3900 NORTH POWERLINE ROAD, POMPANO BEACH, 33073": {
+    "lat": 26.2772767,
+    "lon": -80.1509053
+  },
+  "830 PINEHILL ROAD, JENA, 71342": {
+    "lat": 31.7088575,
+    "lon": -92.1529335
+  },
+  "10450 RANCHO ROAD, ADELANTO, 92301": {
+    "lat": 34.557564,
+    "lon": -117.4431275
+  },
+  "54575 TAMIAMI TRL E, OCHOPEE, FL, 34141": {
+    "lat": 25.8988938,
+    "lon": -81.2883856
+  },
+  "9747 NW CONANT AVENUE, KANSAS CITY, MO, 64153": {
+    "lat": 39.2449827,
+    "lon": -94.6754297
   }
 }
