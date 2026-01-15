@@ -21,7 +21,7 @@
         <div id="header-left">
           <div id="header-title">ICE Detention Map</div>
         </div>
-        <div id="header-stats"><span><strong>64179</strong> people in ICE detention</span><span><strong>76%</strong> without criminal records</span></div>
+        <div id="header-stats"><span><strong>65572</strong> people in ICE detention</span><span><strong>77%</strong> without criminal records</span></div>
         <div id="header-nav">
           <a href="index.html" class="active">Map</a>
           <a href="info.html">Info</a>
@@ -66,7 +66,7 @@
       </div>
     </main>
     <div id="last-updated">
-      last checked: 2026-01-15 | last updated: 2025-12-03
+      last checked: 2026-01-15 | last updated: 2026-01-08
     </div>
     <a
       id="logo-link"
@@ -223,443 +223,429 @@
 
       const facilities = [
         
-          new Facility({"name": "ADAMS COUNTY CORRECTIONAL CENTER", "addr": "20 HOBO FORK RD.", "city": "NATCHEZ", "state": "MS", "zipc": "39120", "lat": 31.5576266, "lon": -91.221126, "criminals": 215, "noncriminals": 2009, "threatLevels": [1982, 56, 64, 122]}),
+          new Facility({"name": "ADAMS COUNTY CORRECTIONAL CENTER", "addr": "20 HOBO FORK RD.", "city": "NATCHEZ", "state": "MS", "zipc": "39120", "lat": 31.5576266, "lon": -91.221126, "criminals": 207, "noncriminals": 1977, "threatLevels": [1936, 63, 65, 119]}),
         
-          new Facility({"name": "ADELANTO ICE PROCESSING CENTER", "addr": "10250 RANCHO ROAD", "city": "ADELANTO", "state": "CA", "zipc": "92301", "lat": 34.5599467, "lon": -117.4421505, "criminals": 770, "noncriminals": 1014, "threatLevels": [940, 517, 186, 142]}),
+          new Facility({"name": "ADELANTO ICE PROCESSING CENTER", "addr": "10250 RANCHO ROAD", "city": "ADELANTO", "state": "CA", "zipc": "92301", "lat": 34.5599467, "lon": -117.4421505, "criminals": 757, "noncriminals": 1057, "threatLevels": [951, 529, 186, 148]}),
         
-          new Facility({"name": "ALEXANDRIA STAGING FACILI", "addr": "96 GEORGE THOMPSON DR.", "city": "ALEXANDRIA", "state": "LA", "zipc": "71303", "lat": 31.317855, "lon": -92.536606, "criminals": 109, "noncriminals": 319, "threatLevels": [304, 57, 28, 41]}),
+          new Facility({"name": "ALEXANDRIA STAGING FACILI", "addr": "96 GEORGE THOMPSON DR.", "city": "ALEXANDRIA", "state": "LA", "zipc": "71303", "lat": 31.317855, "lon": -92.536606, "criminals": 98, "noncriminals": 328, "threatLevels": [309, 51, 26, 40]}),
         
           new Facility({"name": "ALLEGANY COUNTY JAIL", "addr": "4884 STATE ROUTE 19", "city": "BELMONT", "state": "NY", "zipc": "14813", "lat": 42.212952098118315, "lon": -78.01655374441145, "criminals": 0, "noncriminals": 5, "threatLevels": [5, 0, 0, 0]}),
         
-          new Facility({"name": "ALLEN PARISH PUBLIC SAFETY COMPLEX", "addr": "7340 HIGHWAY 26 WEST", "city": "OBERLIN", "state": "LA", "zipc": "70655", "lat": 30.624697320076855, "lon": -92.78388873123045, "criminals": 52, "noncriminals": 94, "threatLevels": [90, 34, 18, 3]}),
+          new Facility({"name": "ALLEN PARISH PUBLIC SAFETY COMPLEX", "addr": "7340 HIGHWAY 26 WEST", "city": "OBERLIN", "state": "LA", "zipc": "70655", "lat": 30.624697320076855, "lon": -92.78388873123045, "criminals": 51, "noncriminals": 96, "threatLevels": [89, 37, 18, 3]}),
         
-          new Facility({"name": "ANCHORAGE CORRECTIONAL COMPLEX", "addr": "1400 E. 4TH AVE", "city": "ANCHORAGE", "state": "AK", "zipc": "99501", "lat": 61.2183804, "lon": -149.857649, "criminals": 0, "noncriminals": 3, "threatLevels": [3, 0, 0, 0]}),
+          new Facility({"name": "BAKER CORRECTIONAL INSTITUTION", "addr": "20706 US 90 W", "city": "SANDERSON", "state": "FL", "zipc": "32087", "lat": null, "lon": null, "criminals": 207, "noncriminals": 615, "threatLevels": [574, 124, 52, 73]}),
         
-          new Facility({"name": "BAKER CORRECTIONAL INSTITUTION", "addr": "20706 US 90 W", "city": "SANDERSON", "state": "FL", "zipc": "32087", "lat": null, "lon": null, "criminals": 189, "noncriminals": 569, "threatLevels": [535, 107, 48, 68]}),
+          new Facility({"name": "BAKER COUNTY SHERIFF DEPT.", "addr": "1 SHERIFF OFFICE DRIVE", "city": "MACCLENNY", "state": "FL", "zipc": "32063", "lat": 30.296199564670268, "lon": -82.12165470055466, "criminals": 103, "noncriminals": 182, "threatLevels": [170, 58, 24, 32]}),
         
-          new Facility({"name": "BAKER COUNTY SHERIFF DEPT.", "addr": "1 SHERIFF OFFICE DRIVE", "city": "MACCLENNY", "state": "FL", "zipc": "32063", "lat": 30.296199564670268, "lon": -82.12165470055466, "criminals": 110, "noncriminals": 177, "threatLevels": [170, 59, 23, 35]}),
+          new Facility({"name": "BALDWIN COUNTY CORRECTIONAL CENTER", "addr": "200 HAND AVE.", "city": "BAY MINETTE", "state": "AL", "zipc": "36507", "lat": 30.88454, "lon": -87.774769, "criminals": 2, "noncriminals": 16, "threatLevels": [15, 1, 1, 2]}),
         
-          new Facility({"name": "BALDWIN COUNTY CORRECTIONAL CENTER", "addr": "200 HAND AVE.", "city": "BAY MINETTE", "state": "AL", "zipc": "36507", "lat": 30.88454, "lon": -87.774769, "criminals": 2, "noncriminals": 13, "threatLevels": [12, 1, 1, 1]}),
+          new Facility({"name": "BERLIN FED. CORR. INST.", "addr": "1 SUCCESS LOOP DR.", "city": "BERLIN", "state": "NH", "zipc": "03570", "lat": 44.519, "lon": -71.13716, "criminals": 35, "noncriminals": 170, "threatLevels": [167, 18, 7, 14]}),
         
-          new Facility({"name": "BERLIN FED. CORR. INST.", "addr": "1 SUCCESS LOOP DR.", "city": "BERLIN", "state": "NH", "zipc": "03570", "lat": 44.519, "lon": -71.13716, "criminals": 35, "noncriminals": 166, "threatLevels": [164, 17, 7, 14]}),
+          new Facility({"name": "BLUEBONNET DETENTION FACILITY", "addr": "400 2ND STREET", "city": "ANSON", "state": "TX", "zipc": "79501", "lat": 32.7667663, "lon": -99.8888312, "criminals": 268, "noncriminals": 777, "threatLevels": [732, 128, 79, 105]}),
         
-          new Facility({"name": "BLUEBONNET DETENTION FACILITY", "addr": "400 2ND STREET", "city": "ANSON", "state": "TX", "zipc": "79501", "lat": 32.7667663, "lon": -99.8888312, "criminals": 273, "noncriminals": 754, "threatLevels": [733, 122, 71, 101]}),
-        
-          new Facility({"name": "BOONE COUNTY JAIL", "addr": "3020 CONRAD LANE", "city": "BURLINGTON", "state": "KY", "zipc": "41005", "lat": 39.0373257, "lon": -84.7236669, "criminals": 100, "noncriminals": 96, "threatLevels": [86, 38, 40, 32]}),
+          new Facility({"name": "BOONE COUNTY JAIL", "addr": "3020 CONRAD LANE", "city": "BURLINGTON", "state": "KY", "zipc": "41005", "lat": 39.0373257, "lon": -84.7236669, "criminals": 95, "noncriminals": 101, "threatLevels": [88, 41, 37, 29]}),
         
           new Facility({"name": "BOURBON CO DET CENTER", "addr": "BOURBON CO COURTHOUSE, MAIN STREET", "city": "PARIS", "state": "KY", "zipc": "40361", "lat": 38.202541, "lon": -84.261435, "criminals": 1, "noncriminals": 1, "threatLevels": [1, 0, 0, 0]}),
         
-          new Facility({"name": "BROOKLYN MDC", "addr": "100 29TH STREET", "city": "BROOKLYN", "state": "NY", "zipc": "11232", "lat": 40.6597866, "lon": -74.0029582, "criminals": 30, "noncriminals": 81, "threatLevels": [80, 4, 12, 15]}),
+          new Facility({"name": "BROOKLYN MDC", "addr": "100 29TH STREET", "city": "BROOKLYN", "state": "NY", "zipc": "11232", "lat": 40.6597866, "lon": -74.0029582, "criminals": 27, "noncriminals": 84, "threatLevels": [83, 3, 12, 13]}),
         
-          new Facility({"name": "BROOKS COUNTY DETENTION CENTER", "addr": "901 COUNTY ROAD 201", "city": "FALFURRIAS", "state": "TX", "zipc": "78355", "lat": 27.2482748, "lon": -98.1258468, "criminals": 1, "noncriminals": 14, "threatLevels": [14, 0, 0, 1]}),
+          new Facility({"name": "BROOKS COUNTY DETENTION CENTER", "addr": "901 COUNTY ROAD 201", "city": "FALFURRIAS", "state": "TX", "zipc": "78355", "lat": 27.2482748, "lon": -98.1258468, "criminals": 3, "noncriminals": 18, "threatLevels": [17, 1, 1, 2]}),
         
-          new Facility({"name": "BROOME COUNTY JAIL", "addr": "897 FRONT STREET", "city": "BINGHAMPTON", "state": "NY", "zipc": "13905", "lat": 42.13112754376308, "lon": -75.91372588859112, "criminals": 3, "noncriminals": 43, "threatLevels": [42, 1, 0, 3]}),
+          new Facility({"name": "BROOME COUNTY JAIL", "addr": "897 FRONT STREET", "city": "BINGHAMTON", "state": "NY", "zipc": "13905", "lat": 42.1155155, "lon": -75.9082511, "criminals": 3, "noncriminals": 44, "threatLevels": [42, 1, 0, 5]}),
         
-          new Facility({"name": "BROWARD COUNTY JAIL", "addr": "555 SE 1ST AVENUE", "city": "FT.LAUDERDALE", "state": "FL", "zipc": "33301", "lat": 26.1162336, "lon": -80.1423181, "criminals": 0, "noncriminals": 2, "threatLevels": [2, 0, 0, 0]}),
+          new Facility({"name": "BROWARD COUNTY JAIL", "addr": "555 SE 1ST AVENUE", "city": "FT.LAUDERDALE", "state": "FL", "zipc": "33301", "lat": 26.1162336, "lon": -80.1423181, "criminals": 0, "noncriminals": 3, "threatLevels": [2, 0, 0, 0]}),
         
-          new Facility({"name": "BROWARD TRANSITIONAL CENTER", "addr": "3900 NORTH POWERLINE ROAD", "city": "POMPANO BEACH", "state": "\u00a0", "zipc": "33073", "lat": 26.2772767, "lon": -80.1509053, "criminals": 79, "noncriminals": 596, "threatLevels": [584, 12, 22, 57]}),
+          new Facility({"name": "BROWARD TRANSITIONAL CENTER", "addr": "3900 NORTH POWERLINE ROAD", "city": "POMPANO BEACH", "state": "FL", "zipc": "33073", "lat": 26.2759099, "lon": -80.15197, "criminals": 74, "noncriminals": 604, "threatLevels": [586, 14, 21, 56]}),
         
-          new Facility({"name": "BUFFALO SERVICE PROCESSING CENTER", "addr": "4250 FEDERAL DRIVE", "city": "BATAVIA", "state": "NY", "zipc": "14020", "lat": 43.0203104, "lon": -78.2024802, "criminals": 152, "noncriminals": 550, "threatLevels": [531, 107, 24, 39]}),
+          new Facility({"name": "BUFFALO SERVICE PROCESSING CENTER", "addr": "4250 FEDERAL DRIVE", "city": "BATAVIA", "state": "NY", "zipc": "14020", "lat": 43.0203104, "lon": -78.2024802, "criminals": 139, "noncriminals": 580, "threatLevels": [558, 100, 23, 39]}),
         
-          new Facility({"name": "BURLEIGH COUNTY", "addr": "P.O. BOX 1416", "city": "BISMARCK", "state": "ND", "zipc": "58502", "lat": 46.11458, "lon": -100.59055, "criminals": 3, "noncriminals": 11, "threatLevels": [10, 1, 1, 1]}),
+          new Facility({"name": "BURLEIGH COUNTY", "addr": "P.O. BOX 1416", "city": "BISMARCK", "state": "ND", "zipc": "58502", "lat": 46.11458, "lon": -100.59055, "criminals": 3, "noncriminals": 13, "threatLevels": [13, 1, 1, 1]}),
         
-          new Facility({"name": "BUTLER COUNTY JAIL", "addr": "705 HANOVER STREET", "city": "HAMILTON", "state": "OH", "zipc": "45011", "lat": 39.3881265, "lon": -84.55588, "criminals": 70, "noncriminals": 285, "threatLevels": [272, 22, 19, 42]}),
+          new Facility({"name": "BUTLER COUNTY JAIL", "addr": "705 HANOVER STREET", "city": "HAMILTON", "state": "OH", "zipc": "45011", "lat": 39.3881265, "lon": -84.55588, "criminals": 69, "noncriminals": 292, "threatLevels": [278, 23, 18, 43]}),
         
-          new Facility({"name": "CALHOUN COUNTY CORRECTIONAL CENTER", "addr": "185 EAST MICHIGAN AVENUE", "city": "BATTLE CREEK", "state": "MI", "zipc": "49014", "lat": 42.3166739, "lon": -85.1758915, "criminals": 23, "noncriminals": 134, "threatLevels": [132, 12, 4, 10]}),
+          new Facility({"name": "CALHOUN COUNTY CORRECTIONAL CENTER", "addr": "185 EAST MICHIGAN AVENUE", "city": "BATTLE CREEK", "state": "MI", "zipc": "49014", "lat": 42.3166739, "lon": -85.1758915, "criminals": 20, "noncriminals": 143, "threatLevels": [140, 11, 3, 10]}),
         
-          new Facility({"name": "CALIFORNIA CITY IMMIGRATION PROCESSING CENTER", "addr": "22844 VIRGINIA BOULEVARD", "city": "CALIFORNIA CITY", "state": "CA", "zipc": "93505", "lat": 35.1531066, "lon": -117.8591019, "criminals": 270, "noncriminals": 531, "threatLevels": [520, 188, 41, 52]}),
+          new Facility({"name": "CALIFORNIA CITY IMMIGRATION PROCESSING CENTER", "addr": "22844 VIRGINIA BOULEVARD", "city": "CALIFORNIA CITY", "state": "CA", "zipc": "93505", "lat": 35.1531066, "lon": -117.8591019, "criminals": 278, "noncriminals": 644, "threatLevels": [624, 192, 45, 60]}),
         
-          new Facility({"name": "CAMBRIA COUNTY JAIL, PA", "addr": "425 MANOR DRIVE", "city": "EBENSBURG", "state": "PA", "zipc": "15931", "lat": 40.4843966, "lon": -78.7012316, "criminals": 2, "noncriminals": 15, "threatLevels": [14, 1, 1, 0]}),
+          new Facility({"name": "CAMBRIA COUNTY JAIL, PA", "addr": "425 MANOR DRIVE", "city": "EBENSBURG", "state": "PA", "zipc": "15931", "lat": 40.4843966, "lon": -78.7012316, "criminals": 2, "noncriminals": 20, "threatLevels": [19, 1, 2, 1]}),
         
-          new Facility({"name": "CAMPBELL CO DET CTR", "addr": "601 CENTRAL AVE", "city": "NEWPORT", "state": "KY", "zipc": "41071", "lat": 39.0887186, "lon": -84.4969756, "criminals": 33, "noncriminals": 105, "threatLevels": [102, 9, 11, 16]}),
+          new Facility({"name": "CAMPBELL CO DET CTR", "addr": "601 CENTRAL AVE", "city": "NEWPORT", "state": "KY", "zipc": "41071", "lat": 39.0887186, "lon": -84.4969756, "criminals": 31, "noncriminals": 108, "threatLevels": [104, 9, 10, 16]}),
         
-          new Facility({"name": "CAROLINE DETENTION FACILITY", "addr": "11093 S.W. LEWIS MEMORIAL DRIVE", "city": "BOWLING GREEN", "state": "VA", "zipc": "22427", "lat": 38.111865502490836, "lon": -77.26723215987357, "criminals": 120, "noncriminals": 226, "threatLevels": [215, 73, 29, 29]}),
+          new Facility({"name": "CAROLINE DETENTION FACILITY", "addr": "11093 S.W. LEWIS MEMORIAL DRIVE", "city": "BOWLING GREEN", "state": "VA", "zipc": "22427", "lat": 38.111865502490836, "lon": -77.26723215987357, "criminals": 115, "noncriminals": 227, "threatLevels": [215, 72, 29, 27]}),
         
-          new Facility({"name": "CASCADE COUNTY JAIL, MT", "addr": "3800 ULM NORTH FRONTAGE ROAD", "city": "GREAT FALLS", "state": "MT", "zipc": "59404", "lat": 47.4603145, "lon": -111.404435, "criminals": 1, "noncriminals": 2, "threatLevels": [1, 1, 0, 1]}),
+          new Facility({"name": "CASCADE COUNTY JAIL, MT", "addr": "3800 ULM NORTH FRONTAGE ROAD", "city": "GREAT FALLS", "state": "MT", "zipc": "59404", "lat": 47.4603145, "lon": -111.404435, "criminals": 1, "noncriminals": 3, "threatLevels": [2, 1, 0, 1]}),
         
-          new Facility({"name": "CCA, FLORENCE CORRECTIONAL CENTER", "addr": "1100 BOWLING ROAD", "city": "FLORENCE", "state": "AZ", "zipc": "85232", "lat": 33.0438338, "lon": -111.371793, "criminals": 273, "noncriminals": 301, "threatLevels": [286, 149, 60, 80]}),
+          new Facility({"name": "CASS COUNTY JAIL", "addr": "336 MAIN STREET", "city": "PLATTSMOUTH", "state": "NE", "zipc": "68048", "lat": 41.0112468, "lon": -95.8831012, "criminals": 7, "noncriminals": 7, "threatLevels": [5, 3, 3, 2]}),
         
-          new Facility({"name": "CENTRAL LOUISIANA ICE PROCESSING CENTER (CLIPC)", "addr": "830 PINEHILL ROAD", "city": "JENA", "state": "\u00a0", "zipc": "71342", "lat": 31.7088575, "lon": -92.1529335, "criminals": 262, "noncriminals": 874, "threatLevels": [832, 141, 60, 102]}),
+          new Facility({"name": "CCA, FLORENCE CORRECTIONAL CENTER", "addr": "1100 BOWLING ROAD", "city": "FLORENCE", "state": "AZ", "zipc": "85232", "lat": 33.0438338, "lon": -111.371793, "criminals": 252, "noncriminals": 296, "threatLevels": [279, 138, 56, 75]}),
         
-          new Facility({"name": "CHASE COUNTY JAIL", "addr": "301 SOUTH WALNUT STREET", "city": "COTTONWOOD FALL", "state": "KS", "zipc": "66845", "lat": 38.36801388495829, "lon": -96.53868750219544, "criminals": 38, "noncriminals": 74, "threatLevels": [66, 19, 7, 20]}),
+          new Facility({"name": "CENTRAL LOUISIANA ICE PROCESSING CENTER (CLIPC)", "addr": "830 PINEHILL ROAD", "city": "JENA", "state": "LA", "zipc": "71342", "lat": 31.7088575, "lon": -92.1529335, "criminals": 251, "noncriminals": 898, "threatLevels": [847, 135, 65, 102]}),
         
-          new Facility({"name": "CHAVEZ DETENTION CENTER", "addr": "3701 S. ATKINSON", "city": "ROSWELL", "state": "NM", "zipc": "88201", "lat": 33.3516794, "lon": -104.5055424, "criminals": 0, "noncriminals": 1, "threatLevels": [2, 0, 0, 0]}),
+          new Facility({"name": "CHASE COUNTY JAIL", "addr": "301 SOUTH WALNUT STREET", "city": "COTTONWOOD FALL", "state": "KS", "zipc": "66845", "lat": 38.36801388495829, "lon": -96.53868750219544, "criminals": 37, "noncriminals": 76, "threatLevels": [69, 18, 7, 20]}),
         
-          new Facility({"name": "CHIPPEWA COUNTY SSM", "addr": "325 COURT STREET", "city": "SAULT STE MARIE", "state": "MI", "zipc": "49783", "lat": 46.4977347, "lon": -84.3459656, "criminals": 7, "noncriminals": 31, "threatLevels": [31, 3, 2, 3]}),
+          new Facility({"name": "CHAVEZ DETENTION CENTER", "addr": "3701 S. ATKINSON", "city": "ROSWELL", "state": "NM", "zipc": "88201", "lat": 33.3516794, "lon": -104.5055424, "criminals": 0, "noncriminals": 1, "threatLevels": [1, 0, 0, 0]}),
         
-          new Facility({"name": "CHITTENDEN REGIONAL CORRECTIONAL FACILITY", "addr": "7 FARRELL STREET", "city": "SOUTH BURLINGTON", "state": "VT", "zipc": "05403", "lat": 44.4464191, "lon": -73.2054841, "criminals": 0, "noncriminals": 6, "threatLevels": [6, 0, 0, 0]}),
+          new Facility({"name": "CHIPPEWA COUNTY SSM", "addr": "325 COURT STREET", "city": "SAULT STE MARIE", "state": "MI", "zipc": "49783", "lat": 46.4977347, "lon": -84.3459656, "criminals": 7, "noncriminals": 31, "threatLevels": [30, 2, 3, 3]}),
         
-          new Facility({"name": "CHRISTIAN COUNTY JAIL", "addr": "410 WEST 7TH STREET,", "city": "HOPKINSVILLE", "state": "KY", "zipc": "42240", "lat": 36.8675054, "lon": -87.4905017, "criminals": 21, "noncriminals": 68, "threatLevels": [61, 13, 8, 6]}),
+          new Facility({"name": "CHITTENDEN REGIONAL CORRECTIONAL FACILITY", "addr": "7 FARRELL STREET", "city": "SOUTH BURLINGTON", "state": "VT", "zipc": "05403", "lat": 44.4464191, "lon": -73.2054841, "criminals": 0, "noncriminals": 5, "threatLevels": [6, 0, 0, 0]}),
         
-          new Facility({"name": "CIBOLA COUNTY CORRECTIONAL CENTER", "addr": "2000 CIBOLA LOOP", "city": "MILAN", "state": "NM", "zipc": "87021", "lat": 35.18004057943829, "lon": -107.9072294599532, "criminals": 34, "noncriminals": 183, "threatLevels": [181, 12, 8, 16]}),
+          new Facility({"name": "CHRISTIAN COUNTY JAIL", "addr": "410 WEST 7TH STREET,", "city": "HOPKINSVILLE", "state": "KY", "zipc": "42240", "lat": 36.8675054, "lon": -87.4905017, "criminals": 20, "noncriminals": 74, "threatLevels": [66, 14, 9, 6]}),
         
-          new Facility({"name": "CIMMARRON CORR FACILITY", "addr": "3700 S. KINGS HWY", "city": "CUSHING", "state": "OK", "zipc": "74023", "lat": 35.961173, "lon": -96.7848408, "criminals": 174, "noncriminals": 384, "threatLevels": [380, 78, 45, 55]}),
+          new Facility({"name": "CIBOLA COUNTY CORRECTIONAL CENTER", "addr": "2000 CIBOLA LOOP", "city": "MILAN", "state": "NM", "zipc": "87021", "lat": 35.18004057943829, "lon": -107.9072294599532, "criminals": 32, "noncriminals": 198, "threatLevels": [194, 10, 9, 17]}),
         
-          new Facility({"name": "CLARK COUNTY JAIL (IN)", "addr": "501 EAST COURT AVE.", "city": "JEFFERSONVILLE", "state": "IN", "zipc": "47130", "lat": 38.277682, "lon": -85.7375976, "criminals": 16, "noncriminals": 77, "threatLevels": [73, 10, 3, 6]}),
+          new Facility({"name": "CIMMARRON CORR FACILITY", "addr": "3700 S. KINGS HWY", "city": "CUSHING", "state": "OK", "zipc": "74023", "lat": 35.961173, "lon": -96.7848408, "criminals": 159, "noncriminals": 422, "threatLevels": [414, 71, 44, 53]}),
         
-          new Facility({"name": "CLAY COUNTY JUSTICE CENTER", "addr": "611 EAST JACKSON STREET", "city": "BRAZIL", "state": "IN", "zipc": "47834", "lat": 39.5236693, "lon": -87.1191065, "criminals": 70, "noncriminals": 169, "threatLevels": [150, 36, 22, 31]}),
+          new Facility({"name": "CLARK COUNTY JAIL (IN)", "addr": "501 EAST COURT AVE.", "city": "JEFFERSONVILLE", "state": "IN", "zipc": "47130", "lat": 38.277682, "lon": -85.7375976, "criminals": 14, "noncriminals": 79, "threatLevels": [74, 10, 3, 6]}),
         
-          new Facility({"name": "CLINTON COUNTY CORRECTIONAL FACILITY", "addr": "58 PINE MOUNTAIN RD.", "city": "MCELHATTAN", "state": "PA", "zipc": "17748", "lat": 41.1511182, "lon": -77.3493663, "criminals": 49, "noncriminals": 40, "threatLevels": [38, 39, 8, 3]}),
+          new Facility({"name": "CLAY COUNTY JUSTICE CENTER", "addr": "611 EAST JACKSON STREET", "city": "BRAZIL", "state": "IN", "zipc": "47834", "lat": 39.5236693, "lon": -87.1191065, "criminals": 64, "noncriminals": 173, "threatLevels": [155, 32, 19, 30]}),
         
-          new Facility({"name": "CLINTON COUNTY JAIL", "addr": "25 MCCARTHY DRIVE", "city": "PLATTSBURGH", "state": "NY", "zipc": "12901", "lat": 44.7204627, "lon": -73.467472, "criminals": 0, "noncriminals": 3, "threatLevels": [3, 0, 0, 0]}),
+          new Facility({"name": "CLINTON COUNTY CORRECTIONAL FACILITY", "addr": "58 PINE MOUNTAIN RD.", "city": "MCELHATTAN", "state": "PA", "zipc": "17748", "lat": 41.1511182, "lon": -77.3493663, "criminals": 46, "noncriminals": 43, "threatLevels": [41, 39, 6, 3]}),
         
-          new Facility({"name": "CLINTON COUNTY JAIL", "addr": "301 E WALNUT STREET", "city": "FRANKFORT", "state": "IN", "zipc": "46041", "lat": 40.2791153, "lon": -86.5087576, "criminals": 11, "noncriminals": 16, "threatLevels": [15, 6, 5, 2]}),
+          new Facility({"name": "CLINTON COUNTY JAIL", "addr": "301 E WALNUT STREET", "city": "FRANKFORT", "state": "IN", "zipc": "46041", "lat": 40.2791153, "lon": -86.5087576, "criminals": 11, "noncriminals": 17, "threatLevels": [15, 6, 4, 2]}),
         
-          new Facility({"name": "COASTAL BEND DETENTION FACILITY", "addr": "4909 FM 2826", "city": "ROBSTOWN", "state": "TX", "zipc": "78380", "lat": 27.737232588266924, "lon": -97.75467600061113, "criminals": 9, "noncriminals": 41, "threatLevels": [41, 3, 2, 5]}),
+          new Facility({"name": "CLINTON COUNTY JAIL", "addr": "25 MCCARTHY DRIVE", "city": "PLATTSBURGH", "state": "NY", "zipc": "12901", "lat": 44.7204627, "lon": -73.467472, "criminals": 0, "noncriminals": 4, "threatLevels": [4, 0, 0, 0]}),
         
-          new Facility({"name": "COLLIER COUNTY NAPLES JAIL CENTER", "addr": "3347 TAMIAMI TRAIL E", "city": "NAPLES", "state": "FL", "zipc": "34112", "lat": 26.1257654, "lon": -81.7651214, "criminals": 10, "noncriminals": 25, "threatLevels": [19, 3, 5, 8]}),
+          new Facility({"name": "COASTAL BEND DETENTION FACILITY", "addr": "4909 FM 2826", "city": "ROBSTOWN", "state": "TX", "zipc": "78380", "lat": 27.737232588266924, "lon": -97.75467600061113, "criminals": 10, "noncriminals": 43, "threatLevels": [42, 4, 3, 5]}),
         
-          new Facility({"name": "CORR. CTR OF NORTHWEST OHIO", "addr": "3151 COUNTY ROAD 2425", "city": "STRYKER", "state": "OH", "zipc": "43557", "lat": null, "lon": null, "criminals": 7, "noncriminals": 62, "threatLevels": [60, 3, 0, 6]}),
+          new Facility({"name": "COLLIER COUNTY NAPLES JAIL CENTER", "addr": "3347 TAMIAMI TRAIL E", "city": "NAPLES", "state": "FL", "zipc": "34112", "lat": 26.1257654, "lon": -81.7651214, "criminals": 10, "noncriminals": 26, "threatLevels": [19, 4, 5, 9]}),
         
-          new Facility({"name": "CROW WING COUNTY JAIL", "addr": "313 LAUREL ST", "city": "BRAINERD", "state": "MN", "zipc": "56401", "lat": 46.3567852, "lon": -94.2052846, "criminals": 1, "noncriminals": 2, "threatLevels": [2, 1, 0, 0]}),
+          new Facility({"name": "CORR. CTR OF NORTHWEST OHIO", "addr": "3151 COUNTY ROAD 2425", "city": "STRYKER", "state": "OH", "zipc": "43557", "lat": null, "lon": null, "criminals": 6, "noncriminals": 61, "threatLevels": [59, 3, 0, 5]}),
         
-          new Facility({"name": "CUMBERLAND COUNTY JAIL", "addr": "50 COUNTY WAY", "city": "PORTLAND", "state": "ME", "zipc": "04102", "lat": 43.6508623, "lon": -70.2816197, "criminals": 26, "noncriminals": 36, "threatLevels": [33, 20, 6, 3]}),
+          new Facility({"name": "CROW WING COUNTY JAIL", "addr": "313 LAUREL ST", "city": "BRAINERD", "state": "MN", "zipc": "56401", "lat": 46.3567852, "lon": -94.2052846, "criminals": 3, "noncriminals": 13, "threatLevels": [12, 2, 1, 0]}),
         
-          new Facility({"name": "DAKOTA COUNTY JAIL", "addr": "1601 BROADWAY", "city": "DAKOTA CITY", "state": "NE", "zipc": "68731", "lat": 42.416218260076164, "lon": -96.4198282400598, "criminals": 11, "noncriminals": 12, "threatLevels": [7, 7, 4, 6]}),
+          new Facility({"name": "CUMBERLAND COUNTY JAIL", "addr": "50 COUNTY WAY", "city": "PORTLAND", "state": "ME", "zipc": "04102", "lat": 43.6508623, "lon": -70.2816197, "criminals": 25, "noncriminals": 37, "threatLevels": [32, 20, 6, 3]}),
+        
+          new Facility({"name": "DAKOTA COUNTY JAIL", "addr": "1601 BROADWAY", "city": "DAKOTA CITY", "state": "NE", "zipc": "68731", "lat": 42.416218260076164, "lon": -96.4198282400598, "criminals": 11, "noncriminals": 13, "threatLevels": [8, 6, 4, 7]}),
         
           new Facility({"name": "DALLAS COUNTY JAIL - LEW STERRETT JUSTICE CENTER", "addr": "111 WEST COMMERCE STREET", "city": "DALLAS", "state": "TX", "zipc": "75202", "lat": 32.7746483, "lon": -96.8243069, "criminals": 0, "noncriminals": 1, "threatLevels": [1, 0, 0, 0]}),
         
-          new Facility({"name": "DAVIESS COUNTY DETENTION", "addr": "3337 HIGHWAY 144", "city": "OWENSBORO", "state": "KY", "zipc": "42303", "lat": null, "lon": null, "criminals": 4, "noncriminals": 11, "threatLevels": [6, 2, 3, 5]}),
+          new Facility({"name": "DAVIESS COUNTY DETENTION", "addr": "3337 HIGHWAY 144", "city": "OWENSBORO", "state": "KY", "zipc": "42303", "lat": null, "lon": null, "criminals": 5, "noncriminals": 15, "threatLevels": [8, 2, 4, 5]}),
         
-          new Facility({"name": "DAVIS COUNTY", "addr": "800 WEST STATE STREET", "city": "FARMINGTON", "state": "UT", "zipc": "84025", "lat": null, "lon": null, "criminals": 1, "noncriminals": 2, "threatLevels": [1, 1, 1, 1]}),
+          new Facility({"name": "DAVIS COUNTY", "addr": "800 WEST STATE STREET", "city": "FARMINGTON", "state": "UT", "zipc": "84025", "lat": null, "lon": null, "criminals": 2, "noncriminals": 3, "threatLevels": [2, 1, 1, 1]}),
         
-          new Facility({"name": "DELANEY HALL DETENTION FACILITY", "addr": "451 DOREMUS AVENUE", "city": "NEWARK", "state": "NJ", "zipc": "07105", "lat": 40.7187782, "lon": -74.126752, "criminals": 74, "noncriminals": 781, "threatLevels": [758, 5, 27, 65]}),
+          new Facility({"name": "DELANEY HALL DETENTION FACILITY", "addr": "451 DOREMUS AVENUE", "city": "NEWARK", "state": "NJ", "zipc": "07105", "lat": 40.7187782, "lon": -74.126752, "criminals": 73, "noncriminals": 819, "threatLevels": [792, 5, 28, 68]}),
         
-          new Facility({"name": "DENVER CONTRACT DETENTION FACILITY", "addr": "3130 OAKLAND ST", "city": "AURORA", "state": "CO", "zipc": "80010", "lat": 39.760875, "lon": -104.849087, "criminals": 344, "noncriminals": 763, "threatLevels": [747, 162, 86, 112]}),
+          new Facility({"name": "DENVER CONTRACT DETENTION FACILITY", "addr": "3130 OAKLAND ST", "city": "AURORA", "state": "CO", "zipc": "80010", "lat": 39.760875, "lon": -104.849087, "criminals": 325, "noncriminals": 828, "threatLevels": [803, 154, 84, 113]}),
         
-          new Facility({"name": "DEPARTMENT OF CORRECTIONS HAGATNA", "addr": "203 ASPINAL AVE. PO BOX 3236", "city": "HAGATNA", "state": "GU", "zipc": "96910", "lat": 13.474342702816681, "lon": 144.75024740290328, "criminals": 4, "noncriminals": 11, "threatLevels": [11, 4, 0, 0]}),
+          new Facility({"name": "DEPARTMENT OF CORRECTIONS HAGATNA", "addr": "203 ASPINAL AVE. PO BOX 3236", "city": "HAGATNA", "state": "GU", "zipc": "96910", "lat": 13.474342702816681, "lon": 144.75024740290328, "criminals": 4, "noncriminals": 12, "threatLevels": [12, 4, 0, 0]}),
         
-          new Facility({"name": "DESERT VIEW ANNEX", "addr": "10450 RANCHO ROAD", "city": "ADELANTO", "state": "\u00a0", "zipc": "92301", "lat": 34.557564, "lon": -117.4431275, "criminals": 47, "noncriminals": 353, "threatLevels": [346, 8, 16, 29]}),
+          new Facility({"name": "DESERT VIEW ANNEX", "addr": "10450 RANCHO ROAD", "city": "ADELANTO", "state": "CA", "zipc": "92301", "lat": 34.5599404, "lon": -117.4372813, "criminals": 43, "noncriminals": 352, "threatLevels": [337, 9, 17, 32]}),
         
-          new Facility({"name": "DILLEY IMMIGRATION PROCESSING CENTER", "addr": "300 EL RANCHO WAY", "city": "DILLEY", "state": "TX", "zipc": "78017", "lat": 28.658091009808814, "lon": -99.20042911778089, "criminals": 7, "noncriminals": 545, "threatLevels": [541, 1, 3, 7]}),
+          new Facility({"name": "DILLEY IMMIGRATION PROCESSING CENTER", "addr": "300 EL RANCHO WAY", "city": "DILLEY", "state": "TX", "zipc": "78017", "lat": 28.658091009808814, "lon": -99.20042911778089, "criminals": 9, "noncriminals": 714, "threatLevels": [705, 2, 5, 11]}),
         
-          new Facility({"name": "DODGE COUNTY JAIL", "addr": "215 WEST CENTRAL STREET", "city": "JUNEAU", "state": "WI", "zipc": "53039", "lat": 43.40855649830141, "lon": -88.70504618075388, "criminals": 50, "noncriminals": 46, "threatLevels": [44, 21, 12, 20]}),
+          new Facility({"name": "DODGE COUNTY JAIL", "addr": "215 WEST CENTRAL STREET", "city": "JUNEAU", "state": "WI", "zipc": "53039", "lat": 43.40855649830141, "lon": -88.70504618075388, "criminals": 48, "noncriminals": 50, "threatLevels": [47, 21, 12, 18]}),
         
           new Facility({"name": "DONA ANA COUNTY DETENTION CENTER", "addr": "1850 COPPER LOOP", "city": "LAS CRUCES", "state": "NM", "zipc": "88004", "lat": 32.3027055, "lon": -106.8057985, "criminals": 1, "noncriminals": 0, "threatLevels": [1, 0, 0, 0]}),
         
-          new Facility({"name": "DOUGLAS COUNTY", "addr": "1409 HAMMOND AVENUE", "city": "SUPERIOR", "state": "WI", "zipc": "54880", "lat": 46.7214838, "lon": -92.0985348, "criminals": 3, "noncriminals": 20, "threatLevels": [18, 0, 1, 3]}),
-        
-          new Facility({"name": "EAST HIDALGO DETENTION CENTER", "addr": "1330 HIGHWAY 107", "city": "LA VILLA", "state": "TX", "zipc": "78562", "lat": 26.295748678577546, "lon": -97.91819101612627, "criminals": 2, "noncriminals": 0, "threatLevels": [0, 1, 1, 0]}),
+          new Facility({"name": "DOUGLAS COUNTY", "addr": "1409 HAMMOND AVENUE", "city": "SUPERIOR", "state": "WI", "zipc": "54880", "lat": 46.7214838, "lon": -92.0985348, "criminals": 3, "noncriminals": 21, "threatLevels": [20, 0, 1, 4]}),
         
           new Facility({"name": "EASTERN REGIONAL JAIL", "addr": "94 GRAPEVINE RD", "city": "MARTINSBURG", "state": "WV", "zipc": "25401", "lat": 39.4358362, "lon": -77.9563073, "criminals": 1, "noncriminals": 10, "threatLevels": [10, 0, 0, 1]}),
         
-          new Facility({"name": "EDEN DETENTION CTR", "addr": "702 E BROADWAY ST", "city": "EDEN", "state": "TX", "zipc": "76837", "lat": 31.2175083, "lon": -99.8339599, "criminals": 55, "noncriminals": 349, "threatLevels": [344, 11, 14, 35]}),
+          new Facility({"name": "EDEN DETENTION CTR", "addr": "702 E BROADWAY ST", "city": "EDEN", "state": "TX", "zipc": "76837", "lat": 31.2175083, "lon": -99.8339599, "criminals": 52, "noncriminals": 392, "threatLevels": [383, 11, 16, 35]}),
         
-          new Facility({"name": "EL PASO COUNTY DETENTION FACILITY", "addr": "601 E. OVERLAND", "city": "EL PASO", "state": "TX", "zipc": "79901", "lat": 31.7585318, "lon": -106.4831449, "criminals": 0, "noncriminals": 3, "threatLevels": [3, 0, 0, 0]}),
+          new Facility({"name": "EL PASO COUNTY DETENTION FACILITY", "addr": "601 E. OVERLAND", "city": "EL PASO", "state": "TX", "zipc": "79901", "lat": 31.7585318, "lon": -106.4831449, "criminals": 0, "noncriminals": 2, "threatLevels": [2, 0, 0, 0]}),
         
-          new Facility({"name": "EL PASO SERVICE PROCESSING CENTER", "addr": "8915 MONTANA AVE.", "city": "EL PASO", "state": "TX", "zipc": "79925", "lat": 31.7934217, "lon": -106.3691494, "criminals": 275, "noncriminals": 541, "threatLevels": [529, 123, 60, 105]}),
+          new Facility({"name": "EL PASO SERVICE PROCESSING CENTER", "addr": "8915 MONTANA AVE.", "city": "EL PASO", "state": "TX", "zipc": "79925", "lat": 31.7934217, "lon": -106.3691494, "criminals": 256, "noncriminals": 555, "threatLevels": [532, 116, 62, 99]}),
         
-          new Facility({"name": "EL VALLE DETENTION FACILITY", "addr": "1800 INDUSTRIAL DRIVE", "city": "RAYMONDVILLE", "state": "TX", "zipc": "78580", "lat": 26.467581958871495, "lon": -97.76228788899171, "criminals": 162, "noncriminals": 748, "threatLevels": [720, 86, 46, 58]}),
+          new Facility({"name": "EL VALLE DETENTION FACILITY", "addr": "1800 INDUSTRIAL DRIVE", "city": "RAYMONDVILLE", "state": "TX", "zipc": "78580", "lat": 26.467581958871495, "lon": -97.76228788899171, "criminals": 163, "noncriminals": 763, "threatLevels": [731, 91, 46, 58]}),
         
-          new Facility({"name": "ELIZABETH CONTRACT DETENTION FACILITY", "addr": "625 EVANS STREET", "city": "ELIZABETH", "state": "NJ", "zipc": "07201", "lat": 40.6662036, "lon": -74.1896718, "criminals": 50, "noncriminals": 243, "threatLevels": [232, 26, 15, 19]}),
+          new Facility({"name": "ELIZABETH CONTRACT DETENTION FACILITY", "addr": "625 EVANS STREET", "city": "ELIZABETH", "state": "NJ", "zipc": "07201", "lat": 40.6662036, "lon": -74.1896718, "criminals": 55, "noncriminals": 255, "threatLevels": [242, 31, 15, 21]}),
         
-          new Facility({"name": "ELMORE COUNTY JAIL", "addr": "2255 E. 8TH NORTH", "city": "MOUNTAIN HOME", "state": "ID", "zipc": "83647", "lat": 43.1363262, "lon": -115.6730371, "criminals": 3, "noncriminals": 8, "threatLevels": [5, 1, 2, 2]}),
+          new Facility({"name": "ELMORE COUNTY JAIL", "addr": "2255 E. 8TH NORTH", "city": "MOUNTAIN HOME", "state": "ID", "zipc": "83647", "lat": 43.1363262, "lon": -115.6730371, "criminals": 2, "noncriminals": 7, "threatLevels": [4, 1, 2, 3]}),
         
-          new Facility({"name": "ELOY FEDERAL CONTRACT FACILITY", "addr": "1705 EAST HANNA RD.", "city": "ELOY", "state": "AZ", "zipc": "85131", "lat": 32.8176772, "lon": -111.51927, "criminals": 305, "noncriminals": 1011, "threatLevels": [980, 139, 82, 115]}),
+          new Facility({"name": "ELOY FEDERAL CONTRACT FACILITY", "addr": "1705 EAST HANNA RD.", "city": "ELOY", "state": "AZ", "zipc": "85131", "lat": 32.8176772, "lon": -111.51927, "criminals": 293, "noncriminals": 1030, "threatLevels": [987, 137, 80, 119]}),
         
-          new Facility({"name": "ERIE COUNTY JAIL", "addr": "DEPARTMENT OF CORRECTIONS 1618 ASH STREET", "city": "ERIE", "state": "PA", "zipc": "16503", "lat": 42.12425044860252, "lon": -80.06653529654119, "criminals": 0, "noncriminals": 11, "threatLevels": [11, 0, 0, 1]}),
+          new Facility({"name": "ERIE COUNTY JAIL", "addr": "DEPARTMENT OF CORRECTIONS 1618 ASH STREET", "city": "ERIE", "state": "PA", "zipc": "16503", "lat": 42.12425044860252, "lon": -80.06653529654119, "criminals": 1, "noncriminals": 10, "threatLevels": [9, 0, 1, 1]}),
         
-          new Facility({"name": "ERO EL PASO CAMP EAST MONTANA", "addr": "6920 DIGITAL RD", "city": "EL PASO", "state": "TX", "zipc": "79936", "lat": 31.769428, "lon": -106.303596, "criminals": 535, "noncriminals": 2238, "threatLevels": [2194, 217, 137, 225]}),
+          new Facility({"name": "ERO EL PASO CAMP EAST MONTANA", "addr": "6920 DIGITAL RD", "city": "EL PASO", "state": "TX", "zipc": "79936", "lat": 31.769428, "lon": -106.303596, "criminals": 562, "noncriminals": 2341, "threatLevels": [2265, 243, 148, 246]}),
         
-          new Facility({"name": "ETOWAH COUNTY JAIL", "addr": "827 FORREST AVENUE", "city": "GADSDEN", "state": "AL", "zipc": "35901", "lat": 34.0161208, "lon": -86.012499, "criminals": 15, "noncriminals": 65, "threatLevels": [59, 8, 6, 7]}),
+          new Facility({"name": "ETOWAH COUNTY JAIL", "addr": "827 FORREST AVENUE", "city": "GADSDEN", "state": "AL", "zipc": "35901", "lat": 34.0161208, "lon": -86.012499, "criminals": 15, "noncriminals": 57, "threatLevels": [51, 6, 6, 7]}),
         
-          new Facility({"name": "FARMVILLE DETENTION CENTER", "addr": "508 WATERWORKS ROAD", "city": "FARMVILLE", "state": "VA", "zipc": "23901", "lat": 37.3193665, "lon": -78.4382314, "criminals": 177, "noncriminals": 536, "threatLevels": [509, 93, 45, 66]}),
+          new Facility({"name": "FARMVILLE DETENTION CENTER", "addr": "508 WATERWORKS ROAD", "city": "FARMVILLE", "state": "VA", "zipc": "23901", "lat": 37.3193665, "lon": -78.4382314, "criminals": 174, "noncriminals": 537, "threatLevels": [504, 93, 45, 70]}),
         
-          new Facility({"name": "FAYETTE COUNTY DETENTION CENTER", "addr": "600 OLD FRANKFORD CR", "city": "LEXINGTON", "state": "KY", "zipc": "40510", "lat": 38.06555828124883, "lon": -84.54565987336858, "criminals": 1, "noncriminals": 1, "threatLevels": [1, 1, 0, 0]}),
+          new Facility({"name": "FAYETTE COUNTY DETENTION CENTER", "addr": "600 OLD FRANKFORD CR", "city": "LEXINGTON", "state": "KY", "zipc": "40510", "lat": 38.06555828124883, "lon": -84.54565987336858, "criminals": 1, "noncriminals": 2, "threatLevels": [1, 1, 0, 0]}),
         
-          new Facility({"name": "FCI ATLANTA", "addr": "601 MCDONOUGH BOULEVARD, SE", "city": "ATLANTA", "state": "GA", "zipc": "30315", "lat": 33.71204679097549, "lon": -84.37111710232016, "criminals": 45, "noncriminals": 70, "threatLevels": [67, 14, 18, 17]}),
+          new Facility({"name": "FCI ATLANTA", "addr": "601 MCDONOUGH BOULEVARD, SE", "city": "ATLANTA", "state": "GA", "zipc": "30315", "lat": 33.71204679097549, "lon": -84.37111710232016, "criminals": 42, "noncriminals": 66, "threatLevels": [62, 13, 16, 16]}),
         
-          new Facility({"name": "FDC PHILADELPHIA", "addr": "700 ARCH ST.", "city": "PHILADELPHIA", "state": "PA", "zipc": "19106", "lat": 39.9525541, "lon": -75.1520216, "criminals": 8, "noncriminals": 86, "threatLevels": [83, 5, 2, 4]}),
+          new Facility({"name": "FDC PHILADELPHIA", "addr": "700 ARCH ST.", "city": "PHILADELPHIA", "state": "PA", "zipc": "19106", "lat": 39.9525541, "lon": -75.1520216, "criminals": 9, "noncriminals": 86, "threatLevels": [82, 5, 2, 5]}),
         
-          new Facility({"name": "FINNEY COUNTY JAIL", "addr": "304 N. 9TH STREET", "city": "GARDEN CITY", "state": "KS", "zipc": "67846", "lat": 37.9674162, "lon": -100.876362, "criminals": 1, "noncriminals": 1, "threatLevels": [1, 0, 0, 0]}),
+          new Facility({"name": "FLORENCE SERVICE PROCESSING CENTER", "addr": "3250 NORTH PINAL PARKWAY", "city": "FLORENCE", "state": "AZ", "zipc": "85132", "lat": 33.0630048, "lon": -111.3790857, "criminals": 57, "noncriminals": 272, "threatLevels": [253, 10, 12, 53]}),
         
-          new Facility({"name": "FLORENCE SERVICE PROCESSING CENTER", "addr": "3250 NORTH PINAL PARKWAY", "city": "FLORENCE", "state": "AZ", "zipc": "85132", "lat": 33.0630048, "lon": -111.3790857, "criminals": 60, "noncriminals": 262, "threatLevels": [249, 10, 10, 53]}),
+          new Facility({"name": "FLORENCE STAGING FACILITY", "addr": "3250 NORTH PINAL PARKWAY", "city": "FLORENCE", "state": "AZ", "zipc": "85232", "lat": 33.0640298, "lon": -111.3825565, "criminals": 94, "noncriminals": 237, "threatLevels": [200, 59, 26, 46]}),
         
-          new Facility({"name": "FLORENCE STAGING FACILITY", "addr": "3250 NORTH PINAL PARKWAY", "city": "FLORENCE", "state": "AZ", "zipc": "85232", "lat": 33.0640298, "lon": -111.3825565, "criminals": 85, "noncriminals": 185, "threatLevels": [156, 55, 23, 36]}),
+          new Facility({"name": "FLORIDA SOFT-SIDED FACILITY", "addr": "54575 TAMIAMI TRL E", "city": "OCHOPEE", "state": "FL", "zipc": "34141", "lat": 25.8988938, "lon": -81.2883856, "criminals": 384, "noncriminals": 926, "threatLevels": [856, 304, 60, 89]}),
         
-          new Facility({"name": "FLORIDA SOFT-SIDED FACILITY", "addr": "54575 TAMIAMI TRL E", "city": "OCHOPEE", "state": "FL", "zipc": "34141", "lat": 25.8988938, "lon": -81.2883856, "criminals": 297, "noncriminals": 928, "threatLevels": [870, 214, 51, 90]}),
+          new Facility({"name": "FLOYD COUNTY JAIL", "addr": "2526 NEW CALHOUN HWY", "city": "ROME", "state": "GA", "zipc": "30161", "lat": 34.2803637, "lon": -85.1428696, "criminals": 0, "noncriminals": 1, "threatLevels": [1, 0, 0, 0]}),
         
-          new Facility({"name": "FOLKSTON ANNEX IPC", "addr": "3424 HWY 252 EAST", "city": "FOLKSTON", "state": "GA", "zipc": "31537", "lat": null, "lon": null, "criminals": 79, "noncriminals": 200, "threatLevels": [194, 38, 27, 20]}),
+          new Facility({"name": "FOLKSTON ANNEX IPC", "addr": "3424 HWY 252 EAST", "city": "FOLKSTON", "state": "GA", "zipc": "31537", "lat": null, "lon": null, "criminals": 80, "noncriminals": 200, "threatLevels": [191, 37, 28, 24]}),
         
-          new Facility({"name": "FOLKSTON D RAY ICE PROCESSING CTR", "addr": "3262 HIGHWAY 252", "city": "FOLKSTON", "state": "GA", "zipc": "31537", "lat": 30.874568, "lon": -81.978308, "criminals": 121, "noncriminals": 654, "threatLevels": [635, 34, 33, 72]}),
+          new Facility({"name": "FOLKSTON D RAY ICE PROCESSING CTR", "addr": "3262 HIGHWAY 252", "city": "FOLKSTON", "state": "GA", "zipc": "31537", "lat": 30.874568, "lon": -81.978308, "criminals": 136, "noncriminals": 715, "threatLevels": [684, 42, 40, 84]}),
         
-          new Facility({"name": "FOLKSTON MAIN IPC", "addr": "3026 HWY 252 EAST", "city": "FOLKSTON", "state": "GA", "zipc": "31537", "lat": 30.876482215607357, "lon": -81.9779839158829, "criminals": 204, "noncriminals": 471, "threatLevels": [454, 75, 63, 83]}),
+          new Facility({"name": "FOLKSTON MAIN IPC", "addr": "3026 HWY 252 EAST", "city": "FOLKSTON", "state": "GA", "zipc": "31537", "lat": 30.876482215607357, "lon": -81.9779839158829, "criminals": 200, "noncriminals": 504, "threatLevels": [471, 77, 67, 89]}),
         
           new Facility({"name": "FRANKLIN COUNTY JAIL", "addr": "625 FRANKLIN FARM LN", "city": "CHAMBERSBURG", "state": "PA", "zipc": "17201", "lat": null, "lon": null, "criminals": 0, "noncriminals": 1, "threatLevels": [1, 0, 0, 0]}),
         
-          new Facility({"name": "FREEBORN COUNTY ADULT DETENTION CENTER", "addr": "411 SOUTH BROADWAY AVENUE", "city": "ALBERT LEA", "state": "MN", "zipc": "56007", "lat": 43.6461475, "lon": -93.3680658, "criminals": 39, "noncriminals": 42, "threatLevels": [37, 25, 7, 12]}),
+          new Facility({"name": "FREEBORN COUNTY ADULT DETENTION CENTER", "addr": "411 SOUTH BROADWAY AVENUE", "city": "ALBERT LEA", "state": "MN", "zipc": "56007", "lat": 43.6461475, "lon": -93.3680658, "criminals": 35, "noncriminals": 44, "threatLevels": [39, 23, 6, 10]}),
         
-          new Facility({"name": "FULTON CO JAIL INDIANA", "addr": "2006 SWEETGUM RD", "city": "ROCHESTER", "state": "IN", "zipc": "46975", "lat": 41.0519841, "lon": -86.2318261, "criminals": 2, "noncriminals": 2, "threatLevels": [2, 1, 0, 1]}),
+          new Facility({"name": "FULTON CO JAIL INDIANA", "addr": "2006 SWEETGUM RD", "city": "ROCHESTER", "state": "IN", "zipc": "46975", "lat": 41.0519841, "lon": -86.2318261, "criminals": 2, "noncriminals": 3, "threatLevels": [2, 1, 0, 1]}),
         
-          new Facility({"name": "GEAUGA COUNTY JAIL", "addr": "12450 MERRITT DR", "city": "CHARDON", "state": "OH", "zipc": "44024", "lat": 41.504827833000164, "lon": -81.19154084443294, "criminals": 4, "noncriminals": 20, "threatLevels": [21, 3, 0, 0]}),
+          new Facility({"name": "GEAUGA COUNTY JAIL", "addr": "12450 MERRITT DR", "city": "CHARDON", "state": "OH", "zipc": "44024", "lat": 41.504827833000164, "lon": -81.19154084443294, "criminals": 3, "noncriminals": 19, "threatLevels": [19, 3, 0, 0]}),
         
-          new Facility({"name": "GLADES COUNTY DETENTION CENTER", "addr": "1297 EAST SR 78", "city": "MOORE HAVEN", "state": "FL", "zipc": "33471", "lat": 26.83880034675664, "lon": -81.12392113131328, "criminals": 50, "noncriminals": 416, "threatLevels": [405, 10, 17, 34]}),
+          new Facility({"name": "GLADES COUNTY DETENTION CENTER", "addr": "1297 EAST SR 78", "city": "MOORE HAVEN", "state": "FL", "zipc": "33471", "lat": 26.83880034675664, "lon": -81.12392113131328, "criminals": 49, "noncriminals": 415, "threatLevels": [400, 11, 17, 35]}),
         
-          new Facility({"name": "GOLDEN STATE ANNEX", "addr": "611 FRONTAGE RD", "city": "MCFARLAND", "state": "CA", "zipc": "93250", "lat": 35.667329, "lon": -119.225036, "criminals": 263, "noncriminals": 357, "threatLevels": [341, 179, 48, 52]}),
+          new Facility({"name": "GOLDEN STATE ANNEX", "addr": "611 FRONTAGE RD", "city": "MCFARLAND", "state": "CA", "zipc": "93250", "lat": 35.667329, "lon": -119.225036, "criminals": 254, "noncriminals": 366, "threatLevels": [347, 176, 47, 50]}),
         
-          new Facility({"name": "GRAND FORKS COUNTY CORRECTIONAL FACILITY", "addr": "1701 NORTH WASHINGTON ST", "city": "GRAND FORKS", "state": "ND", "zipc": "58203", "lat": 47.935792, "lon": -97.055851, "criminals": 7, "noncriminals": 11, "threatLevels": [11, 0, 4, 4]}),
+          new Facility({"name": "GRAND FORKS COUNTY CORRECTIONAL FACILITY", "addr": "1701 NORTH WASHINGTON ST", "city": "GRAND FORKS", "state": "ND", "zipc": "58203", "lat": 47.935792, "lon": -97.055851, "criminals": 6, "noncriminals": 13, "threatLevels": [11, 1, 3, 4]}),
         
-          new Facility({"name": "GRAYSON COUNTY JAIL", "addr": "320 SHAW STATION ROAD", "city": "LEITCHFIELD", "state": "KY", "zipc": "42754", "lat": 37.4890391, "lon": -86.2702303, "criminals": 29, "noncriminals": 124, "threatLevels": [121, 12, 10, 10]}),
+          new Facility({"name": "GRAYSON COUNTY JAIL", "addr": "320 SHAW STATION ROAD", "city": "LEITCHFIELD", "state": "KY", "zipc": "42754", "lat": 37.4890391, "lon": -86.2702303, "criminals": 28, "noncriminals": 127, "threatLevels": [124, 12, 10, 11]}),
         
-          new Facility({"name": "GREENE COUNTY JAIL", "addr": "1199 N HASELTINE RD", "city": "SPRINGFIELD", "state": "MO", "zipc": "65802", "lat": 37.2227197, "lon": -93.385532, "criminals": 63, "noncriminals": 210, "threatLevels": [199, 24, 15, 35]}),
+          new Facility({"name": "GREENE COUNTY JAIL", "addr": "1199 N HASELTINE RD", "city": "SPRINGFIELD", "state": "MO", "zipc": "65802", "lat": 37.2227197, "lon": -93.385532, "criminals": 61, "noncriminals": 213, "threatLevels": [200, 24, 14, 35]}),
         
-          new Facility({"name": "HALL COUNTY DEPARTMENT OF CORRECTIONS", "addr": "110 PUBLIC SAFETY DRIVE", "city": "GRAND ISLAND", "state": "NE", "zipc": "68801", "lat": 40.92663, "lon": -98.32841, "criminals": 6, "noncriminals": 8, "threatLevels": [6, 2, 3, 4]}),
+          new Facility({"name": "HALL COUNTY DEPARTMENT OF CORRECTIONS", "addr": "110 PUBLIC SAFETY DRIVE", "city": "GRAND ISLAND", "state": "NE", "zipc": "68801", "lat": 40.92663, "lon": -98.32841, "criminals": 5, "noncriminals": 8, "threatLevels": [6, 1, 2, 4]}),
         
-          new Facility({"name": "HANCOCK COUNTY PUBLIC SAFETY COMPLEX", "addr": "8450 HIGHWAY 90", "city": "BAY ST. LOUIS", "state": "MS", "zipc": "39520", "lat": 30.303815869350622, "lon": -89.4759421177441, "criminals": 4, "noncriminals": 24, "threatLevels": [23, 1, 1, 2]}),
+          new Facility({"name": "HANCOCK COUNTY PUBLIC SAFETY COMPLEX", "addr": "8450 HIGHWAY 90", "city": "BAY ST. LOUIS", "state": "MS", "zipc": "39520", "lat": 30.303815869350622, "lon": -89.4759421177441, "criminals": 4, "noncriminals": 25, "threatLevels": [24, 1, 2, 2]}),
         
-          new Facility({"name": "HARDIN COUNTY JAIL", "addr": "1116 14TH AVENUE", "city": "ELDORA", "state": "IA", "zipc": "50627", "lat": 42.3598449, "lon": -93.0973711, "criminals": 25, "noncriminals": 11, "threatLevels": [10, 11, 8, 8]}),
+          new Facility({"name": "HARDIN COUNTY JAIL", "addr": "1116 14TH AVENUE", "city": "ELDORA", "state": "IA", "zipc": "50627", "lat": 42.3598449, "lon": -93.0973711, "criminals": 23, "noncriminals": 17, "threatLevels": [14, 10, 7, 9]}),
         
-          new Facility({"name": "HENDERSON DETENTION", "addr": "18 E BASIC ROAD", "city": "HENDERSON", "state": "NV", "zipc": "89015", "lat": 36.0308679, "lon": -114.9780973, "criminals": 32, "noncriminals": 61, "threatLevels": [57, 16, 7, 13]}),
+          new Facility({"name": "HENDERSON DETENTION", "addr": "18 E BASIC ROAD", "city": "HENDERSON", "state": "NV", "zipc": "89015", "lat": 36.0308679, "lon": -114.9780973, "criminals": 31, "noncriminals": 60, "threatLevels": [55, 16, 6, 14]}),
         
-          new Facility({"name": "HONOLULU FEDERAL DETENTION CENTER", "addr": "351 ELLIOTT ST.", "city": "HONOLULU", "state": "HI", "zipc": "96819", "lat": 21.3332122, "lon": -157.9283542, "criminals": 19, "noncriminals": 62, "threatLevels": [60, 11, 6, 5]}),
+          new Facility({"name": "HONOLULU FEDERAL DETENTION CENTER", "addr": "351 ELLIOTT ST.", "city": "HONOLULU", "state": "HI", "zipc": "96819", "lat": 21.3332122, "lon": -157.9283542, "criminals": 19, "noncriminals": 61, "threatLevels": [59, 12, 5, 4]}),
         
-          new Facility({"name": "HOPKINS COUNTY JAIL", "addr": "2250 LAFOON TRAIL", "city": "MADISONVILLE", "state": "KY", "zipc": "42431", "lat": 37.337886976243404, "lon": -87.54013518688257, "criminals": 47, "noncriminals": 119, "threatLevels": [115, 23, 13, 14]}),
+          new Facility({"name": "HOPKINS COUNTY JAIL", "addr": "2250 LAFOON TRAIL", "city": "MADISONVILLE", "state": "KY", "zipc": "42431", "lat": 37.337886976243404, "lon": -87.54013518688257, "criminals": 40, "noncriminals": 121, "threatLevels": [118, 20, 11, 13]}),
         
-          new Facility({"name": "HOUSTON CONTRACT DETENTION FACILITY", "addr": "15850 EXPORT PLAZA DRIVE", "city": "HOUSTON", "state": "TX", "zipc": "77032", "lat": 29.9508332, "lon": -95.3121699, "criminals": 205, "noncriminals": 676, "threatLevels": [661, 97, 47, 77]}),
+          new Facility({"name": "HOUSTON CONTRACT DETENTION FACILITY", "addr": "15850 EXPORT PLAZA DRIVE", "city": "HOUSTON", "state": "TX", "zipc": "77032", "lat": 29.9508332, "lon": -95.3121699, "criminals": 203, "noncriminals": 667, "threatLevels": [649, 98, 48, 74]}),
         
-          new Facility({"name": "IAH SECURE ADULT DETENTION FACILITY (POLK)", "addr": "3400 FM 350 SOUTH", "city": "LIVINGSTON", "state": "TX", "zipc": "77351", "lat": 30.6981513, "lon": -95.0057915, "criminals": 263, "noncriminals": 593, "threatLevels": [576, 92, 73, 114]}),
+          new Facility({"name": "IAH SECURE ADULT DETENTION FACILITY (POLK)", "addr": "3400 FM 350 SOUTH", "city": "LIVINGSTON", "state": "TX", "zipc": "77351", "lat": 30.6981513, "lon": -95.0057915, "criminals": 252, "noncriminals": 609, "threatLevels": [583, 91, 75, 112]}),
         
-          new Facility({"name": "IMPERIAL REGIONAL DETENTION FACILITY", "addr": "1572 GATEWAY", "city": "CALEXICO", "state": "CA", "zipc": "92231", "lat": 32.69032325025824, "lon": -115.39756848885183, "criminals": 94, "noncriminals": 548, "threatLevels": [539, 39, 27, 36]}),
+          new Facility({"name": "IMPERIAL REGIONAL DETENTION FACILITY", "addr": "1572 GATEWAY", "city": "CALEXICO", "state": "CA", "zipc": "92231", "lat": 32.69032325025824, "lon": -115.39756848885183, "criminals": 93, "noncriminals": 567, "threatLevels": [555, 43, 27, 35]}),
         
-          new Facility({"name": "IRWIN COUNTY DETENTION CENTER", "addr": "132 COTTON DRIVE", "city": "OCILLA", "state": "GA", "zipc": "31772", "lat": 31.5825364, "lon": -83.2566799, "criminals": 22, "noncriminals": 56, "threatLevels": [46, 10, 9, 13]}),
+          new Facility({"name": "IRWIN COUNTY DETENTION CENTER", "addr": "132 COTTON DRIVE", "city": "OCILLA", "state": "GA", "zipc": "31772", "lat": 31.5825364, "lon": -83.2566799, "criminals": 27, "noncriminals": 77, "threatLevels": [68, 10, 10, 16]}),
         
-          new Facility({"name": "JACKSON PARISH CORRECTIONAL CENTER", "addr": "327 INDUSTRIAL DRIVE", "city": "JONESBORO", "state": "LA", "zipc": "71251", "lat": 32.2158449, "lon": -92.7178317, "criminals": 174, "noncriminals": 1032, "threatLevels": [1011, 71, 40, 84]}),
+          new Facility({"name": "JACKSON PARISH CORRECTIONAL CENTER", "addr": "327 INDUSTRIAL DRIVE", "city": "JONESBORO", "state": "LA", "zipc": "71251", "lat": 32.2158449, "lon": -92.7178317, "criminals": 161, "noncriminals": 1015, "threatLevels": [988, 68, 38, 83]}),
         
-          new Facility({"name": "JEFFERSON COUNTY JAIL", "addr": "219 EAST FREMONT AVENUE", "city": "RIGBY", "state": "ID", "zipc": "83442", "lat": 43.6733525, "lon": -111.9115662, "criminals": 1, "noncriminals": 6, "threatLevels": [5, 0, 1, 2]}),
+          new Facility({"name": "JEFFERSON COUNTY JAIL", "addr": "219 EAST FREMONT AVENUE", "city": "RIGBY", "state": "ID", "zipc": "83442", "lat": 43.6733525, "lon": -111.9115662, "criminals": 1, "noncriminals": 6, "threatLevels": [4, 0, 1, 2]}),
         
-          new Facility({"name": "JOE CORLEY PROCESSING CTR", "addr": "500 HILBIG RD", "city": "CONROE", "state": "TX", "zipc": "77301", "lat": 30.3359939, "lon": -95.4481982, "criminals": 163, "noncriminals": 752, "threatLevels": [737, 61, 40, 76]}),
+          new Facility({"name": "JOE CORLEY PROCESSING CTR", "addr": "500 HILBIG RD", "city": "CONROE", "state": "TX", "zipc": "77301", "lat": 30.3359939, "lon": -95.4481982, "criminals": 154, "noncriminals": 779, "threatLevels": [757, 63, 39, 74]}),
         
-          new Facility({"name": "KANDIYOHI COUNTY JAIL", "addr": "2201 23RD ST NE", "city": "WILLMAR", "state": "MN", "zipc": "56201", "lat": 45.1458557, "lon": -95.0144842, "criminals": 47, "noncriminals": 63, "threatLevels": [60, 24, 13, 12]}),
+          new Facility({"name": "JTF CAMP SIX", "addr": "AVENUE C PSC 1005 BOX 55", "city": "FPO", "state": "FL", "zipc": "34009", "lat": 28.944465, "lon": -82.03363, "criminals": 1, "noncriminals": 1, "threatLevels": [1, 1, 0, 0]}),
         
-          new Facility({"name": "KANSAS CITY HOLDROOM", "addr": "9747 NW CONANT AVENUE", "city": "KANSAS CITY", "state": "MO", "zipc": "64153", "lat": 39.2449827, "lon": -94.6754297, "criminals": 1, "noncriminals": 1, "threatLevels": [2, 1, 0, 0]}),
+          new Facility({"name": "KANDIYOHI COUNTY JAIL", "addr": "2201 23RD ST NE", "city": "WILLMAR", "state": "MN", "zipc": "56201", "lat": 45.1458557, "lon": -95.0144842, "criminals": 42, "noncriminals": 68, "threatLevels": [64, 22, 13, 12]}),
         
-          new Facility({"name": "KARNES COUNTY CORRECTIONAL CENTER", "addr": "810 COMMERCE STREET", "city": "KARNES CITY", "state": "TX", "zipc": "78118", "lat": 28.883485, "lon": -97.9118481, "criminals": 2, "noncriminals": 0, "threatLevels": [0, 0, 2, 0]}),
+          new Facility({"name": "KANSAS CITY HOLDROOM", "addr": "9747 NW CONANT AVENUE", "city": "KANSAS CITY", "state": "MO", "zipc": "64153", "lat": 39.2449827, "lon": -94.6754297, "criminals": 1, "noncriminals": 3, "threatLevels": [2, 1, 0, 0]}),
         
-          new Facility({"name": "KARNES COUNTY IMMIGRATION PROCESSING CENTER", "addr": "409 FM 1144", "city": "KARNES CITY", "state": "TX", "zipc": "78118", "lat": 28.8849121, "lon": -97.8977348, "criminals": 74, "noncriminals": 1112, "threatLevels": [1105, 1, 6, 73]}),
+          new Facility({"name": "KARNES COUNTY CORRECTIONAL CENTER", "addr": "810 COMMERCE STREET", "city": "KARNES CITY", "state": "TX", "zipc": "78118", "lat": 28.883485, "lon": -97.9118481, "criminals": 2, "noncriminals": 0, "threatLevels": [0, 0, 1, 0]}),
         
-          new Facility({"name": "KAY CO JUSTICE FACILITY", "addr": "1101 WEST DRY ROAD", "city": "NEWKIRK", "state": "OK", "zipc": "74647", "lat": 36.86806507097945, "lon": -97.06923720408514, "criminals": 56, "noncriminals": 107, "threatLevels": [99, 26, 18, 20]}),
+          new Facility({"name": "KARNES COUNTY IMMIGRATION PROCESSING CENTER", "addr": "409 FM 1144", "city": "KARNES CITY", "state": "TX", "zipc": "78118", "lat": 28.8849121, "lon": -97.8977348, "criminals": 71, "noncriminals": 1112, "threatLevels": [1102, 0, 8, 72]}),
         
-          new Facility({"name": "KENTON COUNTY JAIL", "addr": "3000 DECKER CRANE LANE", "city": "COVINGTON", "state": "KY", "zipc": "41017", "lat": 39.002731, "lon": -84.531531, "criminals": 38, "noncriminals": 63, "threatLevels": [56, 9, 16, 19]}),
+          new Facility({"name": "KAY CO JUSTICE FACILITY", "addr": "1101 WEST DRY ROAD", "city": "NEWKIRK", "state": "OK", "zipc": "74647", "lat": 36.86806507097945, "lon": -97.06923720408514, "criminals": 55, "noncriminals": 106, "threatLevels": [97, 27, 16, 21]}),
         
-          new Facility({"name": "KNOX COUNTY DETENTION FACILITY", "addr": "5001 MALONEYVILLE RD", "city": "KNOXVILLE", "state": "TN", "zipc": "37918", "lat": 36.0850476, "lon": -83.841532, "criminals": 6, "noncriminals": 24, "threatLevels": [20, 2, 3, 5]}),
+          new Facility({"name": "KENTON COUNTY JAIL", "addr": "3000 DECKER CRANE LANE", "city": "COVINGTON", "state": "KY", "zipc": "41017", "lat": 39.002731, "lon": -84.531531, "criminals": 35, "noncriminals": 67, "threatLevels": [59, 9, 15, 19]}),
         
-          new Facility({"name": "KROME NORTH SERVICE PROCESSING CENTER", "addr": "18201 SW 12TH ST", "city": "MIAMI", "state": "FL", "zipc": "33194", "lat": 25.7547717, "lon": -80.4908502, "criminals": 372, "noncriminals": 471, "threatLevels": [445, 224, 86, 87]}),
+          new Facility({"name": "KNOX COUNTY DETENTION FACILITY", "addr": "5001 MALONEYVILLE RD", "city": "KNOXVILLE", "state": "TN", "zipc": "37918", "lat": 36.0850476, "lon": -83.841532, "criminals": 6, "noncriminals": 26, "threatLevels": [22, 3, 2, 5]}),
         
-          new Facility({"name": "LA SALLE COUNTY REGIONAL DETENTION CENTER", "addr": "832 EAST TEXAS STATE HIGHWAY 44", "city": "ENCINAL", "state": "TX", "zipc": "78019", "lat": 28.045392301310212, "lon": -99.33614721779425, "criminals": 21, "noncriminals": 266, "threatLevels": [263, 1, 2, 21]}),
+          new Facility({"name": "KROME NORTH SERVICE PROCESSING CENTER", "addr": "18201 SW 12TH ST", "city": "MIAMI", "state": "FL", "zipc": "33194", "lat": 25.7547717, "lon": -80.4908502, "criminals": 379, "noncriminals": 483, "threatLevels": [447, 239, 88, 88]}),
         
-          new Facility({"name": "LAKE COUNTY JAIL", "addr": "551 W. MAIN ST.", "city": "TAVARES", "state": "FL", "zipc": "32778", "lat": 28.8018772, "lon": -81.7329614, "criminals": 1, "noncriminals": 1, "threatLevels": [1, 1, 0, 0]}),
+          new Facility({"name": "LA SALLE COUNTY REGIONAL DETENTION CENTER", "addr": "832 EAST TEXAS STATE HIGHWAY 44", "city": "ENCINAL", "state": "TX", "zipc": "78019", "lat": 28.045392301310212, "lon": -99.33614721779425, "criminals": 20, "noncriminals": 243, "threatLevels": [239, 1, 2, 20]}),
         
-          new Facility({"name": "LARAMIE COUNTY JAIL", "addr": "1910 PIONEER AVENUE", "city": "CHEYENNE", "state": "WY", "zipc": "82001", "lat": 41.1348377, "lon": -104.8201959, "criminals": 1, "noncriminals": 4, "threatLevels": [4, 0, 0, 1]}),
+          new Facility({"name": "LAKE COUNTY JAIL", "addr": "551 W. MAIN ST.", "city": "TAVARES", "state": "FL", "zipc": "32778", "lat": 28.8018772, "lon": -81.7329614, "criminals": 0, "noncriminals": 1, "threatLevels": [1, 0, 0, 0]}),
         
-          new Facility({"name": "LAREDO PROCESSING CENTER", "addr": "4702 EAST SAUNDERS STREET", "city": "LAREDO", "state": "TX", "zipc": "78041", "lat": 27.5294764, "lon": -99.4477731, "criminals": 21, "noncriminals": 335, "threatLevels": [328, 7, 7, 14]}),
+          new Facility({"name": "LAREDO PROCESSING CENTER", "addr": "4702 EAST SAUNDERS STREET", "city": "LAREDO", "state": "TX", "zipc": "78041", "lat": 27.5294764, "lon": -99.4477731, "criminals": 19, "noncriminals": 341, "threatLevels": [332, 7, 8, 12]}),
         
-          new Facility({"name": "LAUREL COUNTY CORRECTIONAL CENTER", "addr": "440 HAMMOCK ROAD", "city": "LONDON", "state": "KY", "zipc": "40744", "lat": 37.05739, "lon": -84.070965, "criminals": 1, "noncriminals": 1, "threatLevels": [0, 1, 0, 0]}),
+          new Facility({"name": "LAWRENCE COUNTY", "addr": "80 SHERMAN STREET", "city": "DEADWOOD", "state": "SD", "zipc": "57732", "lat": 44.3767227, "lon": -103.7289672, "criminals": 1, "noncriminals": 9, "threatLevels": [9, 0, 0, 0]}),
         
-          new Facility({"name": "LAWRENCE COUNTY", "addr": "80 SHERMAN STREET", "city": "DEADWOOD", "state": "SD", "zipc": "57732", "lat": 44.3767227, "lon": -103.7289672, "criminals": 1, "noncriminals": 8, "threatLevels": [8, 0, 1, 0]}),
+          new Facility({"name": "LEAVENWORTH US PENITENTIARY", "addr": "1300 METROPOLITAN AVE.", "city": "LEAVENWORTH", "state": "KS", "zipc": "66048", "lat": 39.3303867, "lon": -94.9357354, "criminals": 42, "noncriminals": 12, "threatLevels": [12, 30, 6, 6]}),
         
-          new Facility({"name": "LEAVENWORTH US PENITENTIARY", "addr": "1300 METROPOLITAN AVE.", "city": "LEAVENWORTH", "state": "KS", "zipc": "66048", "lat": 39.3303867, "lon": -94.9357354, "criminals": 45, "noncriminals": 12, "threatLevels": [12, 32, 6, 7]}),
+          new Facility({"name": "LEXINGTON COUNTY JAIL", "addr": "521 GIBSON ROAD", "city": "LEXINGTON", "state": "SC", "zipc": "29072", "lat": 33.9784808, "lon": -81.2508399, "criminals": 1, "noncriminals": 4, "threatLevels": [4, 1, 0, 1]}),
         
-          new Facility({"name": "LEXINGTON COUNTY JAIL", "addr": "521 GIBSON ROAD", "city": "LEXINGTON", "state": "SC", "zipc": "29072", "lat": 33.9784808, "lon": -81.2508399, "criminals": 2, "noncriminals": 4, "threatLevels": [3, 1, 0, 1]}),
+          new Facility({"name": "LIMESTONE COUNTY DETENTION CENTER", "addr": "910 NORTH TYUS STREET", "city": "GROESBECK", "state": "TX", "zipc": "76642", "lat": 31.5287835, "lon": -96.512347, "criminals": 39, "noncriminals": 214, "threatLevels": [208, 8, 9, 27]}),
         
-          new Facility({"name": "LIMESTONE COUNTY DETENTION CENTER", "addr": "910 NORTH TYUS STREET", "city": "GROESBECK", "state": "TX", "zipc": "76642", "lat": 31.5287835, "lon": -96.512347, "criminals": 39, "noncriminals": 204, "threatLevels": [200, 7, 9, 27]}),
+          new Facility({"name": "LINCOLN COUNTY JAIL", "addr": "3020 N JEFFERS", "city": "NORTH PLATTE", "state": "NE", "zipc": "69101", "lat": 41.1065398, "lon": -100.7640382, "criminals": 16, "noncriminals": 8, "threatLevels": [7, 6, 6, 5]}),
         
-          new Facility({"name": "LINCOLN COUNTY JAIL", "addr": "3020 N JEFFERS", "city": "NORTH PLATTE", "state": "NE", "zipc": "69101", "lat": 41.1065398, "lon": -100.7640382, "criminals": 12, "noncriminals": 8, "threatLevels": [7, 3, 6, 3]}),
+          new Facility({"name": "LINN COUNTY JAIL", "addr": "53 3RD AVENUE BRIDGE", "city": "CEDAR RAPIDS", "state": "IA", "zipc": "52401", "lat": 41.9746012, "lon": -91.6692502, "criminals": 19, "noncriminals": 22, "threatLevels": [19, 9, 3, 8]}),
         
-          new Facility({"name": "LINN COUNTY JAIL", "addr": "53 3RD AVENUE BRIDGE", "city": "CEDAR RAPIDS", "state": "IA", "zipc": "52401", "lat": 41.9746012, "lon": -91.6692502, "criminals": 19, "noncriminals": 23, "threatLevels": [22, 8, 4, 8]}),
+          new Facility({"name": "LOGAN COUNTY JAIL", "addr": "216 S BROAD ST", "city": "GUTHRIE", "state": "OK", "zipc": "73044", "lat": 35.8763635, "lon": -97.4223562, "criminals": 1, "noncriminals": 5, "threatLevels": [5, 0, 0, 0]}),
         
-          new Facility({"name": "LOGAN COUNTY JAIL", "addr": "216 S BROAD ST", "city": "GUTHRIE", "state": "OK", "zipc": "73044", "lat": 35.8763635, "lon": -97.4223562, "criminals": 1, "noncriminals": 4, "threatLevels": [5, 0, 1, 0]}),
+          new Facility({"name": "LOUISIANA ICE PROCESSING", "addr": "18198 TUNICA TRACE BLDG E", "city": "ANGOLA", "state": "LA", "zipc": "70712", "lat": 30.940215, "lon": -91.568424, "criminals": 162, "noncriminals": 15, "threatLevels": [14, 145, 14, 4]}),
         
-          new Facility({"name": "LOUISIANA ICE PROCESSING", "addr": "18198 TUNICA TRACE BLDG E", "city": "ANGOLA", "state": "LA", "zipc": "70712", "lat": 30.940215, "lon": -91.568424, "criminals": 164, "noncriminals": 13, "threatLevels": [13, 147, 14, 4]}),
+          new Facility({"name": "LUBBOCK COUNTY DETENTION CENTER", "addr": "811 MAIN STREET", "city": "LUBBOCK", "state": "TX", "zipc": "79401", "lat": 33.5854229, "lon": -101.8434337, "criminals": 0, "noncriminals": 2, "threatLevels": [2, 0, 0, 0]}),
         
-          new Facility({"name": "MAHONING COUNTY JAIL", "addr": "110 FIFTH AVENUE", "city": "YOUNGSTOWN", "state": "OH", "zipc": "44503", "lat": 41.103708, "lon": -80.6545051, "criminals": 14, "noncriminals": 77, "threatLevels": [75, 3, 7, 6]}),
+          new Facility({"name": "MADISON COUNTY JAIL", "addr": "2935 HIGHWAY 51", "city": "CANTON", "state": "MS", "zipc": "39046", "lat": 32.58677735093389, "lon": -90.04526320050026, "criminals": 2, "noncriminals": 8, "threatLevels": [8, 1, 0, 0]}),
         
-          new Facility({"name": "MARION COUNTY JAIL", "addr": "695 JUSTICE WAY", "city": "INDIANAPOLIS", "state": "IN", "zipc": "46203", "lat": 39.7550409, "lon": -86.1144189, "criminals": 9, "noncriminals": 57, "threatLevels": [54, 2, 3, 6]}),
+          new Facility({"name": "MAHONING COUNTY JAIL", "addr": "110 FIFTH AVENUE", "city": "YOUNGSTOWN", "state": "OH", "zipc": "44503", "lat": 41.103708, "lon": -80.6545051, "criminals": 14, "noncriminals": 74, "threatLevels": [70, 4, 7, 7]}),
         
-          new Facility({"name": "MARTIN COUNTY JAIL", "addr": "800 SOUTHEAST MONTEREY ROAD", "city": "STUART", "state": "FL", "zipc": "34994", "lat": 27.175502, "lon": -80.241557, "criminals": 1, "noncriminals": 5, "threatLevels": [4, 1, 0, 0]}),
+          new Facility({"name": "MARION COUNTY JAIL", "addr": "695 JUSTICE WAY", "city": "INDIANAPOLIS", "state": "IN", "zipc": "46203", "lat": 39.7550409, "lon": -86.1144189, "criminals": 8, "noncriminals": 53, "threatLevels": [50, 2, 3, 6]}),
         
-          new Facility({"name": "MCCOOK ICE IGSA", "addr": "2309 N HIGHWAY 83", "city": "MCCOOK", "state": "NE", "zipc": "69001", "lat": 40.2281468, "lon": -100.648028, "criminals": 15, "noncriminals": 13, "threatLevels": [10, 4, 5, 8]}),
+          new Facility({"name": "MARTIN COUNTY JAIL", "addr": "800 SOUTHEAST MONTEREY ROAD", "city": "STUART", "state": "FL", "zipc": "34994", "lat": 27.175502, "lon": -80.241557, "criminals": 1, "noncriminals": 5, "threatLevels": [5, 1, 0, 0]}),
         
-          new Facility({"name": "MESA VERDE ICE PROCESSING CENTER", "addr": "425 GOLDEN STATE AVE", "city": "BAKERSFIELD", "state": "CA", "zipc": "93301", "lat": 35.380713, "lon": -119.0060804, "criminals": 84, "noncriminals": 286, "threatLevels": [277, 54, 16, 24]}),
+          new Facility({"name": "MCCOOK DETENTION CENTER", "addr": "2309 N HIGHWAY 83", "city": "MCCOOK", "state": "NE", "zipc": "69001", "lat": 40.2281468, "lon": -100.648028, "criminals": 30, "noncriminals": 27, "threatLevels": [21, 10, 10, 15]}),
         
-          new Facility({"name": "MIAMI CORRECTIONAL CENTER", "addr": "3038 WEST 850 SOUTH P.O. BOX 900", "city": "BUNKERHILL", "state": "IN", "zipc": "46914", "lat": null, "lon": null, "criminals": 172, "noncriminals": 98, "threatLevels": [78, 121, 43, 27]}),
+          new Facility({"name": "MESA VERDE ICE PROCESSING CENTER", "addr": "425 GOLDEN STATE AVE", "city": "BAKERSFIELD", "state": "CA", "zipc": "93301", "lat": 35.380713, "lon": -119.0060804, "criminals": 84, "noncriminals": 294, "threatLevels": [283, 53, 16, 25]}),
         
-          new Facility({"name": "MIAMI FEDERAL DETENTION", "addr": "33 NE 4 STREET", "city": "MIAMI", "state": "FL", "zipc": "33132", "lat": 25.778835871616227, "lon": -80.19334441968891, "criminals": 232, "noncriminals": 233, "threatLevels": [216, 141, 66, 42]}),
+          new Facility({"name": "MIAMI CORRECTIONAL CENTER", "addr": "3038 WEST 850 SOUTH P.O. BOX 900", "city": "BUNKERHILL", "state": "IN", "zipc": "46914", "lat": null, "lon": null, "criminals": 227, "noncriminals": 130, "threatLevels": [99, 167, 54, 37]}),
         
-          new Facility({"name": "MIAMI STAGING FACILITY", "addr": "UNAVAILABLE", "city": "MIAMI", "state": "FL", "zipc": "33101", "lat": 25.778789, "lon": -80.199569, "criminals": 2, "noncriminals": 10, "threatLevels": [9, 1, 1, 1]}),
+          new Facility({"name": "MIAMI FEDERAL DETENTION", "addr": "33 NE 4 STREET", "city": "MIAMI", "state": "FL", "zipc": "33132", "lat": 25.778835871616227, "lon": -80.19334441968891, "criminals": 230, "noncriminals": 233, "threatLevels": [208, 150, 63, 43]}),
+        
+          new Facility({"name": "MIGRANT OPS CENTER MAIN A", "addr": "AVENUE C PSC 1005 BOX 55", "city": "FPO", "state": "FL", "zipc": "34009", "lat": 28.944465, "lon": -82.03363, "criminals": 0, "noncriminals": 2, "threatLevels": [2, 0, 0, 0]}),
         
           new Facility({"name": "MILLER COUNTY JAIL", "addr": "2300 EAST STREET", "city": "TEXARKANA", "state": "AR", "zipc": "71854", "lat": 33.401201, "lon": -94.0225542, "criminals": 1, "noncriminals": 3, "threatLevels": [3, 1, 0, 0]}),
         
-          new Facility({"name": "MINICASSIA DETENTION CENTER", "addr": "1415 ALBION AVENUE", "city": "BURLEY", "state": "ID", "zipc": "83318", "lat": 42.5352803, "lon": -113.7918093, "criminals": 2, "noncriminals": 3, "threatLevels": [2, 1, 1, 1]}),
+          new Facility({"name": "MINICASSIA DETENTION CENTER", "addr": "1415 ALBION AVENUE", "city": "BURLEY", "state": "ID", "zipc": "83318", "lat": 42.5352803, "lon": -113.7918093, "criminals": 2, "noncriminals": 3, "threatLevels": [2, 0, 1, 1]}),
         
           new Facility({"name": "MINNEHAHA COUNTY JAIL", "addr": "500 NORTH MINNESOTA AVENUE", "city": "SIOUX FALLS", "state": "SD", "zipc": "57104", "lat": 43.5524104, "lon": -96.731237, "criminals": 1, "noncriminals": 4, "threatLevels": [4, 0, 0, 1]}),
         
-          new Facility({"name": "MONROE COUNTY DETENTION-DORM", "addr": "7000 EAST DUNBAR ROAD", "city": "MONROE", "state": "MI", "zipc": "48161", "lat": 41.89347, "lon": -83.396328, "criminals": 15, "noncriminals": 112, "threatLevels": [112, 3, 1, 10]}),
+          new Facility({"name": "MONROE COUNTY DETENTION-DORM", "addr": "7000 EAST DUNBAR ROAD", "city": "MONROE", "state": "MI", "zipc": "48161", "lat": 41.89347, "lon": -83.396328, "criminals": 13, "noncriminals": 111, "threatLevels": [111, 2, 1, 10]}),
         
           new Facility({"name": "MONTGOMERY COUNTY JAIL", "addr": "PARK STREET", "city": "FONDA", "state": "NY", "zipc": "12068", "lat": 42.9531059, "lon": -74.3729461, "criminals": 0, "noncriminals": 3, "threatLevels": [3, 0, 0, 0]}),
         
-          new Facility({"name": "MONTGOMERY ICE PROCESSING CENTER", "addr": "806 HILBIG RD", "city": "CONROE", "state": "TX", "zipc": "77301", "lat": 30.3368088, "lon": -95.4431046, "criminals": 335, "noncriminals": 826, "threatLevels": [790, 191, 81, 100]}),
+          new Facility({"name": "MONTGOMERY ICE PROCESSING CENTER", "addr": "806 HILBIG RD", "city": "CONROE", "state": "TX", "zipc": "77301", "lat": 30.3368088, "lon": -95.4431046, "criminals": 328, "noncriminals": 862, "threatLevels": [820, 196, 79, 95]}),
         
-          new Facility({"name": "MOSHANNON VALLEY PROCESSING CENTER", "addr": "555 GEO DRIVE", "city": "PHILIPSBURG", "state": "PA", "zipc": "16866", "lat": 40.921386200722395, "lon": -78.24213641561506, "criminals": 529, "noncriminals": 1071, "threatLevels": [1034, 340, 111, 116]}),
+          new Facility({"name": "MOSHANNON VALLEY PROCESSING CENTER", "addr": "555 GEO DRIVE", "city": "PHILIPSBURG", "state": "PA", "zipc": "16866", "lat": 40.921386200722395, "lon": -78.24213641561506, "criminals": 475, "noncriminals": 1158, "threatLevels": [1108, 307, 104, 114]}),
         
-          new Facility({"name": "MUSCATINE COUNTY JAIL", "addr": "400 WALNUT STREET", "city": "MUSCATINE", "state": "IA", "zipc": "52761", "lat": 41.4243549, "lon": -91.0446662, "criminals": 10, "noncriminals": 7, "threatLevels": [6, 5, 3, 3]}),
+          new Facility({"name": "MUSCATINE COUNTY JAIL", "addr": "400 WALNUT STREET", "city": "MUSCATINE", "state": "IA", "zipc": "52761", "lat": 41.4243549, "lon": -91.0446662, "criminals": 11, "noncriminals": 8, "threatLevels": [7, 6, 2, 3]}),
         
-          new Facility({"name": "NASSAU COUNTY CORRECTIONAL CENTER", "addr": "100 CARMAN AVENUE", "city": "EAST MEADOW", "state": "NY", "zipc": "11554", "lat": 40.727807, "lon": -73.5561653, "criminals": 0, "noncriminals": 4, "threatLevels": [4, 0, 0, 0]}),
+          new Facility({"name": "NATRONA COUNTY JAIL", "addr": "1100 BRUCE LANE", "city": "CASPER", "state": "WY", "zipc": "82601", "lat": 42.862486, "lon": -106.344705, "criminals": 3, "noncriminals": 14, "threatLevels": [14, 1, 2, 0]}),
         
-          new Facility({"name": "NATRONA COUNTY JAIL", "addr": "1100 BRUCE LANE", "city": "CASPER", "state": "WY", "zipc": "82601", "lat": 42.862486, "lon": -106.344705, "criminals": 3, "noncriminals": 15, "threatLevels": [15, 1, 2, 0]}),
+          new Facility({"name": "NELSON COLEMAN CORRECTION", "addr": "5061 HIGHWAY 3127", "city": "KILLONA", "state": "LA", "zipc": "70057", "lat": 29.99255, "lon": -90.50223, "criminals": 1, "noncriminals": 2, "threatLevels": [2, 0, 0, 0]}),
         
-          new Facility({"name": "NEVADA SOUTHERN DETENTION CENTER", "addr": "2190 EAST MESQUITE AVENUE", "city": "PAHRUMP", "state": "NV", "zipc": "89060", "lat": 36.2520145, "lon": -115.9770311, "criminals": 213, "noncriminals": 247, "threatLevels": [221, 120, 44, 75]}),
+          new Facility({"name": "NEVADA SOUTHERN DETENTION CENTER", "addr": "2190 EAST MESQUITE AVENUE", "city": "PAHRUMP", "state": "NV", "zipc": "89060", "lat": 36.2520145, "lon": -115.9770311, "criminals": 205, "noncriminals": 256, "threatLevels": [221, 121, 44, 75]}),
         
           new Facility({"name": "NEW HANOVER COUNTY JAIL", "addr": "3950 JUVENILE RD", "city": "CASTLE HAYNE", "state": "NC", "zipc": "28429", "lat": 34.325340041511325, "lon": -77.89457245997536, "criminals": 1, "noncriminals": 3, "threatLevels": [2, 0, 0, 1]}),
         
           new Facility({"name": "NIAGARA COUNTY JAIL", "addr": "5526 NIAGARA STREET EXTENTION", "city": "LOCKPORT", "state": "NY", "zipc": "14094", "lat": 43.18023, "lon": -78.73694, "criminals": 0, "noncriminals": 12, "threatLevels": [12, 0, 0, 0]}),
         
-          new Facility({"name": "NORTH LAKE CORRECTIONAL FACILITY", "addr": "1805 W 32ND ST", "city": "BALDWIN", "state": "MI", "zipc": "49304", "lat": 43.926459, "lon": -85.836552, "criminals": 143, "noncriminals": 1210, "threatLevels": [1173, 57, 41, 81]}),
+          new Facility({"name": "NORTH LAKE CORRECTIONAL FACILITY", "addr": "1805 W 32ND ST", "city": "BALDWIN", "state": "MI", "zipc": "49304", "lat": 43.926459, "lon": -85.836552, "criminals": 144, "noncriminals": 1246, "threatLevels": [1204, 57, 43, 86]}),
         
-          new Facility({"name": "NORTHEAST OHIO CORRECTIONAL CENTER", "addr": "2240 HUBBARD ROAD", "city": "YOUNGSTOWN", "state": "OH", "zipc": "44505", "lat": 41.1288515, "lon": -80.6267877, "criminals": 51, "noncriminals": 170, "threatLevels": [168, 25, 14, 13]}),
+          new Facility({"name": "NORTHEAST OHIO CORRECTIONAL CENTER", "addr": "2240 HUBBARD ROAD", "city": "YOUNGSTOWN", "state": "OH", "zipc": "44505", "lat": 41.1288515, "lon": -80.6267877, "criminals": 46, "noncriminals": 163, "threatLevels": [161, 23, 14, 12]}),
         
-          new Facility({"name": "NORTHERN REGIONAL JAIL", "addr": "RD. 2, BOX 1", "city": "MOUNDSVILLE", "state": "WV", "zipc": "26041", "lat": 39.92221, "lon": -80.74378, "criminals": 3, "noncriminals": 22, "threatLevels": [22, 1, 1, 1]}),
+          new Facility({"name": "NORTHERN REGIONAL JAIL", "addr": "RD. 2, BOX 1", "city": "MOUNDSVILLE", "state": "WV", "zipc": "26041", "lat": 39.92221, "lon": -80.74378, "criminals": 2, "noncriminals": 21, "threatLevels": [21, 1, 1, 1]}),
         
-          new Facility({"name": "NORTHWEST ICE PROCESSSING CENTER", "addr": "1623 E. J STREET", "city": "TACOMA", "state": "WA", "zipc": "98421", "lat": 47.2490423, "lon": -122.4223947, "criminals": 451, "noncriminals": 945, "threatLevels": [905, 299, 98, 95]}),
+          new Facility({"name": "NORTHWEST ICE PROCESSSING CENTER", "addr": "1623 E. J STREET", "city": "TACOMA", "state": "WA", "zipc": "98421", "lat": 47.2490423, "lon": -122.4223947, "criminals": 431, "noncriminals": 959, "threatLevels": [910, 285, 99, 97]}),
         
-          new Facility({"name": "NORTHWEST REGIONAL CORRECTIONS CENTER", "addr": "816 MARIN AVE., SUITE 110", "city": "CROOKSTON", "state": "MN", "zipc": "56716", "lat": 47.76885, "lon": -96.62851, "criminals": 1, "noncriminals": 11, "threatLevels": [11, 0, 0, 1]}),
+          new Facility({"name": "NORTHWEST REGIONAL CORRECTIONS CENTER", "addr": "816 MARIN AVE., SUITE 110", "city": "CROOKSTON", "state": "MN", "zipc": "56716", "lat": 47.76885, "lon": -96.62851, "criminals": 1, "noncriminals": 13, "threatLevels": [12, 0, 0, 1]}),
         
-          new Facility({"name": "NORTHWEST STATE CORRECTIONAL CENTER", "addr": "3649 LOWER NEWTON ROAD", "city": "SWANTON", "state": "VT", "zipc": "05488", "lat": 44.850448, "lon": -73.13328, "criminals": 1, "noncriminals": 11, "threatLevels": [10, 1, 0, 1]}),
+          new Facility({"name": "NORTHWEST STATE CORRECTIONAL CENTER", "addr": "3649 LOWER NEWTON ROAD", "city": "SWANTON", "state": "VT", "zipc": "05488", "lat": 44.850448, "lon": -73.13328, "criminals": 1, "noncriminals": 11, "threatLevels": [11, 1, 0, 1]}),
         
-          new Facility({"name": "OLDHAM COUNTY DETENTION CENTER", "addr": "3405 W HWY 146", "city": "LA GRANGE", "state": "KY", "zipc": "40031", "lat": 38.389361, "lon": -85.423255, "criminals": 49, "noncriminals": 76, "threatLevels": [67, 16, 17, 25]}),
+          new Facility({"name": "OLDHAM COUNTY DETENTION CENTER", "addr": "3405 W HWY 146", "city": "LA GRANGE", "state": "KY", "zipc": "40031", "lat": 38.389361, "lon": -85.423255, "criminals": 45, "noncriminals": 80, "threatLevels": [71, 14, 16, 23]}),
         
-          new Facility({"name": "ORANGE COUNTY JAIL (FL)", "addr": "3855 SOUTH JOHN YOUNG PARKWAY", "city": "ORLANDO", "state": "FL", "zipc": "32839", "lat": 28.50402318562143, "lon": -81.41636787360717, "criminals": 6, "noncriminals": 37, "threatLevels": [34, 4, 3, 2]}),
+          new Facility({"name": "ORANGE COUNTY JAIL (FL)", "addr": "3855 SOUTH JOHN YOUNG PARKWAY", "city": "ORLANDO", "state": "FL", "zipc": "32839", "lat": 28.50402318562143, "lon": -81.41636787360717, "criminals": 10, "noncriminals": 50, "threatLevels": [47, 6, 3, 4]}),
         
-          new Facility({"name": "ORANGE COUNTY JAIL (NY)", "addr": "110 WELLS FARM ROAD", "city": "GOSHEN", "state": "NY", "zipc": "10924", "lat": 41.4042394, "lon": -74.3606249, "criminals": 87, "noncriminals": 79, "threatLevels": [72, 34, 36, 24]}),
+          new Facility({"name": "ORANGE COUNTY JAIL (NY)", "addr": "110 WELLS FARM ROAD", "city": "GOSHEN", "state": "NY", "zipc": "10924", "lat": 41.4042394, "lon": -74.3606249, "criminals": 86, "noncriminals": 80, "threatLevels": [69, 35, 36, 26]}),
         
-          new Facility({"name": "OTAY MESA DETENTION CENTER", "addr": "7488 CALZADA DE LA FUENTE", "city": "SAN DIEGO", "state": "CA", "zipc": "92154", "lat": 32.5765248, "lon": -116.9154777, "criminals": 258, "noncriminals": 1217, "threatLevels": [1203, 142, 47, 83]}),
+          new Facility({"name": "OTAY MESA DETENTION CENTER", "addr": "7488 CALZADA DE LA FUENTE", "city": "SAN DIEGO", "state": "CA", "zipc": "92154", "lat": 32.5765248, "lon": -116.9154777, "criminals": 243, "noncriminals": 1249, "threatLevels": [1230, 133, 44, 85]}),
         
-          new Facility({"name": "OTERO COUNTY PROCESSING CENTER", "addr": "26 MCGREGOR RANGE ROAD", "city": "CHAPARRAL", "state": "NM", "zipc": "88081", "lat": 32.0786798, "lon": -106.2779169, "criminals": 152, "noncriminals": 695, "threatLevels": [684, 58, 39, 65]}),
+          new Facility({"name": "OTERO COUNTY PROCESSING CENTER", "addr": "26 MCGREGOR RANGE ROAD", "city": "CHAPARRAL", "state": "NM", "zipc": "88081", "lat": 32.0786798, "lon": -106.2779169, "criminals": 139, "noncriminals": 720, "threatLevels": [701, 54, 41, 62]}),
         
-          new Facility({"name": "OZARK COUNTY SHERIFF'S OFFICE", "addr": "1818 COUNTY ROAD 806", "city": "GAINESVILLE", "state": "MO", "zipc": "65655", "lat": 36.6014034, "lon": -92.4516834, "criminals": 9, "noncriminals": 10, "threatLevels": [9, 4, 3, 3]}),
+          new Facility({"name": "OZARK COUNTY SHERIFF'S OFFICE", "addr": "1818 COUNTY ROAD 806", "city": "GAINESVILLE", "state": "MO", "zipc": "65655", "lat": 36.6014034, "lon": -92.4516834, "criminals": 10, "noncriminals": 10, "threatLevels": [9, 5, 3, 3]}),
         
-          new Facility({"name": "PENNINGTON COUNTY JAIL (SOUTH DAKOTA)", "addr": "300 KANSAS CITY STREET NONE", "city": "RAPID CITY", "state": "SD", "zipc": "57701", "lat": 44.07844295797259, "lon": -103.22212620387216, "criminals": 0, "noncriminals": 2, "threatLevels": [2, 0, 0, 0]}),
+          new Facility({"name": "PHELPS COUNTY JAIL (MO)", "addr": "301 W. 2ND", "city": "ROLLA", "state": "MO", "zipc": "65401", "lat": 37.9454138, "lon": -91.7739843, "criminals": 4, "noncriminals": 10, "threatLevels": [10, 1, 2, 2]}),
         
-          new Facility({"name": "PHELPS COUNTY JAIL (MO)", "addr": "301 W. 2ND", "city": "ROLLA", "state": "MO", "zipc": "65401", "lat": 37.9454138, "lon": -91.7739843, "criminals": 5, "noncriminals": 11, "threatLevels": [10, 2, 2, 2]}),
+          new Facility({"name": "PHELPS COUNTY JAIL (NE)", "addr": "715 5TH AVENUE", "city": "HOLDREGE", "state": "NE", "zipc": "68949", "lat": 40.4390467, "lon": -99.3704014, "criminals": 14, "noncriminals": 9, "threatLevels": [8, 6, 5, 5]}),
         
-          new Facility({"name": "PHELPS COUNTY JAIL (NE)", "addr": "715 5TH AVENUE", "city": "HOLDREGE", "state": "NE", "zipc": "68949", "lat": 40.4390467, "lon": -99.3704014, "criminals": 17, "noncriminals": 9, "threatLevels": [8, 6, 6, 6]}),
+          new Facility({"name": "PICKENS COUNTY DETENTION CENTER", "addr": "188 CEMETERY ST", "city": "CARROLLTON", "state": "AL", "zipc": "35447", "lat": 33.2603007, "lon": -88.0959216, "criminals": 7, "noncriminals": 34, "threatLevels": [33, 3, 2, 3]}),
         
-          new Facility({"name": "PICKENS COUNTY DETENTION CENTER", "addr": "188 CEMETERY ST", "city": "CARROLLTON", "state": "AL", "zipc": "35447", "lat": 33.2603007, "lon": -88.0959216, "criminals": 7, "noncriminals": 32, "threatLevels": [30, 3, 2, 3]}),
+          new Facility({"name": "PIKE COUNTY JAIL", "addr": "175 PIKE COUNTY BOULEVARD", "city": "LORDS VALLEY", "state": "PA", "zipc": "18428", "lat": 41.3892641952419, "lon": -75.071309115601, "criminals": 72, "noncriminals": 168, "threatLevels": [159, 33, 20, 29]}),
         
-          new Facility({"name": "PIKE COUNTY JAIL", "addr": "175 PIKE COUNTY BOULEVARD", "city": "LORDS VALLEY", "state": "PA", "zipc": "18428", "lat": 41.3892641952419, "lon": -75.071309115601, "criminals": 74, "noncriminals": 164, "threatLevels": [157, 31, 21, 29]}),
+          new Facility({"name": "PINE PRAIRIE ICE PROCESSING CENTER", "addr": "1133 HAMPTON DUPRE ROAD", "city": "PINE PRAIRIE", "state": "LA", "zipc": "70576", "lat": 30.7884208, "lon": -92.4227559, "criminals": 222, "noncriminals": 681, "threatLevels": [641, 120, 55, 87]}),
         
-          new Facility({"name": "PINE PRAIRIE ICE PROCESSING CENTER", "addr": "1133 HAMPTON DUPRE ROAD", "city": "PINE PRAIRIE", "state": "LA", "zipc": "70576", "lat": 30.7884208, "lon": -92.4227559, "criminals": 242, "noncriminals": 666, "threatLevels": [635, 128, 58, 87]}),
+          new Facility({"name": "PINELLAS COUNTY JAIL", "addr": "14400 49TH STREET NORTH", "city": "CLEARWATER", "state": "FL", "zipc": "33762", "lat": 27.903511036240065, "lon": -82.70346139830698, "criminals": 7, "noncriminals": 34, "threatLevels": [30, 5, 3, 3]}),
         
-          new Facility({"name": "PINELLAS COUNTY JAIL", "addr": "14400 49TH STREET NORTH", "city": "CLEARWATER", "state": "FL", "zipc": "33762", "lat": 27.903511036240065, "lon": -82.70346139830698, "criminals": 7, "noncriminals": 35, "threatLevels": [32, 5, 2, 3]}),
+          new Facility({"name": "PLATTE COUNTY JAIL", "addr": "850 MAPLE STREET", "city": "WHEATLAND", "state": "WY", "zipc": "82201", "lat": 42.0555979, "lon": -104.9522457, "criminals": 1, "noncriminals": 1, "threatLevels": [1, 0, 0, 0]}),
         
-          new Facility({"name": "PLATTE COUNTY JAIL", "addr": "850 MAPLE STREET", "city": "WHEATLAND", "state": "WY", "zipc": "82201", "lat": 42.0555979, "lon": -104.9522457, "criminals": 1, "noncriminals": 2, "threatLevels": [2, 1, 0, 0]}),
+          new Facility({"name": "PLYMOUTH COUNTY CORRECTIONAL FACILITY", "addr": "26 LONG POND ROAD", "city": "PLYMOUTH", "state": "MA", "zipc": "02360", "lat": 41.9318079, "lon": -70.6512992, "criminals": 137, "noncriminals": 371, "threatLevels": [347, 88, 41, 33]}),
         
-          new Facility({"name": "PLYMOUTH COUNTY CORRECTIONAL FACILITY", "addr": "26 LONG POND ROAD", "city": "PLYMOUTH", "state": "MA", "zipc": "02360", "lat": 41.9318079, "lon": -70.6512992, "criminals": 139, "noncriminals": 370, "threatLevels": [352, 86, 40, 31]}),
+          new Facility({"name": "POLK COUNTY JAIL", "addr": "1985 NE 51ST PLACE", "city": "DES MOINES", "state": "IA", "zipc": "50313", "lat": 41.6534505, "lon": -93.5877727, "criminals": 24, "noncriminals": 27, "threatLevels": [18, 10, 9, 13]}),
         
-          new Facility({"name": "POLK COUNTY JAIL", "addr": "1985 NE 51ST PLACE", "city": "DES MOINES", "state": "IA", "zipc": "50313", "lat": 41.6534505, "lon": -93.5877727, "criminals": 26, "noncriminals": 24, "threatLevels": [17, 10, 9, 14]}),
+          new Facility({"name": "PORT ISABEL SPC", "addr": "27991 BUENA VISTA BOULEVARD", "city": "LOS FRESNOS", "state": "TX", "zipc": "78566", "lat": 26.1563622, "lon": -97.337839, "criminals": 125, "noncriminals": 1097, "threatLevels": [1060, 42, 38, 84]}),
         
-          new Facility({"name": "PORT ISABEL SPC", "addr": "27991 BUENA VISTA BOULEVARD", "city": "LOS FRESNOS", "state": "TX", "zipc": "78566", "lat": 26.1563622, "lon": -97.337839, "criminals": 104, "noncriminals": 973, "threatLevels": [953, 27, 28, 69]}),
+          new Facility({"name": "POTTAWATTAMIE COUNTY JAIL", "addr": "1400 BIG LAKE ROAD", "city": "COUNCIL BLUFFS", "state": "IA", "zipc": "51501", "lat": 41.284196, "lon": -95.864127, "criminals": 21, "noncriminals": 11, "threatLevels": [7, 12, 5, 8]}),
         
-          new Facility({"name": "POTTAWATTAMIE COUNTY JAIL", "addr": "1400 BIG LAKE ROAD", "city": "COUNCIL BLUFFS", "state": "IA", "zipc": "51501", "lat": 41.284196, "lon": -95.864127, "criminals": 23, "noncriminals": 11, "threatLevels": [7, 13, 6, 9]}),
-        
-          new Facility({"name": "PRAIRIELAND DETENTION CENTER", "addr": "1209 SUNFLOWER LN", "city": "ALVARADO", "state": "TX", "zipc": "76009", "lat": 32.4217035, "lon": -97.1958971, "criminals": 186, "noncriminals": 774, "threatLevels": [763, 101, 36, 59]}),
+          new Facility({"name": "PRAIRIELAND DETENTION CENTER", "addr": "1209 SUNFLOWER LN", "city": "ALVARADO", "state": "TX", "zipc": "76009", "lat": 32.4217035, "lon": -97.1958971, "criminals": 181, "noncriminals": 788, "threatLevels": [766, 100, 41, 62]}),
         
           new Facility({"name": "PUTNAM COUNTY SHERIFF", "addr": "421 E SPRING ST.", "city": "COOKEVILLE", "state": "TN", "zipc": "38501", "lat": 36.1617449, "lon": -85.4983817, "criminals": 5, "noncriminals": 14, "threatLevels": [10, 3, 3, 3]}),
         
-          new Facility({"name": "RICHWOOD CORRECTIONAL CENTER", "addr": "180 PINE BAYOU CIRCLE", "city": "MONROE", "state": "LA", "zipc": "71202", "lat": 32.45717553802827, "lon": -92.079859671668, "criminals": 123, "noncriminals": 977, "threatLevels": [964, 50, 31, 56]}),
+          new Facility({"name": "RICHWOOD CORRECTIONAL CENTER", "addr": "180 PINE BAYOU CIRCLE", "city": "MONROE", "state": "LA", "zipc": "71202", "lat": 32.45717553802827, "lon": -92.079859671668, "criminals": 115, "noncriminals": 967, "threatLevels": [950, 49, 30, 54]}),
         
-          new Facility({"name": "RIO GRANDE DETENTION CENTER", "addr": "1001 SAN RIO BOULEVARD", "city": "LAREDO", "state": "TX", "zipc": "78046", "lat": 27.379978, "lon": -99.486229, "criminals": 54, "noncriminals": 545, "threatLevels": [533, 3, 18, 44]}),
+          new Facility({"name": "RIO GRANDE DETENTION CENTER", "addr": "1001 SAN RIO BOULEVARD", "city": "LAREDO", "state": "TX", "zipc": "78046", "lat": 27.379978, "lon": -99.486229, "criminals": 50, "noncriminals": 565, "threatLevels": [552, 3, 17, 43]}),
         
-          new Facility({"name": "RIVER CORRECTIONAL CENTER", "addr": "26362 HIGHWAY 15", "city": "FERRIDAY", "state": "LA", "zipc": "71334", "lat": 31.597253400688896, "lon": -91.55806052381577, "criminals": 55, "noncriminals": 546, "threatLevels": [537, 9, 17, 40]}),
+          new Facility({"name": "RIVER CORRECTIONAL CENTER", "addr": "26362 HIGHWAY 15", "city": "FERRIDAY", "state": "LA", "zipc": "71334", "lat": 31.597253400688896, "lon": -91.55806052381577, "criminals": 50, "noncriminals": 539, "threatLevels": [528, 9, 15, 37]}),
         
-          new Facility({"name": "RIVERSIDE REGIONAL JAIL", "addr": "1000 RIVER ROAD", "city": "HOPEWELL", "state": "VA", "zipc": "23860", "lat": 37.2950331, "lon": -77.321649, "criminals": 13, "noncriminals": 81, "threatLevels": [77, 5, 5, 8]}),
+          new Facility({"name": "RIVERSIDE REGIONAL JAIL", "addr": "1000 RIVER ROAD", "city": "HOPEWELL", "state": "VA", "zipc": "23860", "lat": 37.2950331, "lon": -77.321649, "criminals": 15, "noncriminals": 91, "threatLevels": [84, 6, 6, 10]}),
         
-          new Facility({"name": "ROANOKE CITY JAIL", "addr": "340 CAMPBELL AVENUE SOUTHWEST", "city": "ROANOKE", "state": "VA", "zipc": "24016", "lat": 37.2711624, "lon": -79.9473382, "criminals": 0, "noncriminals": 1, "threatLevels": [1, 0, 0, 0]}),
+          new Facility({"name": "ROBERT A DEYTON DETENTION FACILITY", "addr": "11866 HASTINGS BRIDGE ROAD P.O. BOX 429", "city": "LOVEJOY", "state": "GA", "zipc": "30250", "lat": 33.434847, "lon": -84.305968, "criminals": 4, "noncriminals": 5, "threatLevels": [5, 2, 1, 1]}),
         
-          new Facility({"name": "ROBERT A DEYTON DETENTION FACILITY", "addr": "11866 HASTINGS BRIDGE ROAD P.O. BOX 429", "city": "LOVEJOY", "state": "GA", "zipc": "30250", "lat": 33.434847, "lon": -84.305968, "criminals": 3, "noncriminals": 6, "threatLevels": [5, 2, 1, 1]}),
-        
-          new Facility({"name": "ROCKINGHAM COUNTY JAIL", "addr": "25 SOUTH LIBERTY STREET", "city": "HARRISONBURG", "state": "VA", "zipc": "22801", "lat": 38.449425, "lon": -78.8707201, "criminals": 0, "noncriminals": 1, "threatLevels": [1, 0, 0, 0]}),
-        
-          new Facility({"name": "SAIPAN DEPARTMENT OF CORRECTIONS (SUSUPE)", "addr": "VICENTE T. SEMAN BLDG, CIVIC CENTER", "city": "SAIPAN", "state": "MP", "zipc": "96950", "lat": 15.158907917922077, "lon": 145.70544921267373, "criminals": 5, "noncriminals": 17, "threatLevels": [16, 5, 1, 1]}),
+          new Facility({"name": "SAIPAN DEPARTMENT OF CORRECTIONS (SUSUPE)", "addr": "VICENTE T. SEMAN BLDG, CIVIC CENTER", "city": "SAIPAN", "state": "MP", "zipc": "96950", "lat": 15.158907917922077, "lon": 145.70544921267373, "criminals": 5, "noncriminals": 16, "threatLevels": [15, 4, 1, 1]}),
         
           new Facility({"name": "SALT LAKE COUNTY METRO JAIL", "addr": "3415 SOUTH 900 WEST", "city": "SALT LAKE CITY", "state": "UT", "zipc": "84119", "lat": 40.7259591, "lon": -111.9169442, "criminals": 0, "noncriminals": 1, "threatLevels": [1, 0, 0, 0]}),
         
-          new Facility({"name": "SAN DIEGO DISTRICT STAGING", "addr": "US INS DETENTION & DEPORTATION", "city": "SAN DIEGO", "state": "CA", "zipc": "92101", "lat": null, "lon": null, "criminals": 4, "noncriminals": 11, "threatLevels": [10, 2, 1, 2]}),
+          new Facility({"name": "SAN JUAN STAGING", "addr": "651 FEDERAL DRIVE, SUITE 104", "city": "GUAYNABO", "state": "PR", "zipc": "00965", "lat": 18.423606, "lon": -66.113134, "criminals": 2, "noncriminals": 17, "threatLevels": [15, 2, 1, 1]}),
         
-          new Facility({"name": "SAN JUAN STAGING", "addr": "651 FEDERAL DRIVE, SUITE 104", "city": "GUAYNABO", "state": "PR", "zipc": "00965", "lat": 18.423606, "lon": -66.113134, "criminals": 2, "noncriminals": 20, "threatLevels": [18, 2, 1, 1]}),
+          new Facility({"name": "SAN LUIS REGIONAL DETENTION CENTER", "addr": "406 NORTH AVENUE D", "city": "SAN LUIS", "state": "AZ", "zipc": "85349", "lat": 32.483025880176186, "lon": -114.68349442933823, "criminals": 68, "noncriminals": 294, "threatLevels": [291, 42, 13, 17]}),
         
-          new Facility({"name": "SAN LUIS REGIONAL DETENTION CENTER", "addr": "406 NORTH AVENUE D", "city": "SAN LUIS", "state": "AZ", "zipc": "85349", "lat": 32.483025880176186, "lon": -114.68349442933823, "criminals": 74, "noncriminals": 292, "threatLevels": [291, 48, 12, 16]}),
+          new Facility({"name": "SARPY COUNTY JAIL", "addr": "1208 GOLDEN GATE DRIVE", "city": "PAPILLION", "state": "NE", "zipc": "68046", "lat": 41.1434535, "lon": -96.0419407, "criminals": 12, "noncriminals": 9, "threatLevels": [6, 4, 5, 5]}),
         
-          new Facility({"name": "SARPY COUNTY JAIL", "addr": "1208 GOLDEN GATE DRIVE", "city": "PAPILLION", "state": "NE", "zipc": "68046", "lat": 41.1434535, "lon": -96.0419407, "criminals": 13, "noncriminals": 7, "threatLevels": [5, 4, 6, 5]}),
-        
-          new Facility({"name": "SAUK COUNTY SHERIFF", "addr": "1300 LANGE CT.", "city": "BARABOO", "state": "WI", "zipc": "53913", "lat": 43.4615055, "lon": -89.7672991, "criminals": 4, "noncriminals": 13, "threatLevels": [13, 1, 2, 1]}),
+          new Facility({"name": "SAUK COUNTY SHERIFF", "addr": "1300 LANGE CT.", "city": "BARABOO", "state": "WI", "zipc": "53913", "lat": 43.4615055, "lon": -89.7672991, "criminals": 4, "noncriminals": 11, "threatLevels": [11, 1, 2, 1]}),
         
           new Facility({"name": "SCOTT COUNTY DET. FACILITY", "addr": "416 W 4TH ST", "city": "DAVENPORT", "state": "IA", "zipc": "52801", "lat": 41.5236168, "lon": -90.5788339, "criminals": 1, "noncriminals": 0, "threatLevels": [0, 1, 0, 0]}),
         
-          new Facility({"name": "SEBASTIAN COUNTY DETENTION CENTER", "addr": "801 SOUTH A STREET", "city": "FORT SMITH", "state": "AR", "zipc": "72901", "lat": 35.3822229, "lon": -94.422565, "criminals": 0, "noncriminals": 2, "threatLevels": [2, 0, 0, 0]}),
+          new Facility({"name": "SENECA COUNTY JAIL", "addr": "3040 SOUTH STATE HIGHWAY 100", "city": "TIFFIN", "state": "OH", "zipc": "44883", "lat": 41.079506331622774, "lon": -83.15386397328119, "criminals": 14, "noncriminals": 47, "threatLevels": [46, 1, 2, 11]}),
         
-          new Facility({"name": "SENECA COUNTY JAIL", "addr": "3040 SOUTH STATE HIGHWAY 100", "city": "TIFFIN", "state": "OH", "zipc": "44883", "lat": 41.079506331622774, "lon": -83.15386397328119, "criminals": 15, "noncriminals": 47, "threatLevels": [47, 1, 2, 12]}),
+          new Facility({"name": "SHERBURNE COUNTY JAIL", "addr": "13880 BUSINESS CENTER DRIVE", "city": "ELK RIVER", "state": "MN", "zipc": "55330", "lat": 45.3037535, "lon": -93.6200234, "criminals": 34, "noncriminals": 65, "threatLevels": [59, 20, 7, 13]}),
         
-          new Facility({"name": "SHERBURNE COUNTY JAIL", "addr": "13880 BUSINESS CENTER DRIVE", "city": "ELK RIVER", "state": "MN", "zipc": "55330", "lat": 45.3037535, "lon": -93.6200234, "criminals": 40, "noncriminals": 59, "threatLevels": [55, 21, 8, 14]}),
+          new Facility({"name": "SIOUX COUNTY JAIL", "addr": "4363 IRONWOOD AVENUE", "city": "ORANGE CITY", "state": "IA", "zipc": "51041", "lat": 43.0188256, "lon": -96.0774475, "criminals": 5, "noncriminals": 6, "threatLevels": [5, 2, 2, 2]}),
         
-          new Facility({"name": "SIOUX COUNTY JAIL", "addr": "4363 IRONWOOD AVENUE", "city": "ORANGE CITY", "state": "IA", "zipc": "51041", "lat": 43.0188256, "lon": -96.0774475, "criminals": 5, "noncriminals": 3, "threatLevels": [3, 2, 1, 2]}),
+          new Facility({"name": "SOUTH CENTRAL REGIONAL JAIL", "addr": "1001 CENTER WAY", "city": "CHARLESTON", "state": "WV", "zipc": "25309", "lat": 38.31113857008232, "lon": -81.71099978870323, "criminals": 5, "noncriminals": 16, "threatLevels": [15, 3, 1, 2]}),
         
-          new Facility({"name": "SOUTH CENTRAL REGIONAL JAIL", "addr": "1001 CENTER WAY", "city": "CHARLESTON", "state": "WV", "zipc": "25309", "lat": 38.31113857008232, "lon": -81.71099978870323, "criminals": 6, "noncriminals": 16, "threatLevels": [15, 3, 2, 2]}),
+          new Facility({"name": "SOUTH LOUISIANA ICE PROCESSING CENTER", "addr": "3843 STAGG AVENUE", "city": "BASILE", "state": "LA", "zipc": "70515", "lat": 30.4866896, "lon": -92.5818666, "criminals": 158, "noncriminals": 825, "threatLevels": [803, 91, 41, 47]}),
         
-          new Facility({"name": "SOUTH LOUISIANA ICE PROCESSING CENTER", "addr": "3843 STAGG AVENUE", "city": "BASILE", "state": "LA", "zipc": "70515", "lat": 30.4866896, "lon": -92.5818666, "criminals": 160, "noncriminals": 834, "threatLevels": [818, 89, 38, 48]}),
+          new Facility({"name": "SOUTH TEXAS ICE PROCESSING CENTER", "addr": "566 VETERANS DRIVE", "city": "PEARSALL", "state": "TX", "zipc": "78061", "lat": 28.8946514, "lon": -99.1219428, "criminals": 542, "noncriminals": 1204, "threatLevels": [1130, 169, 106, 341]}),
         
-          new Facility({"name": "SOUTH TEXAS ICE PROCESSING CENTER", "addr": "566 VETERANS DRIVE", "city": "PEARSALL", "state": "TX", "zipc": "78061", "lat": 28.8946514, "lon": -99.1219428, "criminals": 575, "noncriminals": 1157, "threatLevels": [1100, 176, 106, 351]}),
+          new Facility({"name": "ST. CLAIR COUNTY JAIL", "addr": "1170 MICHIGAN ROAD", "city": "PORT HURON", "state": "MI", "zipc": "48060", "lat": 42.9426053, "lon": -82.4799303, "criminals": 10, "noncriminals": 35, "threatLevels": [33, 5, 3, 4]}),
         
-          new Facility({"name": "ST. CLAIR COUNTY JAIL", "addr": "1170 MICHIGAN ROAD", "city": "PORT HURON", "state": "MI", "zipc": "48060", "lat": 42.9426053, "lon": -82.4799303, "criminals": 10, "noncriminals": 32, "threatLevels": [31, 4, 3, 4]}),
+          new Facility({"name": "STE. GENEVIEVE COUNTY SHERIFF/JAIL", "addr": "5 BASLER DR.", "city": "STE. GENEVIEVE", "state": "MO", "zipc": "63670", "lat": 37.965677, "lon": -90.0551125, "criminals": 18, "noncriminals": 86, "threatLevels": [74, 6, 7, 17]}),
         
-          new Facility({"name": "STE. GENEVIEVE COUNTY SHERIFF/JAIL", "addr": "5 BASLER DR.", "city": "STE. GENEVIEVE", "state": "MO", "zipc": "63670", "lat": 37.965677, "lon": -90.0551125, "criminals": 16, "noncriminals": 77, "threatLevels": [69, 5, 6, 13]}),
+          new Facility({"name": "STEWART DETENTION CENTER", "addr": "146 CCA ROAD", "city": "LUMPKIN", "state": "GA", "zipc": "31815", "lat": 32.036729905551354, "lon": -84.77148464340088, "criminals": 676, "noncriminals": 1324, "threatLevels": [1213, 341, 214, 233]}),
         
-          new Facility({"name": "STEWART DETENTION CENTER", "addr": "146 CCA ROAD", "city": "LUMPKIN", "state": "GA", "zipc": "31815", "lat": 32.036729905551354, "lon": -84.77148464340088, "criminals": 731, "noncriminals": 1313, "threatLevels": [1214, 353, 231, 246]}),
+          new Facility({"name": "STRAFFORD COUNTY CORRECTIONS", "addr": "266 COUNTY FARM ROAD", "city": "DOVER", "state": "NH", "zipc": "03820", "lat": 43.2192302, "lon": -70.9386083, "criminals": 46, "noncriminals": 98, "threatLevels": [95, 27, 12, 11]}),
         
-          new Facility({"name": "STRAFFORD COUNTY CORRECTIONS", "addr": "266 COUNTY FARM ROAD", "city": "DOVER", "state": "NH", "zipc": "03820", "lat": 43.2192302, "lon": -70.9386083, "criminals": 43, "noncriminals": 99, "threatLevels": [96, 24, 12, 10]}),
+          new Facility({"name": "SWEETWATER COUNTY JAIL", "addr": "50140 UNITED STATES HIGHWAY 191 SOUTH", "city": "ROCK SPRINGS", "state": "WY", "zipc": "82935", "lat": 41.5371934874891, "lon": -109.30126553093841, "criminals": 5, "noncriminals": 5, "threatLevels": [5, 4, 0, 1]}),
         
-          new Facility({"name": "SWEETWATER COUNTY JAIL", "addr": "50140 UNITED STATES HIGHWAY 191 SOUTH", "city": "ROCK SPRINGS", "state": "WY", "zipc": "82935", "lat": 41.5371934874891, "lon": -109.30126553093841, "criminals": 5, "noncriminals": 4, "threatLevels": [4, 4, 0, 1]}),
+          new Facility({"name": "T DON HUTTO DETENTION CENTER", "addr": "1001 WELCH STREET", "city": "TAYLOR", "state": "TX", "zipc": "76574", "lat": 30.5647288, "lon": -97.4194342, "criminals": 126, "noncriminals": 325, "threatLevels": [289, 57, 47, 59]}),
         
-          new Facility({"name": "T DON HUTTO DETENTION CENTER", "addr": "1001 WELCH STREET", "city": "TAYLOR", "state": "TX", "zipc": "76574", "lat": 30.5647288, "lon": -97.4194342, "criminals": 135, "noncriminals": 309, "threatLevels": [278, 59, 48, 59]}),
+          new Facility({"name": "TOOELE COUNTY JAIL", "addr": "47 SOUTH MAIN STREET", "city": "TOOELE", "state": "UT", "zipc": "84074", "lat": 40.529621, "lon": -112.297725, "criminals": 3, "noncriminals": 7, "threatLevels": [4, 2, 2, 2]}),
         
-          new Facility({"name": "TOOELE COUNTY JAIL", "addr": "47 SOUTH MAIN STREET", "city": "TOOELE", "state": "UT", "zipc": "84074", "lat": 40.529621, "lon": -112.297725, "criminals": 3, "noncriminals": 7, "threatLevels": [4, 2, 2, 3]}),
+          new Facility({"name": "TORRANCE/ESTANCIA, NM", "addr": "209 COUNTY ROAD 49", "city": "ESTANCIA", "state": "NM", "zipc": "87016", "lat": 34.76832244015224, "lon": -106.01873793112864, "criminals": 52, "noncriminals": 335, "threatLevels": [335, 7, 9, 36]}),
         
-          new Facility({"name": "TORRANCE/ESTANCIA, NM", "addr": "209 COUNTY ROAD 49", "city": "ESTANCIA", "state": "NM", "zipc": "87016", "lat": 34.76832244015224, "lon": -106.01873793112864, "criminals": 59, "noncriminals": 381, "threatLevels": [381, 8, 10, 40]}),
+          new Facility({"name": "TULSA COUNTY JAIL (DAVID L. MOSS JUSTICE CTR)", "addr": "300 NORTH DENVER AVENUE", "city": "TULSA", "state": "OK", "zipc": "74103", "lat": 36.1572816, "lon": -95.9990129, "criminals": 8, "noncriminals": 42, "threatLevels": [40, 3, 3, 3]}),
         
-          new Facility({"name": "TULSA COUNTY JAIL (DAVID L. MOSS JUSTICE CTR)", "addr": "300 NORTH DENVER AVENUE", "city": "TULSA", "state": "OK", "zipc": "74103", "lat": 36.1572816, "lon": -95.9990129, "criminals": 8, "noncriminals": 45, "threatLevels": [43, 3, 4, 4]}),
+          new Facility({"name": "TURNER GUILFORD KNIGHT (TGK) JAIL", "addr": "7000 NW 41ST ST.", "city": "MIAMI", "state": "FL", "zipc": "33166", "lat": 25.8111329, "lon": -80.3108541, "criminals": 2, "noncriminals": 7, "threatLevels": [7, 2, 0, 0]}),
         
-          new Facility({"name": "TURNER GUILFORD KNIGHT (TGK) JAIL", "addr": "7000 NW 41ST ST.", "city": "MIAMI", "state": "FL", "zipc": "33166", "lat": 25.8111329, "lon": -80.3108541, "criminals": 2, "noncriminals": 7, "threatLevels": [7, 1, 0, 0]}),
+          new Facility({"name": "TWO BRIDGES REGIONAL JAIL", "addr": "522 BATH RD", "city": "WISCASSET", "state": "ME", "zipc": "04578", "lat": 43.9781192, "lon": -69.6989264, "criminals": 3, "noncriminals": 6, "threatLevels": [6, 2, 0, 1]}),
         
-          new Facility({"name": "TWO BRIDGES REGIONAL JAIL", "addr": "522 BATH RD", "city": "WISCASSET", "state": "ME", "zipc": "04578", "lat": 43.9781192, "lon": -69.6989264, "criminals": 3, "noncriminals": 7, "threatLevels": [7, 2, 0, 1]}),
-        
-          new Facility({"name": "UINTA COUNTY JAIL", "addr": "77 COUNTY ROAD 109", "city": "EVANSTON", "state": "WY", "zipc": "82930", "lat": 41.269064, "lon": -110.921015, "criminals": 4, "noncriminals": 14, "threatLevels": [9, 3, 2, 4]}),
+          new Facility({"name": "UINTA COUNTY JAIL", "addr": "77 COUNTY ROAD 109", "city": "EVANSTON", "state": "WY", "zipc": "82930", "lat": 41.269064, "lon": -110.921015, "criminals": 5, "noncriminals": 16, "threatLevels": [11, 4, 2, 4]}),
         
           new Facility({"name": "VICTORIA COUNTY JAIL", "addr": "101 NORTH GLASS STREET", "city": "VICTORIA", "state": "TX", "zipc": "77901", "lat": 28.8005407, "lon": -97.0085472, "criminals": 0, "noncriminals": 14, "threatLevels": [14, 0, 0, 0]}),
         
-          new Facility({"name": "WALTON COUNTY JAIL", "addr": "40 SHERIFF CIR", "city": "DEFUNIAK SPRINGS", "state": "FL", "zipc": "32433", "lat": 30.78363619823702, "lon": -86.1039227599523, "criminals": 4, "noncriminals": 19, "threatLevels": [17, 3, 1, 2]}),
+          new Facility({"name": "WALTON COUNTY JAIL", "addr": "40 SHERIFF CIR", "city": "DEFUNIAK SPRINGS", "state": "FL", "zipc": "32433", "lat": 30.78363619823702, "lon": -86.1039227599523, "criminals": 5, "noncriminals": 21, "threatLevels": [20, 2, 2, 2]}),
         
           new Facility({"name": "WARD COUNTY JAIL", "addr": "P.O. BOX 907", "city": "MINOT", "state": "ND", "zipc": "58702", "lat": 48.23153, "lon": -101.295738, "criminals": 0, "noncriminals": 1, "threatLevels": [1, 0, 0, 0]}),
         
-          new Facility({"name": "WASHINGTON COUNTY DETENTION CENTER", "addr": "1155 WEST CLYDESDALE DRIVE", "city": "FAYETTEVILLE", "state": "AR", "zipc": "72701", "lat": 36.0340715, "lon": -94.175948, "criminals": 1, "noncriminals": 5, "threatLevels": [5, 1, 1, 0]}),
+          new Facility({"name": "WASHINGTON COUNTY DETENTION CENTER", "addr": "1155 WEST CLYDESDALE DRIVE", "city": "FAYETTEVILLE", "state": "AR", "zipc": "72701", "lat": 36.0340715, "lon": -94.175948, "criminals": 1, "noncriminals": 4, "threatLevels": [4, 1, 1, 0]}),
         
-          new Facility({"name": "WASHINGTON COUNTY JAIL (PURGATORY CORRECTIONAL FACILITY)", "addr": "750 SOUTH 5300 WEST", "city": "HURRICANE", "state": "UT", "zipc": "84737", "lat": 37.159618, "lon": -113.4122002, "criminals": 3, "noncriminals": 7, "threatLevels": [5, 3, 1, 3]}),
+          new Facility({"name": "WASHINGTON COUNTY JAIL (PURGATORY CORRECTIONAL FACILITY)", "addr": "750 SOUTH 5300 WEST", "city": "HURRICANE", "state": "UT", "zipc": "84737", "lat": 37.159618, "lon": -113.4122002, "criminals": 3, "noncriminals": 8, "threatLevels": [5, 3, 1, 3]}),
         
-          new Facility({"name": "WASHOE COUNTY JAIL", "addr": "911 PARR BLVD 775 328 3308", "city": "RENO", "state": "NV", "zipc": "89506", "lat": 39.57445694817889, "lon": -119.81272011554243, "criminals": 23, "noncriminals": 27, "threatLevels": [21, 18, 4, 7]}),
+          new Facility({"name": "WASHOE COUNTY JAIL", "addr": "911 PARR BLVD 775 328 3308", "city": "RENO", "state": "NV", "zipc": "89506", "lat": 39.57445694817889, "lon": -119.81272011554243, "criminals": 20, "noncriminals": 31, "threatLevels": [24, 17, 4, 7]}),
         
-          new Facility({"name": "WAUKESHA COUNTY JAIL", "addr": "515 WEST MORELAND", "city": "WAUKESHA", "state": "WI", "zipc": "53186", "lat": 43.0236491, "lon": -88.228229, "criminals": 1, "noncriminals": 2, "threatLevels": [2, 0, 1, 0]}),
+          new Facility({"name": "WEBB COUNTY DETENTION CENTER (CCA)", "addr": "9998 SOUTH HIGHWAY 83", "city": "LAREDO", "state": "TX", "zipc": "78041", "lat": 27.377731, "lon": -99.471644, "criminals": 51, "noncriminals": 389, "threatLevels": [378, 20, 15, 26]}),
         
-          new Facility({"name": "WEBB COUNTY DETENTION CENTER (CCA)", "addr": "9998 SOUTH HIGHWAY 83", "city": "LAREDO", "state": "TX", "zipc": "78041", "lat": 27.377731, "lon": -99.471644, "criminals": 55, "noncriminals": 373, "threatLevels": [368, 20, 15, 25]}),
+          new Facility({"name": "WEBER COUNTY JAIL", "addr": "721 WEST 12TH STREET", "city": "OGDEN", "state": "UT", "zipc": "84404", "lat": 41.244357, "lon": -111.9950583, "criminals": 1, "noncriminals": 4, "threatLevels": [3, 1, 1, 1]}),
         
-          new Facility({"name": "WEBER COUNTY JAIL", "addr": "721 WEST 12TH STREET", "city": "OGDEN", "state": "UT", "zipc": "84404", "lat": 41.244357, "lon": -111.9950583, "criminals": 2, "noncriminals": 4, "threatLevels": [2, 1, 1, 1]}),
+          new Facility({"name": "WESTERN TENNESSEE DETENTION FACILITY", "addr": "6299 FINDE NAIFEH DRIVE", "city": "MASON", "state": "TN", "zipc": "38049", "lat": 35.4073607, "lon": -89.5488466, "criminals": 26, "noncriminals": 199, "threatLevels": [184, 14, 8, 19]}),
         
-          new Facility({"name": "WESTERN TENNESSEE DETENTION FACILITY", "addr": "6299 FINDE NAIFEH DRIVE", "city": "MASON", "state": "TN", "zipc": "38049", "lat": 35.4073607, "lon": -89.5488466, "criminals": 18, "noncriminals": 125, "threatLevels": [115, 10, 5, 12]}),
+          new Facility({"name": "WINN CORRECTIONAL CENTER", "addr": "560 GUM SPRING ROAD", "city": "WINNFIELD", "state": "LA", "zipc": "71483", "lat": 31.8504715684334, "lon": -92.78135647527058, "criminals": 369, "noncriminals": 1149, "threatLevels": [1096, 191, 102, 129]}),
         
-          new Facility({"name": "WESTERN VIRGINIA REGIONAL JAIL", "addr": "5885 W RIVER RD", "city": "SALEM", "state": "VA", "zipc": "24153", "lat": 37.250881, "lon": -80.170341, "criminals": 1, "noncriminals": 1, "threatLevels": [1, 0, 0, 0]}),
+          new Facility({"name": "WOODBURY COUNTY JAIL", "addr": "407 7TH STREET", "city": "SIOUX CITY", "state": "IA", "zipc": "51101", "lat": 42.4975021, "lon": -96.4062738, "criminals": 25, "noncriminals": 36, "threatLevels": [33, 11, 7, 10]}),
         
-          new Facility({"name": "WINN CORRECTIONAL CENTER", "addr": "560 GUM SPRING ROAD", "city": "WINNFIELD", "state": "LA", "zipc": "71483", "lat": 31.8504715684334, "lon": -92.78135647527058, "criminals": 385, "noncriminals": 1150, "threatLevels": [1110, 195, 102, 128]}),
-        
-          new Facility({"name": "WOODBURY COUNTY JAIL", "addr": "407 7TH STREET", "city": "SIOUX CITY", "state": "IA", "zipc": "51101", "lat": 42.4975021, "lon": -96.4062738, "criminals": 22, "noncriminals": 30, "threatLevels": [28, 7, 7, 11]}),
-        
-          new Facility({"name": "WYATT DETENTION CENTER", "addr": "950 HIGH STREET", "city": "CENTRAL FALLS", "state": "RI", "zipc": "02863", "lat": 41.8928106, "lon": -71.3831998, "criminals": 37, "noncriminals": 79, "threatLevels": [74, 26, 5, 10]}),
+          new Facility({"name": "WYATT DETENTION CENTER", "addr": "950 HIGH STREET", "city": "CENTRAL FALLS", "state": "RI", "zipc": "02863", "lat": 41.8928106, "lon": -71.3831998, "criminals": 37, "noncriminals": 79, "threatLevels": [74, 27, 6, 9]}),
         
       ];
 
