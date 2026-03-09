@@ -1010,5 +1010,25 @@
   "9747 NW CONANT AVENUE, KANSAS CITY, MO, 64153": {
     "lat": 39.2449827,
     "lon": -94.6754297
+  },
+  "916 LAFAYETTE STREET, LAFAYETTE, LA, 70501": {
+    "lat": 30.2238427,
+    "lon": -92.0208733
+  },
+  "P.O. BOX 1000, LEWISBURG, PA, 17837": {
+    "lat": 40.9645337,
+    "lon": -76.8847639
+  },
+  "2020 MAIN ST, SARASOTA, FL, 34237": {
+    "lat": 27.3362853,
+    "lon": -82.5297895
+  },
+  "122 WEST HARRIS AVENUE, SAN ANGELO, TX, 76903": {
+    "lat": 31.4631643,
+    "lon": -100.4396099
+  },
+  "#1 LOIS LANE, GREENWOOD, WV, 26415": {
+    "lat": 39.2807895,
+    "lon": -80.8537931
   }
 }
