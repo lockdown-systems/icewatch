@@ -1030,5 +1030,13 @@
   "#1 LOIS LANE, GREENWOOD, WV, 26415": {
     "lat": 39.2807895,
     "lon": -80.8537931
+  },
+  "100 HIGHWAY TERRACE, LEAVENWORTH, KS, 66048": {
+    "lat": 39.273286,
+    "lon": -94.894304
+  },
+  "900 N. ROCK RD., FORT PIERCE, FL, 34945": {
+    "lat": 27.4217208,
+    "lon": -80.4074791
   }
 }
