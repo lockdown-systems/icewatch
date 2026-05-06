@@ -28,8 +28,11 @@ body:has(#content) {
 }
 #header-left {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
+  gap: 0.75em;
+}
+.header-logo {
+  max-width: 72px;
 }
 #header-title {
   font-size: 1.4em;
