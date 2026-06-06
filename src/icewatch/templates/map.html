@@ -39,6 +39,15 @@
       </nav>
     </header>
     <main>
+
+      <div id="timeline-container"
+      style="display: flex; align-items: center; justify-content: center; gap: 15px; background: #1a1a1a; color: #fff; padding: 10px; border-bottom: 2px solid #333; z-index: 1000; position: relative;">
+        <label for="timeline-slider">Snapshots:</label>
+        <input style="width: 50%;"
+        type="range" id="timeline-slider" min="0" max="0" value="0" step="1">
+        <span id="active-date-display">Loading...</span>
+      </div>
+
       <div id="map"></div>
       <button id="legend-toggle" onclick="toggleLegend()">Show Legend</button>
       <div class="legend" id="legend-box">
@@ -151,7 +160,6 @@
           this.color = color;
           this.size = size;
           this.marker = this.makeMarker();
-          this.addToMap();
         }
 
         getMarkerStyle() {
@@ -217,19 +225,7 @@
             }),
           });
         }
-
-        addToMap() {
-          if (this.marker != null) {
-            this.marker.addTo(map).bindPopup(this.makePopup());
-          }
-        }
       }
-
-      const facilities = [
-        {% for facility in facilities %}
-          new Facility({{ facility | safe }}),
-        {% endfor %}
-      ];
 
       function getFacilitiesInView(facs) {
         return facs.filter((fac) =>
@@ -279,12 +275,55 @@
         percentage.innerHTML = `<strong>${pctNoncriminal}</strong> without criminal records`;
       }
 
-      function updateInViewStats(e) {
-        const facilitiesInView = getFacilitiesInView(facilities);
-        updateHeaderStats(facilitiesInView, e);
+      function updateInViewStats() {
+        const facilitiesInView = getFacilitiesInView(currentFacilities);
+        updateHeaderStats(facilitiesInView);
       }
 
-      ["load", "zoomend", "moveend"].forEach((event) => map.on(event, updateInViewStats));
+      // timeline
+      const hData = {{ timeline_data_json | safe }};
+      // sort from oldest to newest
+      const availableDates = Object.keys(hData).sort();
+
+      // add layer group to map
+      let activeMarkers = L.layerGroup().addTo(map);
+      let currentFacilities = [];
+
+      function loadSnapshotIndex(index) {
+
+        // update html of current date
+        const sData = availableDates[index];
+        document.getElementById('active-date-display').innerText = sData;
+        activeMarkers.clearLayers();
+
+        // add data to data list
+        const dataList = hData[sData];
+        currentFacilities = dataList.map(data => {
+          const parsedData = data;
+          const facInstance = new Facility(parsedData);
+          // add markers
+          if (facInstance.marker) {
+            facInstance.marker.addTo(activeMarkers).bindPopup(facInstance.makePopup());
+          }
+          return facInstance;
+        });
+
+        updateInViewStats();
+      }
+
+      // sliding defaults
+      const slider = document.getElementById("timeline-slider");
+      slider.min = 0;
+      slider.max = availableDates.length - 1;
+      slider.value = availableDates.length - 1;
+
+      // update slider when sliding
+      slider.addEventListener("input", (e) => {
+        loadSnapshotIndex(parseInt(e.target.value));
+      });
+      loadSnapshotIndex(slider.value);
+
+       ["load", "zoomend", "moveend"].forEach((event) => map.on(event, updateInViewStats));
     </script>
   </body>
 </html>

@@ -312,81 +312,143 @@ def extract_facilities_data(
     Returns:
         dict: Dictionary containing the facilities data, or None if extraction failed.
     """
+    import pandas as pd
+
     try:
-        import pandas as pd
+        target_years = [f"Facilities FY{yr}" for yr in range(26, 18, -1)]
+        xl = pd.ExcelFile(filepath)
+        
+        sheet_name = None
+        for sheet in target_years:
+            if sheet in xl.sheet_names:
+                sheet_name = sheet
+                logger.info(f"Processing sheet: {sheet_name}")
+                break
+                
+        # Fallback if none of the target sheets are found
+        if not sheet_name:
+            logger.error(f"Could not find a valid Facilities FY sheet (FY26-FY19) in {filepath}")
+            return None
 
-        # Expected column names
-        expected_columns: dict[str, type] = {
-            "Name": str,
-            "Address": str,
-            "City": str,
-            "State": str,
-            "Zip": str,
-            "Male Crim": float,
-            "Male Non-Crim": float,
-            "Female Crim": float,
-            "Female Non-Crim": float,
-            "ICE Threat Level 1": float,
-            "ICE Threat Level 2": float,
-            "ICE Threat Level 3": float,
-            "No ICE Threat Level": float,
-        }
-
-        # Read the "Facilities FY26" sheet, starting from row 10 (index 9)
-        # The header row is at index 9, with row 8 containing merged header labels
-        df = pd.read_excel(
-            filepath,
-            sheet_name="Facilities FY26",
-            header=9,
-            dtype=expected_columns,
+        header_df = pd.read_excel(
+            filepath, sheet_name=sheet_name, nrows=10, header=None
         )
+        full_df = pd.read_excel(filepath, sheet_name=sheet_name, header=None)
 
-        # Check if we have the expected columns
-        missing_columns = [
-            col for col in expected_columns.keys() if col not in df.columns
-        ]
-        if missing_columns:
-            logger.warning(f"Missing expected columns: {missing_columns}")
-            logger.info(f"Available columns: {list(df.columns)}")
+        source_date_str = source_date
+        if not source_date_str:
+            for row in header_df.values:
+                row_str = " ".join([str(val) for val in row if pd.notna(val)])
+                
+                # format date
+                if "Data Source:" in row_str:
+                    match = re.search(r"\b(\d{1,2}/\d{1,2}/\d{4})\b", row_str)
+                    if match:
+                        raw_date = match.group(1)
+                        source_date_str = datetime.strptime(raw_date, "%m/%d/%Y").strftime("%Y-%m-%d")
+                    break
 
-        # Clean the data
-        # Remove rows where all values are NaN
-        df = df.dropna(how="all")
+        # fallback to current date if missing from the sheet header
+        if not source_date_str:
+            source_date_str = datetime.now().strftime("%Y-%m-%d")
 
-        # Ensure zip codes are of length 5
-        # Convert to string first in case it's numeric, handling NaN values
-        if "Zip" in df.columns:
-            df["Zip"] = df["Zip"].astype(str).str.replace(".0", "", regex=False)
-            df["Zip"] = df["Zip"].replace("nan", "").str.zfill(5)
+        # find the rows that have the parameters we're looking for
+        header_row_index = None
+        for idx, row in full_df.iterrows():
+            if "Facility Name" in row.values or "Name" in row.values:
+                header_row_index = idx
+                break
 
-        # Convert to list of dictionaries
-        facilities_data = []
-        for index, row in df.iterrows():
-            facility: dict[str, str | float | None] = {}
-            for col in expected_columns.keys():
-                if col in df.columns:
-                    value = row[col]
-                    if pd.isna(value):
-                        facility[col] = None
-                    else:
-                        facility[col] = value
-                else:
-                    facility[col] = None
-            facilities_data.append(facility)
+            if "City" in row.values and "State" in row.values:
+                header_row_index = idx
+                break
 
-        logger.info(f"Extracted {len(facilities_data)} facilities from the Excel file")
+        if header_row_index is None:
+            logger.error("Could not find data header row.")
+            return None
 
-        metadata = {
-            "source_file": filepath,
-            "extraction_date": source_date,
-            "last_checked_date": datetime.now().isoformat(),
-            "total_facilities": len(facilities_data),
+        # df with correct info
+        data_df = pd.read_excel(filepath, sheet_name=sheet_name, skiprows=header_row_index)
+        data_df.columns = [str(col).strip() for col in data_df.columns]
+
+        column_mapping: dict[str, str] = {
+            "Facility Name": "Name",
+            "Name": "Name",
+            "Facility Address": "Address",
+            "Address": "Address",
+            "City": "City",
+            "State": "State",
+            "Zip": "Zip",
+            "Zip Code": "Zip",
+            "Male Crim": "Male Crim",
+            "Male Non-Crim": "Male Non-Crim",
+            "Female Crim": "Female Crim",
+            "Female Non-Crim": "Female Non-Crim",
+            "ICE Threat Level 1": "ICE Threat Level 1",
+            "ICE Threat Level 2": "ICE Threat Level 2",
+            "ICE Threat Level 3": "ICE Threat Level 3",
+            "No ICE Threat Level": "No ICE Threat Level",
         }
+        
+        numeric_fields: list[str] = [
+            "Male Crim",
+            "Male Non-Crim",
+            "Female Crim",
+            "Female Non-Crim",
+            "ICE Threat Level 1",
+            "ICE Threat Level 2",
+            "ICE Threat Level 3",
+            "No ICE Threat Level",
+        ]
 
-        if source_date:
-            metadata["source_date"] = source_date
+        available_mapping = {k: v for k, v in column_mapping.items() if k in data_df.columns}
+        data_df = data_df[list(available_mapping.keys())].rename(columns=available_mapping)
 
-        return {"metadata": metadata, "facilities": facilities_data}
+        # remove empty rows
+        data_df = data_df.dropna(subset=["Name", "City", "State"], how="all")
+
+        facilities_list = []
+        for _, row in data_df.iterrows():
+            fac_dict = {
+                "Name": str(row.get("Name", "")).strip(),
+                "Address": str(row.get("Address", "")).strip(),
+                "City": str(row.get("City", "")).strip(),
+                "State": str(row.get("State", "")).strip(),
+                "Zip": str(row.get("Zip", "")).strip().split(".")[0],
+            }
+
+            # Fallback to match 5 digits for Zips if not empty string
+            if fac_dict["Zip"] and fac_dict["Zip"] != "nan":
+                fac_dict["Zip"] = fac_dict["Zip"].zfill(5)
+            else:
+                fac_dict["Zip"] = ""
+
+            # defaults to 0.0 if no info
+            for field in numeric_fields:
+                val = row.get(field, 0.0)
+                try:
+                    if pd.notna(val):
+                        fac_dict[field] = float(val) 
+                    else: 
+                        fac_dict[field]  = 0.0
+                except ValueError:
+                    fac_dict[field] = 0.0
+
+            facilities_list.append(fac_dict)
+
+        base_filename = os.path.basename(filepath)
+        
+        # build dictionary!
+        return {
+            "metadata": {
+                "source_file": f"data/{base_filename}",
+                "extraction_date": source_date_str,
+                "last_checked_date": datetime.now().strftime("%Y-%m-%dT%H:%M:%S.%f"),
+                "total_facilities": len(facilities_list),
+                "source_date": source_date_str,
+            },
+            "facilities": facilities_list,
+        }
 
     except Exception as e:
         logger.error(f"Failed to extract facilities data: {e}")
