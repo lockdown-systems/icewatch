@@ -71,8 +71,8 @@ def safe_int(val: Any) -> int:
         return 0
 
 
-def facility_to_embedded_js(facility: Facility) -> str:
-    embedded_json = {
+def facility_to_embedded_js(facility: Facility) -> dict:
+    return {
         "name": facility.get("Name"),
         "addr": facility.get("Address"),
         "city": facility.get("City"),
@@ -80,10 +80,8 @@ def facility_to_embedded_js(facility: Facility) -> str:
         "zipc": facility.get("Zip"),
         "lat": facility.get("latitude"),
         "lon": facility.get("longitude"),
-        "criminals": safe_int(facility.get("Male Crim"))
-        + safe_int(facility.get("Female Crim")),
-        "noncriminals": safe_int(facility.get("Male Non-Crim"))
-        + safe_int(facility.get("Female Non-Crim")),
+        "criminals": safe_int(facility.get("Male Crim")) + safe_int(facility.get("Female Crim")),
+        "noncriminals": safe_int(facility.get("Male Non-Crim")) + safe_int(facility.get("Female Non-Crim")),
         "threatLevels": [
             safe_int(facility.get(level))
             for level in (
@@ -94,7 +92,28 @@ def facility_to_embedded_js(facility: Facility) -> str:
             )
         ],
     }
-    return json.dumps(embedded_json)
+
+
+dir_path = Path("data")
+
+def create_timeline_dict(timeline_data: dict) -> dict:
+
+    for file_path in dir_path.glob("facilities_geocoded*.json"):
+        with open(file_path, "r", encoding="utf-8") as file:
+            data = json.load(file)
+
+        metadata = data.get("metadata", {})
+        source_date = metadata.get("extraction_date") or metadata.get("last_checked_date")
+        if source_date:
+            date_key = source_date.split("T")[0]
+        else:
+            date_key = file_path.stem.replace("facilities_geocoded_", "")
+            
+        facilities = data.get("facilities", [])
+        
+        timeline_data[date_key] = [facility_to_embedded_js(f) for f in facilities]
+    
+    return timeline_data
 
 
 def render_html(
@@ -102,6 +121,10 @@ def render_html(
     output_path: Path | str,
     metadata: Metadata | None = None,
 ):
+    
+    timeline_data = {}
+    create_timeline_dict(timeline_data)
+
     # Calculate totals
     total_criminals = 0
     total_noncriminals = 0
@@ -127,16 +150,13 @@ def render_html(
 
     formatted_date = datetime.now().strftime("%Y-%m-%d")
     if last_checked_date:
-        # Format extraction date nicely (remove time if present)
         try:
             parsed_date = datetime.fromisoformat(
                 last_checked_date.replace("Z", "+00:00")
             )
             formatted_date = parsed_date.strftime("%Y-%m-%d")
         except ValueError:
-            formatted_date = last_checked_date.split("T")[
-                0
-            ]  # Fallback to just the date part
+            formatted_date = last_checked_date.split("T")[0]
 
     html = template.render(
         total_people=total_people,
@@ -144,6 +164,7 @@ def render_html(
         formatted_date=formatted_date,
         extraction_date=extraction_date,
         facilities=[facility_to_embedded_js(facility) for facility in facilities],
+        timeline_data_json=json.dumps(timeline_data)
     )
     with open(output_path, "w", encoding="utf-8") as f:
         f.write(html)
@@ -183,7 +204,6 @@ def main():
         output_path = args.output
     else:
         output_path = Path("docs/index.html")
-    # Ensure the output directory exists
     Path(output_path).parent.mkdir(parents=True, exist_ok=True)
     facilities, metadata = load_facilities(input_path)
     if args.update_last_checked:
