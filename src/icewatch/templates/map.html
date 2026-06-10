@@ -37,16 +37,13 @@
           >Donate</a>
         </div>
       </nav>
-    </header>
-    <main>
-
-      <div id="timeline-container"
-      style="display: flex; align-items: center; justify-content: center; gap: 15px; background: #1a1a1a; color: #fff; padding: 10px; border-bottom: 2px solid #333; z-index: 1000; position: relative;">
-        <label for="timeline-slider">Snapshots:</label>
-        <input style="width: 50%;"
-        type="range" id="timeline-slider" min="0" max="0" value="0" step="1">
+      <div id="timeline-container" style="display: flex; align-items: center; justify-content: center; gap: 15px; background: #1a1a1a; color: #fff; padding: 4px 10px; border-bottom: 1px solid #333; z-index: 1000; position: relative; width: 100%; box-sizing: border-box; font-size: 14px; height: auto;">
+        <label for="timeline-slider" style="margin: 0;">Snapshots:</label>
+        <input style="width: 50%; margin: 0;" type="range" id="timeline-slider" min="0" max="0" value="0" step="1">
         <span id="active-date-display">Loading...</span>
       </div>
+    </header>
+    <main>
 
       <div id="map"></div>
       <button id="legend-toggle" onclick="toggleLegend()">Show Legend</button>
@@ -325,5 +322,14 @@
 
        ["load", "zoomend", "moveend"].forEach((event) => map.on(event, updateInViewStats));
     </script>
+
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            overflow-x: hidden;
+        }
+    </style>
   </body>
 </html>
