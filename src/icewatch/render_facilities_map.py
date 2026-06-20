@@ -94,7 +94,7 @@ def facility_to_embedded_js(facility: Facility) -> dict:
     }
 
 
-dir_path = Path("data")
+dir_path = Path("data/geocoded/")
 
 def create_timeline_dict(timeline_data: dict) -> dict:
 
@@ -103,7 +103,7 @@ def create_timeline_dict(timeline_data: dict) -> dict:
             data = json.load(file)
 
         metadata = data.get("metadata", {})
-        source_date = metadata.get("extraction_date") or metadata.get("last_checked_date")
+        source_date = metadata.get("source_date") or metadata.get("last_checked_date")
         if source_date:
             date_key = source_date.split("T")[0]
         else:
@@ -195,7 +195,7 @@ def main():
     )
     args = parser.parse_args()
     if args.latest:
-        data_dir = Path("data")
+        data_dir = Path("data/geocoded/")
         assert data_dir.exists()
         input_path = get_latest_file(data_dir)
     else:

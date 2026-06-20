@@ -320,8 +320,9 @@ def extract_facilities_data(
         
         sheet_name = None
         for sheet in target_years:
-            if sheet in xl.sheet_names:
-                sheet_name = sheet
+            cleaned_list = list(map(lambda x: str(x).strip(), xl.sheet_names))
+            if sheet in cleaned_list:
+                sheet_name = xl.sheet_names[cleaned_list.index(sheet)]
                 logger.info(f"Processing sheet: {sheet_name}")
                 break
                 
@@ -336,6 +337,7 @@ def extract_facilities_data(
         full_df = pd.read_excel(filepath, sheet_name=sheet_name, header=None)
 
         source_date_str = source_date
+        extraction_date = datetime.now().strftime("%Y-%m-%d")
         if not source_date_str:
             for row in header_df.values:
                 row_str = " ".join([str(val) for val in row if pd.notna(val)])
@@ -350,7 +352,11 @@ def extract_facilities_data(
 
         # fallback to current date if missing from the sheet header
         if not source_date_str:
-            source_date_str = datetime.now().strftime("%Y-%m-%d")
+            filename = os.path.basename(filepath)
+            fn_match = re.search(r"(\d{8})", filename)
+            if fn_match:
+                raw_fn_date = fn_match.group(1)  # e.g., "01192021"
+                source_date_str = datetime.strptime(raw_fn_date, "%m%d%Y").strftime("%Y-%m-%d")
 
         # find the rows that have the parameters we're looking for
         header_row_index = None
@@ -442,7 +448,7 @@ def extract_facilities_data(
         return {
             "metadata": {
                 "source_file": f"data/{base_filename}",
-                "extraction_date": source_date_str,
+                "extraction_date": extraction_date,
                 "last_checked_date": datetime.now().strftime("%Y-%m-%dT%H:%M:%S.%f"),
                 "total_facilities": len(facilities_list),
                 "source_date": source_date_str,

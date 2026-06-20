@@ -297,6 +297,7 @@
         const dataList = hData[sData];
         currentFacilities = dataList.map(data => {
           const parsedData = data;
+          console.log(parsedData)
           const facInstance = new Facility(parsedData);
           // add markers
           if (facInstance.marker) {
