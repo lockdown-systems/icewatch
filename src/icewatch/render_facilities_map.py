@@ -161,11 +161,14 @@ def render_html(
     else:
         pct_noncriminal = "N/A"
 
-    # Get dates from metadata
-    extraction_date = None
+    # Get dates from metadata. "Last updated" is the date of the ICE data
+    # itself, which is source_date; extraction_date records when the
+    # spreadsheet was parsed, and for backfilled snapshots that is the day of
+    # the backfill rather than anything about the data.
+    data_date = None
     last_checked_date = None
     if metadata:
-        extraction_date = metadata.get("extraction_date")
+        data_date = metadata.get("source_date") or metadata.get("extraction_date")
         last_checked_date = metadata.get("last_checked_date")
 
     formatted_date = datetime.now().strftime("%Y-%m-%d")
@@ -182,7 +185,7 @@ def render_html(
         total_people=total_people,
         pct_noncriminal=pct_noncriminal,
         formatted_date=formatted_date,
-        extraction_date=extraction_date,
+        data_date=data_date,
         facilities=[facility_to_embedded_js(facility) for facility in facilities],
         timeline_data_json=json.dumps(timeline_data),
     )

@@ -84,6 +84,38 @@ def extract_date_from_filename(url: str) -> str | None:
         return None
 
 
+def date_from_filename(filepath: str) -> str | None:
+    """
+    Parse the publication date out of a detention statistics filename.
+
+    Unlike extract_date_from_filename, which vets candidate download links and
+    so rejects implausibly old dates, this runs over files already on disk,
+    including the historical corpus going back to 2021.
+
+    Both orderings ICE has used are accepted: MMDDYYYY, as in
+    FY26_detentionStats_04092026.xlsx, and YYYYMMDD, as in
+    ice_detention_stats_20250704_160809.xlsx. MMDDYYYY is tried first, since
+    that is the convention in the published filenames.
+
+    Args:
+        filepath (str): Path to the spreadsheet.
+
+    Returns:
+        str: Date in YYYY-MM-DD format, or None if the filename has no
+            parseable eight-digit date.
+    """
+    digits = re.search(r"(\d{8})", os.path.basename(filepath))
+    if not digits:
+        return None
+    for date_format in ("%m%d%Y", "%Y%m%d"):
+        try:
+            return datetime.strptime(digits.group(1), date_format).strftime("%Y-%m-%d")
+        except ValueError:
+            continue
+    logger.warning(f"Could not parse a date from filename: {filepath}")
+    return None
+
+
 def find_detention_stats_link(
     base_url: str = "https://www.ice.gov/detain/detention-management",
 ) -> str | None:
@@ -299,6 +331,37 @@ def download_ice_detention_stats(
         return None, None
 
 
+def pick_facilities_sheet(sheet_names: list[int | str]) -> str | None:
+    """
+    Pick the facilities worksheet holding the most recent fiscal year.
+
+    Matching against a hardcoded list of fiscal years means a new one stops
+    being recognised the moment ICE ships it, so match the pattern instead and
+    take the highest year present. The spelling has varied over the years, so
+    accept the four-digit "Facilities FY2026" form, a trailing qualifier as in
+    the 2021-era "Facilities FY21 YTD", and surrounding whitespace.
+
+    Args:
+        sheet_names (list): Worksheet names, as pandas reports them.
+
+    Returns:
+        str: The matching sheet name, spelled exactly as in the workbook so it
+            can be passed back to read_excel, or None if no sheet matches.
+    """
+    matches: list[tuple[int, str]] = []
+    for sheet in sheet_names:
+        match = re.match(r"Facilities\s+FY(\d{2,4})\b", str(sheet).strip())
+        if match:
+            fiscal_year = int(match.group(1))
+            if fiscal_year >= 1000:  # "Facilities FY2026"
+                fiscal_year -= 2000
+            matches.append((fiscal_year, str(sheet)))
+
+    if not matches:
+        return None
+    return max(matches)[1]
+
+
 def extract_facilities_data(
     filepath: str, source_date: str | None = None
 ) -> dict | None:
@@ -315,53 +378,44 @@ def extract_facilities_data(
     import pandas as pd
 
     try:
-        target_years = [f"Facilities FY{yr}" for yr in range(26, 18, -1)]
         xl = pd.ExcelFile(filepath)
 
-        sheet_name = None
-        for sheet in target_years:
-            cleaned_list = list(map(lambda x: str(x).strip(), xl.sheet_names))
-            if sheet in cleaned_list:
-                sheet_name = xl.sheet_names[cleaned_list.index(sheet)]
-                logger.info(f"Processing sheet: {sheet_name}")
-                break
-
-        # Fallback if none of the target sheets are found
-        if not sheet_name:
+        sheet_name = pick_facilities_sheet(xl.sheet_names)
+        if sheet_name is None:
             logger.error(
-                f"Could not find a valid Facilities FY sheet (FY26-FY19) in {filepath}"
+                f"Could not find a 'Facilities FY<nn>' sheet in {filepath}. "
+                f"Sheets present: {list(xl.sheet_names)}"
             )
             return None
+        logger.info(f"Processing sheet: {sheet_name}")
 
         header_df = pd.read_excel(
             filepath, sheet_name=sheet_name, nrows=10, header=None
         )
         full_df = pd.read_excel(filepath, sheet_name=sheet_name, header=None)
 
-        source_date_str = source_date
         extraction_date = datetime.now().strftime("%Y-%m-%d")
+
+        # source_date is the date ICE published the spreadsheet, which is what
+        # the site reports as "last updated". The filename carries it, so prefer
+        # that over the "Data Source:" note inside the sheet: that note is the
+        # date the data was current, typically a week before publication.
+        source_date_str = source_date or date_from_filename(filepath)
+
+        # Fall back to the in-sheet note only when the filename has no date.
         if not source_date_str:
             for row in header_df.values:
                 row_str = " ".join([str(val) for val in row if pd.notna(val)])
-
-                # format date
                 if "Data Source:" in row_str:
                     match = re.search(r"\b(\d{1,2}/\d{1,2}/\d{4})\b", row_str)
                     if match:
-                        raw_date = match.group(1)
                         source_date_str = datetime.strptime(
-                            raw_date, "%m/%d/%Y"
+                            match.group(1), "%m/%d/%Y"
                         ).strftime("%Y-%m-%d")
                     break
-
-        # fallback to current date if missing from the sheet header
-        if not source_date_str:
-            filename = os.path.basename(filepath)
-            fn_match = re.search(r"(\d{8})", filename)
-            if fn_match:
-                raw_fn_date = fn_match.group(1)  # e.g., "01192021"
-                source_date_str = datetime.strptime(raw_fn_date, "%m%d%Y").strftime(
-                    "%Y-%m-%d"
+            if source_date_str:
+                logger.info(
+                    f"No date in filename; using in-sheet date {source_date_str}"
                 )
 
         # find the rows that have the parameters we're looking for
