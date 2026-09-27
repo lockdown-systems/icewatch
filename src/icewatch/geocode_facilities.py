@@ -14,6 +14,7 @@ from pathlib import Path
 import requests
 
 from icewatch.geocode import geocode_address
+from icewatch.snapshots import latest_snapshot
 
 CACHE_FILENAME = "geocode_cache.json"
 
@@ -47,14 +48,10 @@ def save_cache(cache: dict, cache_path: Path | str) -> None:
 
 
 def get_latest_file(data_dir: Path) -> Path:
-    ts, file_path = 0, None
-    for facility in data_dir.glob("ice_facilities*.json"):
-        created_time = facility.lstat().st_ctime
-        if created_time > ts:
-            file_path = facility
-    if file_path is None:
-        raise RuntimeError("No geocoded facilites found")
-    return file_path
+    try:
+        return latest_snapshot(data_dir, "ice_facilities*.json")
+    except ValueError:
+        raise RuntimeError("No extracted facilities found")
 
 
 def build_address(facility: dict) -> str:

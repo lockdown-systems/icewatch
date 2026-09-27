@@ -1,3 +1,4 @@
+import json
 import pytest
 import tempfile
 import shutil
@@ -58,6 +59,41 @@ def test_get_latest_file_ordered_creation(
 
     result = get_latest_file(temp_data_dir)
     assert result.name == expected
+
+
+def _write_snapshot(path: Path, source_date: str | None = None) -> None:
+    """Write a minimal geocoded snapshot, optionally carrying a source date."""
+    metadata: dict[str, object] = {"total_facilities": 0}
+    if source_date is not None:
+        metadata["source_date"] = source_date
+    path.write_text(json.dumps({"metadata": metadata, "facilities": []}))
+
+
+def test_get_latest_file_prefers_source_date_over_filename(temp_data_dir: Path):
+    """The newest data wins even when another file was generated later.
+
+    Filenames record when a file was written. The historical backfill wrote
+    fifteen years of old snapshots in one batch, so the latest filename here
+    holds the oldest data.
+    """
+    _write_snapshot(
+        temp_data_dir / "facilities_geocoded_20260619_201903.json", "2025-07-24"
+    )
+    _write_snapshot(
+        temp_data_dir / "facilities_geocoded_20260503_092548.json", "2026-04-09"
+    )
+
+    result = get_latest_file(temp_data_dir)
+    assert result.name == "facilities_geocoded_20260503_092548.json"
+
+
+def test_get_latest_file_ranks_dated_above_undated(temp_data_dir: Path):
+    """A snapshot with no usable date loses to one that has a date."""
+    (temp_data_dir / "facilities_geocoded_20250717_110750.json").touch()
+    _write_snapshot(temp_data_dir / "facilities_geocoded_20250704.json", "2025-07-04")
+
+    result = get_latest_file(temp_data_dir)
+    assert result.name == "facilities_geocoded_20250704.json"
 
 
 def test_save_facilities_round_trip(temp_data_dir: Path):
