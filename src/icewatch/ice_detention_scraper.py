@@ -317,7 +317,7 @@ def extract_facilities_data(
     try:
         target_years = [f"Facilities FY{yr}" for yr in range(26, 18, -1)]
         xl = pd.ExcelFile(filepath)
-        
+
         sheet_name = None
         for sheet in target_years:
             cleaned_list = list(map(lambda x: str(x).strip(), xl.sheet_names))
@@ -325,10 +325,12 @@ def extract_facilities_data(
                 sheet_name = xl.sheet_names[cleaned_list.index(sheet)]
                 logger.info(f"Processing sheet: {sheet_name}")
                 break
-                
+
         # Fallback if none of the target sheets are found
         if not sheet_name:
-            logger.error(f"Could not find a valid Facilities FY sheet (FY26-FY19) in {filepath}")
+            logger.error(
+                f"Could not find a valid Facilities FY sheet (FY26-FY19) in {filepath}"
+            )
             return None
 
         header_df = pd.read_excel(
@@ -341,13 +343,15 @@ def extract_facilities_data(
         if not source_date_str:
             for row in header_df.values:
                 row_str = " ".join([str(val) for val in row if pd.notna(val)])
-                
+
                 # format date
                 if "Data Source:" in row_str:
                     match = re.search(r"\b(\d{1,2}/\d{1,2}/\d{4})\b", row_str)
                     if match:
                         raw_date = match.group(1)
-                        source_date_str = datetime.strptime(raw_date, "%m/%d/%Y").strftime("%Y-%m-%d")
+                        source_date_str = datetime.strptime(
+                            raw_date, "%m/%d/%Y"
+                        ).strftime("%Y-%m-%d")
                     break
 
         # fallback to current date if missing from the sheet header
@@ -356,17 +360,21 @@ def extract_facilities_data(
             fn_match = re.search(r"(\d{8})", filename)
             if fn_match:
                 raw_fn_date = fn_match.group(1)  # e.g., "01192021"
-                source_date_str = datetime.strptime(raw_fn_date, "%m%d%Y").strftime("%Y-%m-%d")
+                source_date_str = datetime.strptime(raw_fn_date, "%m%d%Y").strftime(
+                    "%Y-%m-%d"
+                )
 
         # find the rows that have the parameters we're looking for
-        header_row_index = None
-        for idx, row in full_df.iterrows():
+        # full_df is read with header=None, so position and label are the same;
+        # enumerate keeps this an int, which is what skiprows expects.
+        header_row_index: int | None = None
+        for position, (_, row) in enumerate(full_df.iterrows()):
             if "Facility Name" in row.values or "Name" in row.values:
-                header_row_index = idx
+                header_row_index = position
                 break
 
             if "City" in row.values and "State" in row.values:
-                header_row_index = idx
+                header_row_index = position
                 break
 
         if header_row_index is None:
@@ -374,7 +382,9 @@ def extract_facilities_data(
             return None
 
         # df with correct info
-        data_df = pd.read_excel(filepath, sheet_name=sheet_name, skiprows=header_row_index)
+        data_df = pd.read_excel(
+            filepath, sheet_name=sheet_name, skiprows=header_row_index
+        )
         data_df.columns = [str(col).strip() for col in data_df.columns]
 
         column_mapping: dict[str, str] = {
@@ -395,7 +405,7 @@ def extract_facilities_data(
             "ICE Threat Level 3": "ICE Threat Level 3",
             "No ICE Threat Level": "No ICE Threat Level",
         }
-        
+
         numeric_fields: list[str] = [
             "Male Crim",
             "Male Non-Crim",
@@ -407,43 +417,48 @@ def extract_facilities_data(
             "No ICE Threat Level",
         ]
 
-        available_mapping = {k: v for k, v in column_mapping.items() if k in data_df.columns}
-        data_df = data_df[list(available_mapping.keys())].rename(columns=available_mapping)
+        available_mapping = {
+            k: v for k, v in column_mapping.items() if k in data_df.columns
+        }
+        data_df = data_df[list(available_mapping.keys())].rename(
+            columns=available_mapping
+        )
 
         # remove empty rows
         data_df = data_df.dropna(subset=["Name", "City", "State"], how="all")
 
         facilities_list = []
         for _, row in data_df.iterrows():
-            fac_dict = {
+            # Fallback to match 5 digits for Zips if not empty string
+            zip_code = str(row.get("Zip", "")).strip().split(".")[0]
+            if zip_code and zip_code != "nan":
+                zip_code = zip_code.zfill(5)
+            else:
+                zip_code = ""
+
+            fac_dict: dict[str, str | float] = {
                 "Name": str(row.get("Name", "")).strip(),
                 "Address": str(row.get("Address", "")).strip(),
                 "City": str(row.get("City", "")).strip(),
                 "State": str(row.get("State", "")).strip(),
-                "Zip": str(row.get("Zip", "")).strip().split(".")[0],
+                "Zip": zip_code,
             }
-
-            # Fallback to match 5 digits for Zips if not empty string
-            if fac_dict["Zip"] and fac_dict["Zip"] != "nan":
-                fac_dict["Zip"] = fac_dict["Zip"].zfill(5)
-            else:
-                fac_dict["Zip"] = ""
 
             # defaults to 0.0 if no info
             for field in numeric_fields:
                 val = row.get(field, 0.0)
                 try:
                     if pd.notna(val):
-                        fac_dict[field] = float(val) 
-                    else: 
-                        fac_dict[field]  = 0.0
+                        fac_dict[field] = float(val)
+                    else:
+                        fac_dict[field] = 0.0
                 except ValueError:
                     fac_dict[field] = 0.0
 
             facilities_list.append(fac_dict)
 
         base_filename = os.path.basename(filepath)
-        
+
         # build dictionary!
         return {
             "metadata": {

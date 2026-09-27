@@ -23,6 +23,7 @@ class Metadata(TypedDict):
     extraction_date: str
     last_checked_date: str
     total_facilities: int
+    source_date: str
 
 
 Facility = TypedDict(
@@ -62,6 +63,18 @@ def load_facilities(path: Path | str) -> tuple[list[Facility], Metadata]:
     return facilities, metadata
 
 
+def save_facilities(
+    path: Path | str, facilities: list[Facility], metadata: Metadata
+) -> None:
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump(
+            {"metadata": metadata, "facilities": facilities},
+            f,
+            indent=2,
+            ensure_ascii=False,
+        )
+
+
 def safe_int(val: Any) -> int:
     try:
         if val is None or (isinstance(val, float) and isnan(val)):
@@ -71,7 +84,11 @@ def safe_int(val: Any) -> int:
         return 0
 
 
-def facility_to_embedded_js(facility: Facility) -> dict:
+EmbeddedFacility = dict[str, Any]
+TimelineData = dict[str, list[EmbeddedFacility]]
+
+
+def facility_to_embedded_js(facility: Facility) -> EmbeddedFacility:
     return {
         "name": facility.get("Name"),
         "addr": facility.get("Address"),
@@ -80,8 +97,10 @@ def facility_to_embedded_js(facility: Facility) -> dict:
         "zipc": facility.get("Zip"),
         "lat": facility.get("latitude"),
         "lon": facility.get("longitude"),
-        "criminals": safe_int(facility.get("Male Crim")) + safe_int(facility.get("Female Crim")),
-        "noncriminals": safe_int(facility.get("Male Non-Crim")) + safe_int(facility.get("Female Non-Crim")),
+        "criminals": safe_int(facility.get("Male Crim"))
+        + safe_int(facility.get("Female Crim")),
+        "noncriminals": safe_int(facility.get("Male Non-Crim"))
+        + safe_int(facility.get("Female Non-Crim")),
         "threatLevels": [
             safe_int(facility.get(level))
             for level in (
@@ -96,8 +115,8 @@ def facility_to_embedded_js(facility: Facility) -> dict:
 
 dir_path = Path("data/geocoded/")
 
-def create_timeline_dict(timeline_data: dict) -> dict:
 
+def create_timeline_dict(timeline_data: TimelineData) -> TimelineData:
     for file_path in dir_path.glob("facilities_geocoded*.json"):
         with open(file_path, "r", encoding="utf-8") as file:
             data = json.load(file)
@@ -108,11 +127,11 @@ def create_timeline_dict(timeline_data: dict) -> dict:
             date_key = source_date.split("T")[0]
         else:
             date_key = file_path.stem.replace("facilities_geocoded_", "")
-            
+
         facilities = data.get("facilities", [])
-        
+
         timeline_data[date_key] = [facility_to_embedded_js(f) for f in facilities]
-    
+
     return timeline_data
 
 
@@ -121,8 +140,7 @@ def render_html(
     output_path: Path | str,
     metadata: Metadata | None = None,
 ):
-    
-    timeline_data = {}
+    timeline_data: TimelineData = {}
     create_timeline_dict(timeline_data)
 
     # Calculate totals
@@ -164,7 +182,7 @@ def render_html(
         formatted_date=formatted_date,
         extraction_date=extraction_date,
         facilities=[facility_to_embedded_js(facility) for facility in facilities],
-        timeline_data_json=json.dumps(timeline_data)
+        timeline_data_json=json.dumps(timeline_data),
     )
     with open(output_path, "w", encoding="utf-8") as f:
         f.write(html)
@@ -208,6 +226,10 @@ def main():
     facilities, metadata = load_facilities(input_path)
     if args.update_last_checked:
         metadata["last_checked_date"] = datetime.now().isoformat()
+        # Persist it back to the source file. Without this the date lives only
+        # in the rendered HTML, so the next re-render silently reverts the
+        # published "last checked" date to whatever the JSON still says.
+        save_facilities(input_path, facilities, metadata)
     render_html(facilities, output_path, metadata)
     if args.web and not os.getenv("GITHUB_ACTIONS"):
         try:
