@@ -14,6 +14,8 @@ from pathlib import Path
 from typing import Any, TypedDict
 from jinja2 import Environment, PackageLoader
 
+from icewatch.snapshots import latest_snapshot
+
 env = Environment(loader=PackageLoader("icewatch"))
 template = env.get_template("map.html")
 
@@ -50,7 +52,7 @@ Facility = TypedDict(
 
 def get_latest_file(data_dir: Path) -> Path:
     try:
-        return max(data_dir.glob("facilities_geocoded*.json"))
+        return latest_snapshot(data_dir, "facilities_geocoded*.json")
     except ValueError:
         raise RuntimeError("No geocoded facilites found")
 
