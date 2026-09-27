@@ -116,6 +116,32 @@ def date_from_filename(filepath: str) -> str | None:
     return None
 
 
+def snapshot_dir(data_dir: str, kind: str, source_date: str | None) -> Path:
+    """
+    Return the directory a snapshot belongs in, creating it if needed.
+
+    Snapshots are filed by the year ICE published them, so that a directory
+    listing stays navigable across fifteen years of spreadsheets. Note this is
+    the publication year, not the fiscal year in the filename: FY26 statistics
+    published in November 2025 belong under 2025.
+
+    Args:
+        data_dir (str): Root data directory.
+        kind (str): Artifact subdirectory, "xlsx" or "ice_facilities".
+        source_date (str, optional): Publication date as YYYY-MM-DD. A snapshot
+            with no known date is filed directly under data_dir/kind rather
+            than guessing a year.
+
+    Returns:
+        Path: The directory to write into.
+    """
+    path = Path(data_dir) / kind
+    if source_date:
+        path = path / source_date[:4]
+    path.mkdir(parents=True, exist_ok=True)
+    return path
+
+
 def find_detention_stats_link(
     base_url: str = "https://www.ice.gov/detain/detention-management",
 ) -> str | None:
@@ -254,9 +280,6 @@ def download_ice_detention_stats(
         url = "https://www.ice.gov/doclib/detention/FY25_detentionStats06202025.xlsx"
 
     assert url is not None
-    # Create output directory if it doesn't exist
-    Path(output_dir).mkdir(parents=True, exist_ok=True)
-
     # Extract date from the URL filename
     source_date = extract_date_from_filename(url) if url else None
 
@@ -268,7 +291,7 @@ def download_ice_detention_stats(
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
         filename = f"ice_detention_stats_{timestamp}.xlsx"
 
-    filepath = os.path.join(output_dir, filename)
+    filepath = os.path.join(snapshot_dir(output_dir, "xlsx", source_date), filename)
 
     try:
         logger.info(f"Starting download from: {url}")
@@ -511,12 +534,12 @@ def extract_facilities_data(
 
             facilities_list.append(fac_dict)
 
-        base_filename = os.path.basename(filepath)
-
         # build dictionary!
         return {
             "metadata": {
-                "source_file": f"data/{base_filename}",
+                # Record where the spreadsheet actually is, so a snapshot can be
+                # traced back to its source after the corpus is reorganised.
+                "source_file": os.path.normpath(filepath),
                 "extraction_date": extraction_date,
                 "last_checked_date": datetime.now().strftime("%Y-%m-%dT%H:%M:%S.%f"),
                 "total_facilities": len(facilities_list),
@@ -536,7 +559,8 @@ def save_facilities_json(data: dict, output_dir: str = "data") -> str | None:
 
     Args:
         data (dict): Facilities data dictionary.
-        output_dir (str): Directory to save the JSON file.
+        output_dir (str): Root data directory; the file is filed under
+            ice_facilities/<publication year> within it.
 
     Returns:
         str: Path to the saved JSON file, or None if save failed.
@@ -544,13 +568,14 @@ def save_facilities_json(data: dict, output_dir: str = "data") -> str | None:
     try:
         import json
 
-        # Create output directory if it doesn't exist
-        Path(output_dir).mkdir(parents=True, exist_ok=True)
+        source_date = data.get("metadata", {}).get("source_date")
 
         # Generate filename with timestamp
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
         filename = f"ice_facilities_{timestamp}.json"
-        filepath = os.path.join(output_dir, filename)
+        filepath = os.path.join(
+            snapshot_dir(output_dir, "ice_facilities", source_date), filename
+        )
 
         # Save to JSON file
         with open(filepath, "w", encoding="utf-8") as f:
@@ -619,7 +644,11 @@ Examples:
 
     parser.add_argument(
         "--output-dir",
-        help="Directory to save the downloaded file (default: data)",
+        help=(
+            "Root data directory (default: data). Spreadsheets are filed under "
+            "xlsx/<publication year> and extractions under "
+            "ice_facilities/<publication year> within it."
+        ),
         default="data",
     )
 
