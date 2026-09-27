@@ -8510,5 +8510,13 @@
   "625 FRANKLIN FARM LN, CHAMBERSBURG, PA, 17201": {
     "lat": 39.934953,
     "lon": -77.626324
+  },
+  "1 SHERIFFS OFFICE DRIVE, MACCLENNY, FL, 32063": {
+    "lat": 30.2968674,
+    "lon": -82.1215872
+  },
+  "302 N JEFFERS, NORTH PLATTE, NE, 69101": {
+    "lat": 41.1026607,
+    "lon": -100.7639473
   }
 }
