@@ -2,7 +2,7 @@
   "metadata": {
     "source_file": "data/xlsx/2026/FY26_detentionStats07202026.xlsx",
     "extraction_date": "2026-09-27",
-    "last_checked_date": "2026-09-27T16:13:57.622789",
+    "last_checked_date": "2026-09-27T16:42:40.829783",
     "total_facilities": 208,
     "source_date": "2026-07-20"
   },
@@ -106,8 +106,8 @@
       "ICE Threat Level 2": 57.366548,
       "ICE Threat Level 3": 89.241993,
       "No ICE Threat Level": 664.893238,
-      "latitude": null,
-      "longitude": null
+      "latitude": 30.21497,
+      "longitude": -82.37428
     },
     {
       "Name": "BAKER COUNTY SHERIFF DEPT.",
@@ -684,8 +684,8 @@
       "ICE Threat Level 2": 1.565836,
       "ICE Threat Level 3": 6.024911,
       "No ICE Threat Level": 63.213523,
-      "latitude": null,
-      "longitude": null
+      "latitude": 41.45872085776078,
+      "longitude": -84.3566970592575
     },
     {
       "Name": "CROW WING COUNTY JAIL",
@@ -735,8 +735,8 @@
       "ICE Threat Level 2": 6.391459,
       "ICE Threat Level 3": 6.227758,
       "No ICE Threat Level": 33.548043,
-      "latitude": null,
-      "longitude": null
+      "latitude": 37.78730730790515,
+      "longitude": -87.07028677475742
     },
     {
       "Name": "DAVIS COUNTY",
@@ -837,8 +837,8 @@
       "ICE Threat Level 2": 36.245552,
       "ICE Threat Level 3": 59.483986,
       "No ICE Threat Level": 448.195729,
-      "latitude": null,
-      "longitude": null
+      "latitude": 35.88454700764936,
+      "longitude": -98.39745789017559
     },
     {
       "Name": "DILLEY IMMIGRATION PROCESSING CENTER",
@@ -1143,8 +1143,8 @@
       "ICE Threat Level 2": 1.099644,
       "ICE Threat Level 3": 1.633452,
       "No ICE Threat Level": 43.259786,
-      "latitude": null,
-      "longitude": null
+      "latitude": 29.452450182608306,
+      "longitude": -81.25616539040506
     },
     {
       "Name": "FLORENCE SERVICE PROCESSING CENTER",
@@ -1211,8 +1211,8 @@
       "ICE Threat Level 2": 31.608541,
       "ICE Threat Level 3": 27.619217,
       "No ICE Threat Level": 182.288256,
-      "latitude": null,
-      "longitude": null
+      "latitude": 30.871577858773186,
+      "longitude": -81.98111693268751
     },
     {
       "Name": "FOLKSTON D RAY ICE PROCESSING CTR",
@@ -1891,8 +1891,8 @@
       "ICE Threat Level 2": 1.857651,
       "ICE Threat Level 3": 2.064057,
       "No ICE Threat Level": 32.672598,
-      "latitude": null,
-      "longitude": null
+      "latitude": 30.43413098654306,
+      "longitude": -84.9688138057147
     },
     {
       "Name": "LIMESTONE COUNTY DETENTION CENTER",
@@ -2027,8 +2027,8 @@
       "ICE Threat Level 2": 5.067616,
       "ICE Threat Level 3": 10.679715,
       "No ICE Threat Level": 68.259786,
-      "latitude": null,
-      "longitude": null
+      "latitude": 41.10435183616812,
+      "longitude": -80.65486123043792
     },
     {
       "Name": "MARTIN COUNTY JAIL",
@@ -2095,8 +2095,8 @@
       "ICE Threat Level 2": 65.900356,
       "ICE Threat Level 3": 55.060498,
       "No ICE Threat Level": 151.925267,
-      "latitude": null,
-      "longitude": null
+      "latitude": 40.6445744705845,
+      "longitude": -86.1326887408149
     },
     {
       "Name": "MIAMI FEDERAL DETENTION",
