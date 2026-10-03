@@ -11,6 +11,7 @@ from icewatch.render_facilities_map import (
     get_latest_file,
     load_facilities,
     save_facilities,
+    timeline_to_js,
 )
 
 
@@ -136,3 +137,24 @@ def test_save_facilities_round_trip(temp_data_dir: Path):
     assert loaded_facilities == [facility]
     # The leading zero must survive as a string, not become 3570.
     assert loaded_facilities[0]["Zip"] == "03570"
+
+
+def test_timeline_to_js_round_trips_one_line_per_facility():
+    """Output parses back to the same data, with each facility on its own line.
+
+    The timeline is embedded in the page, so a single-line blob makes every
+    re-render an unreviewable multi-megabyte diff.
+    """
+    timeline = {
+        "2026-04-09": [{"name": "A", "lat": 1.0}, {"name": "B", "lat": 2.0}],
+        "2021-01-01": [{"name": "C", "lat": 3.0}],
+        "2025-01-01": [],
+    }
+    out = timeline_to_js(timeline)
+
+    assert json.loads(out) == timeline
+    # One line per facility, plus a line for each snapshot's open and close.
+    assert sum(1 for line in out.splitlines() if line.startswith('{"name"')) == 3
+    # Dates in order, so repeated renders of the same data are byte-identical.
+    assert list(json.loads(out)) == ["2021-01-01", "2025-01-01", "2026-04-09"]
+    assert timeline_to_js(timeline) == out

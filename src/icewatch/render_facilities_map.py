@@ -137,6 +137,30 @@ def create_timeline_dict(timeline_data: TimelineData) -> TimelineData:
     return timeline_data
 
 
+def timeline_to_js(timeline_data: TimelineData) -> str:
+    """
+    Serialise the timeline as JSON with one facility per line.
+
+    The whole timeline is embedded in the rendered page. On a single line that
+    makes every re-render a multi-megabyte one-line diff, which git and review
+    tools decline to display, so a changed coordinate is indistinguishable from
+    a rewritten corpus. One line per facility costs about 20KB of newlines on a
+    4.7MB page and makes the diff readable. Snapshots are emitted in date order
+    so that repeated renders of the same data produce the same bytes.
+
+    Args:
+        timeline_data (TimelineData): Snapshots keyed by date.
+
+    Returns:
+        str: JSON text, safe to embed in a <script> block.
+    """
+    snapshots = ",\n".join(
+        f"{json.dumps(date)}: [{','.join(chr(10) + json.dumps(f) for f in facilities)}\n]"
+        for date, facilities in sorted(timeline_data.items())
+    )
+    return "{\n" + snapshots + "\n}"
+
+
 def render_html(
     facilities: list[Facility],
     output_path: Path | str,
@@ -187,7 +211,7 @@ def render_html(
         formatted_date=formatted_date,
         data_date=data_date,
         facilities=[facility_to_embedded_js(facility) for facility in facilities],
-        timeline_data_json=json.dumps(timeline_data),
+        timeline_data_json=timeline_to_js(timeline_data),
     )
     with open(output_path, "w", encoding="utf-8") as f:
         f.write(html)
