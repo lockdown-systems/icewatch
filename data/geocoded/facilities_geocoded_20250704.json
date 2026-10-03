@@ -1,8 +1,9 @@
 {
   "metadata": {
-    "source_file": "data/ice_detention_stats_20250704_160809.xlsx",
+    "source_file": "data/xlsx/2025/ice_detention_stats_20250704_160809.xlsx",
     "extraction_date": "2025-07-04T16:21:07.513318",
-    "total_facilities": 163
+    "total_facilities": 163,
+    "source_date": "2025-07-04"
   },
   "facilities": [
     {

@@ -1,10 +1,10 @@
 {
   "metadata": {
-    "source_file": "data/FY24_detentionStats10272024.xlsx",
+    "source_file": "data/xlsx/2024/FY24_detentionStats10272024.xlsx",
     "extraction_date": "2026-06-19",
     "last_checked_date": "2026-06-19T19:38:43.440574",
     "total_facilities": 107,
-    "source_date": "2024-09-03"
+    "source_date": "2024-10-27"
   },
   "facilities": [
     {
