@@ -1,8 +1,9 @@
 {
   "metadata": {
-    "source_file": "data/FY25_detentionStats07072025.xlsx",
+    "source_file": "data/xlsx/2025/FY25_detentionStats07072025.xlsx",
     "extraction_date": "2025-07-17T11:07:34.422070",
-    "total_facilities": 201
+    "total_facilities": 201,
+    "source_date": "2025-07-07"
   },
   "facilities": [
     {
